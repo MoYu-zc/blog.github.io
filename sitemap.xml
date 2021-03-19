@@ -2,273 +2,280 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://www.moyuzc.cn/2021/03/19/SSM%E6%95%B4%E5%90%88/</loc>
+    <loc>http://example.com/2021/03/20/Git%20%E4%B8%8A%E4%BC%A0%E9%A1%B9%E7%9B%AE%E5%88%B0%20Github/</loc>
     
     <lastmod>2021-03-19</lastmod>
     
   </url>
   
   <url>
-    <loc>https://www.moyuzc.cn/2021/03/19/Spring-Mybatis%20%E6%95%B4%E5%90%88/</loc>
+    <loc>http://example.com/2021/03/19/SSM%E6%95%B4%E5%90%88/</loc>
     
     <lastmod>2021-03-19</lastmod>
     
   </url>
   
   <url>
-    <loc>https://www.moyuzc.cn/2021/03/11/SpringMVC-07%20%20%E6%8B%A6%E6%88%AA%E5%99%A8+%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%E4%B8%8B%E8%BD%BD/</loc>
+    <loc>http://example.com/2021/03/19/Spring-Mybatis%20%E6%95%B4%E5%90%88/</loc>
+    
+    <lastmod>2021-03-19</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://example.com/2021/03/11/SpringMVC-07%20%20%E6%8B%A6%E6%88%AA%E5%99%A8+%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%E4%B8%8B%E8%BD%BD/</loc>
     
     <lastmod>2021-03-11</lastmod>
     
   </url>
   
   <url>
-    <loc>https://www.moyuzc.cn/2021/03/10/SpringMVC-06%20%20Ajax/</loc>
+    <loc>http://example.com/2021/03/10/SpringMVC-06%20%20Ajax/</loc>
     
     <lastmod>2021-03-11</lastmod>
     
   </url>
   
   <url>
-    <loc>https://www.moyuzc.cn/2021/03/09/SpringMVC-05%20%20Json%E4%BA%A4%E4%BA%92%E5%A4%84%E7%90%86/</loc>
+    <loc>http://example.com/2021/03/09/SpringMVC-05%20%20Json%E4%BA%A4%E4%BA%92%E5%A4%84%E7%90%86/</loc>
     
     <lastmod>2021-03-09</lastmod>
     
   </url>
   
   <url>
-    <loc>https://www.moyuzc.cn/2021/03/08/SpringMVC-04%20%20%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86%E5%8F%8A%E8%B7%B3%E8%BD%AC/</loc>
+    <loc>http://example.com/2021/03/08/SpringMVC-04%20%20%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86%E5%8F%8A%E8%B7%B3%E8%BD%AC/</loc>
     
     <lastmod>2021-03-08</lastmod>
     
   </url>
   
   <url>
-    <loc>https://www.moyuzc.cn/2021/03/06/%E9%98%BF%E9%87%8C%E6%95%B0%E5%AD%97%E4%BE%9B%E5%BA%94%E9%93%BE%E5%AE%9E%E4%B9%A0%E4%B8%80%E9%9D%A2/</loc>
+    <loc>http://example.com/2021/03/06/%E9%98%BF%E9%87%8C%E6%95%B0%E5%AD%97%E4%BE%9B%E5%BA%94%E9%93%BE%E5%AE%9E%E4%B9%A0%E4%B8%80%E9%9D%A2/</loc>
     
     <lastmod>2021-03-07</lastmod>
     
   </url>
   
   <url>
-    <loc>https://www.moyuzc.cn/2021/03/04/%E9%98%BF%E9%87%8C%E9%92%89%E9%92%89%E6%9A%91%E5%81%87%E5%AE%9E%E4%B9%A0%E7%94%9F%E4%B8%80%E9%9D%A2/</loc>
+    <loc>http://example.com/2021/03/04/%E9%98%BF%E9%87%8C%E9%92%89%E9%92%89%E6%9A%91%E5%81%87%E5%AE%9E%E4%B9%A0%E7%94%9F%E4%B8%80%E9%9D%A2/</loc>
     
     <lastmod>2021-03-07</lastmod>
     
   </url>
   
   <url>
-    <loc>https://www.moyuzc.cn/2021/03/07/SpringMVC-03%20RestFul%E5%92%8C%E6%8E%A7%E5%88%B6%E5%99%A8/</loc>
+    <loc>http://example.com/2021/03/07/SpringMVC-03%20RestFul%E5%92%8C%E6%8E%A7%E5%88%B6%E5%99%A8/</loc>
     
     <lastmod>2021-03-07</lastmod>
     
   </url>
   
   <url>
-    <loc>https://www.moyuzc.cn/2021/03/05/SpringMVC-02%20%E7%AC%AC%E4%B8%80%E4%B8%AASpringMVC%E7%A8%8B%E5%BA%8F/</loc>
+    <loc>http://example.com/2021/03/05/SpringMVC-02%20%E7%AC%AC%E4%B8%80%E4%B8%AASpringMVC%E7%A8%8B%E5%BA%8F/</loc>
     
     <lastmod>2021-03-05</lastmod>
     
   </url>
   
   <url>
-    <loc>https://www.moyuzc.cn/2021/03/04/SpringMVC-01%20%20%E4%BB%80%E4%B9%88%E6%98%AFSpringMVC/</loc>
+    <loc>http://example.com/2021/03/04/SpringMVC-01%20%20%E4%BB%80%E4%B9%88%E6%98%AFSpringMVC/</loc>
     
     <lastmod>2021-03-04</lastmod>
     
   </url>
   
   <url>
-    <loc>https://www.moyuzc.cn/2021/03/03/springmvc%E5%AD%97%E7%AC%A6%20%20%20%E4%B8%AD%E6%96%87%E4%B9%B1%E7%A0%81%E9%97%AE%E9%A2%98/</loc>
+    <loc>http://example.com/2021/03/03/springmvc%E5%AD%97%E7%AC%A6%20%20%20%E4%B8%AD%E6%96%87%E4%B9%B1%E7%A0%81%E9%97%AE%E9%A2%98/</loc>
     
     <lastmod>2021-03-03</lastmod>
     
   </url>
   
   <url>
-    <loc>https://www.moyuzc.cn/2021/03/03/Spring-06%20AOP/</loc>
+    <loc>http://example.com/2021/03/03/Spring-06%20AOP/</loc>
     
     <lastmod>2021-03-03</lastmod>
     
   </url>
   
   <url>
-    <loc>https://www.moyuzc.cn/timeline/index.html</loc>
+    <loc>http://example.com/timeline/index.html</loc>
     
     <lastmod>2021-03-02</lastmod>
     
   </url>
   
   <url>
-    <loc>https://www.moyuzc.cn/myself/index.html</loc>
+    <loc>http://example.com/myself/index.html</loc>
     
     <lastmod>2021-03-02</lastmod>
     
   </url>
   
   <url>
-    <loc>https://www.moyuzc.cn/2021/03/02/Spring-05%20%E4%BD%BF%E7%94%A8%E6%B3%A8%E8%A7%A3%E5%BC%80%E5%8F%91/</loc>
+    <loc>http://example.com/2021/03/02/Spring-05%20%E4%BD%BF%E7%94%A8%E6%B3%A8%E8%A7%A3%E5%BC%80%E5%8F%91/</loc>
     
     <lastmod>2021-03-02</lastmod>
     
   </url>
   
   <url>
-    <loc>https://www.moyuzc.cn/2021/02/27/Spring-04%20Bean%E7%9A%84%E8%87%AA%E5%8A%A8%E8%A3%85%E9%85%8D/</loc>
+    <loc>http://example.com/2021/02/27/Spring-04%20Bean%E7%9A%84%E8%87%AA%E5%8A%A8%E8%A3%85%E9%85%8D/</loc>
     
     <lastmod>2021-02-27</lastmod>
     
   </url>
   
   <url>
-    <loc>https://www.moyuzc.cn/2021/02/25/Spring-03%20%E4%BE%9D%E8%B5%96%E6%B3%A8%E5%85%A5%EF%BC%88DI%EF%BC%89/</loc>
+    <loc>http://example.com/2021/02/25/Spring-03%20%E4%BE%9D%E8%B5%96%E6%B3%A8%E5%85%A5%EF%BC%88DI%EF%BC%89/</loc>
     
     <lastmod>2021-02-25</lastmod>
     
   </url>
   
   <url>
-    <loc>https://www.moyuzc.cn/2021/02/24/Spring-02%20%E7%AC%AC%E4%B8%80%E4%B8%AASpring%E7%A8%8B%E5%BA%8F/</loc>
+    <loc>http://example.com/2021/02/24/Spring-02%20%E7%AC%AC%E4%B8%80%E4%B8%AASpring%E7%A8%8B%E5%BA%8F/</loc>
     
     <lastmod>2021-02-24</lastmod>
     
   </url>
   
   <url>
-    <loc>https://www.moyuzc.cn/2021/02/23/Spring-01%20Spring%E5%9F%BA%E7%A1%80/</loc>
+    <loc>http://example.com/2021/02/23/Spring-01%20Spring%E5%9F%BA%E7%A1%80/</loc>
     
     <lastmod>2021-02-24</lastmod>
     
   </url>
   
   <url>
-    <loc>https://www.moyuzc.cn/2021/02/21/Mybatis-06%20%E5%8A%A8%E6%80%81Sql/</loc>
+    <loc>http://example.com/2021/02/21/Mybatis-06%20%E5%8A%A8%E6%80%81Sql/</loc>
     
     <lastmod>2021-02-23</lastmod>
     
   </url>
   
   <url>
-    <loc>https://www.moyuzc.cn/2021/02/20/Mybatis-05%20%E6%B3%A8%E8%A7%A3%E5%BC%80%E5%8F%91/</loc>
+    <loc>http://example.com/2021/02/20/Mybatis-05%20%E6%B3%A8%E8%A7%A3%E5%BC%80%E5%8F%91/</loc>
     
     <lastmod>2021-02-23</lastmod>
     
   </url>
   
   <url>
-    <loc>https://www.moyuzc.cn/2021/02/19/Mybatis-04%20%E6%97%A5%E5%BF%97%E3%80%81%E5%88%86%E9%A1%B5/</loc>
+    <loc>http://example.com/2021/02/19/Mybatis-04%20%E6%97%A5%E5%BF%97%E3%80%81%E5%88%86%E9%A1%B5/</loc>
     
     <lastmod>2021-02-23</lastmod>
     
   </url>
   
   <url>
-    <loc>https://www.moyuzc.cn/2021/02/18/Mybatis-03%20%E9%85%8D%E7%BD%AE%E8%A7%A3%E6%9E%90/</loc>
+    <loc>http://example.com/2021/02/18/Mybatis-03%20%E9%85%8D%E7%BD%AE%E8%A7%A3%E6%9E%90/</loc>
     
     <lastmod>2021-02-23</lastmod>
     
   </url>
   
   <url>
-    <loc>https://www.moyuzc.cn/2021/02/16/Mybatis-01%20%E4%BB%80%E4%B9%88%E6%98%AFMybatis/</loc>
+    <loc>http://example.com/2021/02/16/Mybatis-01%20%E4%BB%80%E4%B9%88%E6%98%AFMybatis/</loc>
     
     <lastmod>2021-02-23</lastmod>
     
   </url>
   
   <url>
-    <loc>https://www.moyuzc.cn/2021/02/17/Mybatis-02%20CRUD/</loc>
+    <loc>http://example.com/2021/02/17/Mybatis-02%20CRUD/</loc>
     
     <lastmod>2021-02-23</lastmod>
     
   </url>
   
   <url>
-    <loc>https://www.moyuzc.cn/2021/02/19/2%E5%AD%97%E8%8A%82%E7%9A%84UTF-8%E5%BA%8F%E5%88%97%E7%9A%84%E5%AD%97%E8%8A%822%E6%97%A0%E6%95%88%20%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/</loc>
+    <loc>http://example.com/2021/02/19/2%E5%AD%97%E8%8A%82%E7%9A%84UTF-8%E5%BA%8F%E5%88%97%E7%9A%84%E5%AD%97%E8%8A%822%E6%97%A0%E6%95%88%20%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/</loc>
     
     <lastmod>2021-02-19</lastmod>
     
   </url>
   
   <url>
-    <loc>https://www.moyuzc.cn/2021/02/10/Butterfly%E7%BE%8E%E5%8C%96/</loc>
+    <loc>http://example.com/2021/02/10/Butterfly%E7%BE%8E%E5%8C%96/</loc>
     
     <lastmod>2021-02-15</lastmod>
     
   </url>
   
   <url>
-    <loc>https://www.moyuzc.cn/2021/02/13/PicGo%EF%BC%9A%E6%90%AD%E5%BB%BA%E5%9B%BE%E5%BA%8A/</loc>
+    <loc>http://example.com/2021/02/13/PicGo%EF%BC%9A%E6%90%AD%E5%BB%BA%E5%9B%BE%E5%BA%8A/</loc>
     
     <lastmod>2021-02-14</lastmod>
     
   </url>
   
   <url>
-    <loc>https://www.moyuzc.cn/2021/02/09/%E5%AE%89%E8%A3%85Hexo/</loc>
+    <loc>http://example.com/2021/02/09/%E5%AE%89%E8%A3%85Hexo/</loc>
     
     <lastmod>2021-02-14</lastmod>
     
   </url>
   
   <url>
-    <loc>https://www.moyuzc.cn/2021/02/08/Hexo%E5%87%86%E5%A4%87---Node.js%E3%80%81Vue/</loc>
+    <loc>http://example.com/2021/02/08/Hexo%E5%87%86%E5%A4%87---Node.js%E3%80%81Vue/</loc>
     
     <lastmod>2021-02-14</lastmod>
     
   </url>
   
   <url>
-    <loc>https://www.moyuzc.cn/2021/02/11/Hexo%E4%B9%8B%E6%9B%B4%E6%8D%A2%E8%83%8C%E6%99%AF%E5%8F%8A%E9%80%8F%E6%98%8E%E5%BA%A6/</loc>
+    <loc>http://example.com/2021/02/11/Hexo%E4%B9%8B%E6%9B%B4%E6%8D%A2%E8%83%8C%E6%99%AF%E5%8F%8A%E9%80%8F%E6%98%8E%E5%BA%A6/</loc>
     
     <lastmod>2021-02-14</lastmod>
     
   </url>
   
   <url>
-    <loc>https://www.moyuzc.cn/2021/02/12/Hexo-%E4%BD%BF%E7%94%A8%E9%98%BF%E9%87%8Ciconfont%E5%9B%BE%E6%A0%87/</loc>
+    <loc>http://example.com/2021/02/12/Hexo-%E4%BD%BF%E7%94%A8%E9%98%BF%E9%87%8Ciconfont%E5%9B%BE%E6%A0%87/</loc>
     
     <lastmod>2021-02-14</lastmod>
     
   </url>
   
   <url>
-    <loc>https://www.moyuzc.cn/2021/02/14/Hexo-%E5%9F%9F%E5%90%8D%E8%AE%BE%E7%BD%AE+%E6%94%B6%E5%BD%95/</loc>
+    <loc>http://example.com/2021/02/14/Hexo-%E5%9F%9F%E5%90%8D%E8%AE%BE%E7%BD%AE+%E6%94%B6%E5%BD%95/</loc>
     
     <lastmod>2021-02-14</lastmod>
     
   </url>
   
   <url>
-    <loc>https://www.moyuzc.cn/tags/index.html</loc>
+    <loc>http://example.com/tags/index.html</loc>
     
     <lastmod>2020-11-10</lastmod>
     
   </url>
   
   <url>
-    <loc>https://www.moyuzc.cn/about/index.html</loc>
+    <loc>http://example.com/about/index.html</loc>
     
     <lastmod>2020-11-10</lastmod>
     
   </url>
   
   <url>
-    <loc>https://www.moyuzc.cn/categories/index.html</loc>
+    <loc>http://example.com/categories/index.html</loc>
     
     <lastmod>2020-11-10</lastmod>
     
   </url>
   
   <url>
-    <loc>https://www.moyuzc.cn/link/index.html</loc>
+    <loc>http://example.com/link/index.html</loc>
     
     <lastmod>2020-11-10</lastmod>
     
   </url>
   
   <url>
-    <loc>https://www.moyuzc.cn/messageboard/index.html</loc>
+    <loc>http://example.com/messageboard/index.html</loc>
     
     <lastmod>2020-11-10</lastmod>
     
@@ -276,7 +283,7 @@
   
 
   <url>
-    <loc>https://www.moyuzc.cn/</loc>
+    <loc>http://example.com/</loc>
     <lastmod>2021-03-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
@@ -284,175 +291,182 @@
 
   
   <url>
-    <loc>https://www.moyuzc.cn/tags/Hexo/</loc>
+    <loc>http://example.com/tags/Hexo/</loc>
     <lastmod>2021-03-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://www.moyuzc.cn/tags/Github/</loc>
+    <loc>http://example.com/tags/Github/</loc>
     <lastmod>2021-03-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://www.moyuzc.cn/tags/Gitee/</loc>
+    <loc>http://example.com/tags/Gitee/</loc>
     <lastmod>2021-03-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://www.moyuzc.cn/tags/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/</loc>
+    <loc>http://example.com/tags/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/</loc>
     <lastmod>2021-03-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://www.moyuzc.cn/tags/Node-js/</loc>
+    <loc>http://example.com/tags/Node-js/</loc>
     <lastmod>2021-03-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://www.moyuzc.cn/tags/Vue/</loc>
+    <loc>http://example.com/tags/Vue/</loc>
     <lastmod>2021-03-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://www.moyuzc.cn/tags/%E7%BE%8E%E5%8C%96%E5%8D%9A%E5%AE%A2/</loc>
+    <loc>http://example.com/tags/%E7%BE%8E%E5%8C%96%E5%8D%9A%E5%AE%A2/</loc>
     <lastmod>2021-03-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://www.moyuzc.cn/tags/404%E9%A1%B5%E9%9D%A2/</loc>
+    <loc>http://example.com/tags/404%E9%A1%B5%E9%9D%A2/</loc>
     <lastmod>2021-03-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://www.moyuzc.cn/tags/CSS/</loc>
+    <loc>http://example.com/tags/CSS/</loc>
     <lastmod>2021-03-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://www.moyuzc.cn/tags/Valine/</loc>
+    <loc>http://example.com/tags/Valine/</loc>
     <lastmod>2021-03-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://www.moyuzc.cn/tags/%E9%A1%B5%E9%9D%A2%E7%89%B9%E6%95%88/</loc>
+    <loc>http://example.com/tags/%E9%A1%B5%E9%9D%A2%E7%89%B9%E6%95%88/</loc>
     <lastmod>2021-03-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://www.moyuzc.cn/tags/%E9%98%BF%E9%87%8Ciconfont%E5%9B%BE%E6%A0%87/</loc>
+    <loc>http://example.com/tags/%E9%98%BF%E9%87%8Ciconfont%E5%9B%BE%E6%A0%87/</loc>
     <lastmod>2021-03-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://www.moyuzc.cn/tags/PicGo/</loc>
+    <loc>http://example.com/tags/PicGo/</loc>
     <lastmod>2021-03-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://www.moyuzc.cn/tags/%E5%9B%BE%E5%BA%8A/</loc>
+    <loc>http://example.com/tags/%E5%9B%BE%E5%BA%8A/</loc>
     <lastmod>2021-03-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://www.moyuzc.cn/tags/SM-MS%E5%9B%BE%E5%BA%8A/</loc>
+    <loc>http://example.com/tags/SM-MS%E5%9B%BE%E5%BA%8A/</loc>
     <lastmod>2021-03-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://www.moyuzc.cn/tags/Gitee%E5%9B%BE%E5%BA%8A/</loc>
+    <loc>http://example.com/tags/Gitee%E5%9B%BE%E5%BA%8A/</loc>
     <lastmod>2021-03-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://www.moyuzc.cn/tags/%E9%98%BF%E9%87%8C%E4%BA%91%E5%9F%9F%E5%90%8D/</loc>
+    <loc>http://example.com/tags/%E9%98%BF%E9%87%8C%E4%BA%91%E5%9F%9F%E5%90%8D/</loc>
     <lastmod>2021-03-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://www.moyuzc.cn/tags/%E7%BD%91%E5%9D%80%E6%94%B6%E5%BD%95/</loc>
+    <loc>http://example.com/tags/%E7%BD%91%E5%9D%80%E6%94%B6%E5%BD%95/</loc>
     <lastmod>2021-03-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://www.moyuzc.cn/tags/SSM/</loc>
+    <loc>http://example.com/tags/SSM/</loc>
     <lastmod>2021-03-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://www.moyuzc.cn/tags/Mybatis/</loc>
+    <loc>http://example.com/tags/Mybatis/</loc>
     <lastmod>2021-03-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://www.moyuzc.cn/tags/Mysql/</loc>
+    <loc>http://example.com/tags/Mysql/</loc>
     <lastmod>2021-03-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://www.moyuzc.cn/tags/Bug/</loc>
+    <loc>http://example.com/tags/Bug/</loc>
     <lastmod>2021-03-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://www.moyuzc.cn/tags/Spring/</loc>
+    <loc>http://example.com/tags/Spring/</loc>
     <lastmod>2021-03-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://www.moyuzc.cn/tags/SpringMVC/</loc>
+    <loc>http://example.com/tags/SpringMVC/</loc>
     <lastmod>2021-03-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://www.moyuzc.cn/tags/%E9%9D%A2%E7%BB%8F/</loc>
+    <loc>http://example.com/tags/%E9%9D%A2%E7%BB%8F/</loc>
+    <lastmod>2021-03-19</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://example.com/tags/Git/</loc>
     <lastmod>2021-03-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -461,56 +475,63 @@
 
   
   <url>
-    <loc>https://www.moyuzc.cn/categories/Hexo/</loc>
+    <loc>http://example.com/categories/Hexo/</loc>
     <lastmod>2021-03-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://www.moyuzc.cn/categories/PicGo%E5%9B%BE%E5%BA%8A/</loc>
+    <loc>http://example.com/categories/PicGo%E5%9B%BE%E5%BA%8A/</loc>
     <lastmod>2021-03-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://www.moyuzc.cn/categories/Mybatis/</loc>
+    <loc>http://example.com/categories/Mybatis/</loc>
     <lastmod>2021-03-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://www.moyuzc.cn/categories/Bug/</loc>
+    <loc>http://example.com/categories/Bug/</loc>
     <lastmod>2021-03-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://www.moyuzc.cn/categories/Spring/</loc>
+    <loc>http://example.com/categories/Spring/</loc>
     <lastmod>2021-03-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://www.moyuzc.cn/categories/SpringMVC/</loc>
+    <loc>http://example.com/categories/SpringMVC/</loc>
     <lastmod>2021-03-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://www.moyuzc.cn/categories/%E9%9D%A2%E8%AF%95/</loc>
+    <loc>http://example.com/categories/%E9%9D%A2%E8%AF%95/</loc>
     <lastmod>2021-03-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://www.moyuzc.cn/categories/SSM/</loc>
+    <loc>http://example.com/categories/SSM/</loc>
+    <lastmod>2021-03-19</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://example.com/categories/Git%E4%B8%8A%E4%BC%A0/</loc>
     <lastmod>2021-03-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
