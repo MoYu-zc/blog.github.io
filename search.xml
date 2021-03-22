@@ -4724,4 +4724,97 @@
         <tag>JUC</tag>
       </tags>
   </entry>
+  <entry>
+    <title>Spring Boot-01  第一个Spring Boot</title>
+    <url>/2021/03/22/Spring%20Boot-01%20%20%E7%AC%AC%E4%B8%80%E4%B8%AASpring%20Boot/</url>
+    <content><![CDATA[<h1 id="Spring-Boot-01-第一个Spring-Boot"><a href="#Spring-Boot-01-第一个Spring-Boot" class="headerlink" title="Spring Boot-01  第一个Spring Boot"></a>Spring Boot-01  第一个Spring Boot</h1><p>需要记得：<strong>Spring学好，才可以更好的学习SpringBoot</strong></p>
+<p>SpringBoot核心思想：<strong>约定大于配置</strong>。</p>
+<p>约定大于配置可以从以下两个方面来理解：</p>
+<ol>
+<li>开发人员仅需规定应用中不符合约定的部分</li>
+<li>在没有规定配置的地方，采用默认配置，以力求最简配置为核心思想</li>
+</ol>
+<p>总的来说，上面两条都遵循了推荐默认配置的思想。当存在特殊需求的时候，自定义配置即可。这样可以大大的减少配置工作，这就是所谓的“约定”。</p>
+<p>接下来用两种方式创建属于自己的<strong>第一个SpringBoot项目</strong></p>
+<h2 id="官网生成法"><a href="#官网生成法" class="headerlink" title="官网生成法"></a>官网生成法</h2><p>第一种方法就像标题一样，在官网生成属于自己的第一个SpringBoot。</p>
+<p>一、进入Spring官网：<a href="https://spring.io/">https://spring.io/</a></p>
+<p>二、点击 <code>Learn</code>—<code>Quickstart</code></p>
+<img src= "/img/loading.gif" data-lazy-src="https://gitee.com/MoYu-zc/picgo/raw/master/img/20210220231829.png" alt="1" style="zoom:50%;" />
+
+
+
+<p>三、进入对应页面后，点击 <code>start.spring.io</code> 超链接</p>
+<img src= "/img/loading.gif" data-lazy-src="https://gitee.com/MoYu-zc/picgo/raw/master/img/20210220231933.png" alt="2" style="zoom:50%;" />
+
+<p>当然以防有人找不到，或者懒得找，附上链接：<a href="https://start.spring.io/">https://start.spring.io/</a></p>
+<p>四、按照图中的提示，生成自己的 Maven项目</p>
+<img src= "/img/loading.gif" data-lazy-src="https://gitee.com/MoYu-zc/picgo/raw/master/img/20210220232102.png" alt="3" style="zoom:60%;" />
+
+
+
+<p>导出后，是一个压缩包的形式，将压缩包中的文件夹放到你常用的Idea项目路径下，引入即可。</p>
+<p>五、引入项目</p>
+<img src= "/img/loading.gif" data-lazy-src="https://gitee.com/MoYu-zc/picgo/raw/master/img/20210222181437.png" alt="4" style="zoom: 80%;" />
+
+<p>六、项目架构</p>
+<img src= "/img/loading.gif" data-lazy-src="https://gitee.com/MoYu-zc/picgo/raw/master/img/20210222181555.png" alt="5" style="zoom: 80%;" />
+
+<p><strong>记得引入刷新Maven，保证Maven完全引入</strong></p>
+<p>红框中得可有可无，不想要可以删除</p>
+<blockquote>
+<p><strong>展开后的系统结构如下：</strong></p>
+</blockquote>
+<img src= "/img/loading.gif" data-lazy-src="https://gitee.com/MoYu-zc/picgo/raw/master/img/20210222181659.png" alt="6" style="zoom:80%;" />
+
+<blockquote>
+<p>ZcAppplication：启动器</p>
+<p>application.properties：配置器，在其中输入配置</p>
+<p>ZcAppplicationTests：测试器</p>
+</blockquote>
+<p><strong>启动ZcAppplication，Tomcat8080端口，网址：<a href="http://localhost:8080/">http://localhost:8080/</a></strong></p>
+<img src= "/img/loading.gif" data-lazy-src="https://gitee.com/MoYu-zc/picgo/raw/master/img/20210222182912.png" alt="7" style="zoom: 50%;" />
+
+<img src= "/img/loading.gif" data-lazy-src="https://gitee.com/MoYu-zc/picgo/raw/master/img/20210222183108.png" alt="12" style="zoom:90%;" />
+
+
+
+<h2 id="Idea生成法"><a href="#Idea生成法" class="headerlink" title="Idea生成法"></a>Idea生成法</h2><p>一、使用idea创建项目</p>
+<img src= "/img/loading.gif" data-lazy-src="https://gitee.com/MoYu-zc/picgo/raw/master/img/20210222183241.png" alt="8" style="zoom:67%;" />
+
+<p>二、输入项目信息，项目信息和官网生成的信息相同</p>
+<img src= "/img/loading.gif" data-lazy-src="https://gitee.com/MoYu-zc/picgo/raw/master/img/20210222183431.png" alt="9" style="zoom:67%;" />
+
+<p>三、选择依赖，Spring Web即可</p>
+<img src= "/img/loading.gif" data-lazy-src="https://gitee.com/MoYu-zc/picgo/raw/master/img/20210222183624.png" alt="10" style="zoom:67%;" />
+
+<p>四、启动测试</p>
+<img src= "/img/loading.gif" data-lazy-src="https://gitee.com/MoYu-zc/picgo/raw/master/img/20210222183754.png" alt="11" style="zoom: 50%;" />
+
+<img src= "/img/loading.gif" data-lazy-src="https://gitee.com/MoYu-zc/picgo/raw/master/img/20210222183809.png" alt="12" style="zoom:90%;" />
+
+
+
+<h2 id="启动图案更改-Banner"><a href="#启动图案更改-Banner" class="headerlink" title="启动图案更改 Banner"></a>启动图案更改 Banner</h2><p>Spring Boot banner在线生成网址：<a href="https://www.bootschool.net/ascii">https://www.bootschool.net/ascii</a></p>
+<img src= "/img/loading.gif" data-lazy-src="https://gitee.com/MoYu-zc/picgo/raw/master/img/20210222184053.png" alt="13" style="zoom: 67%;" />
+
+<p>选择你喜欢的图案，可以复制下来图案，也可以下载文件</p>
+<p>一、创建banner.txt</p>
+<p>你可以<code>resources</code>资源文件夹中创建一个<code>banner.txt</code>，把图案复制里面。</p>
+<p>或者把下载的txt文件直接放在<code>resources</code>资源文件夹中</p>
+<img src= "/img/loading.gif" data-lazy-src="https://gitee.com/MoYu-zc/picgo/raw/master/img/20210222185023.png" alt="14" style="zoom: 67%;" />
+
+<p>如果识别成功，txt文件上会出现一个小标志</p>
+<p>二、运行测试</p>
+<img src= "/img/loading.gif" data-lazy-src="https://gitee.com/MoYu-zc/picgo/raw/master/img/20210222185350.png" alt="15" style="zoom: 50%;" />
+
+<p><strong>图案已经变了</strong></p>
+<p>个人博客为：<br><a href="https://www.moyuzc.cn/">MoYu’s HomePage</a><br><a href="https://moyu-zc.gitee.io/">MoYu’s Gitee  Blog</a></p>
+]]></content>
+      <categories>
+        <category>SpringBoot</category>
+      </categories>
+      <tags>
+        <tag>SpringBoot</tag>
+      </tags>
+  </entry>
 </search>
