@@ -6,7 +6,7 @@
   <link href="https://www.moyuzc.cn/atom.xml" rel="self"/>
   
   <link href="https://www.moyuzc.cn/"/>
-  <updated>2021-03-23T02:30:46.692Z</updated>
+  <updated>2021-03-24T06:43:15.835Z</updated>
   <id>https://www.moyuzc.cn/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>SpringBoot-03  yaml+JSR303</title>
+    <link href="https://www.moyuzc.cn/2021/03/24/SpringBoot-03%20%20yaml+JSR303/"/>
+    <id>https://www.moyuzc.cn/2021/03/24/SpringBoot-03%20%20yaml+JSR303/</id>
+    <published>2021-03-23T16:00:00.000Z</published>
+    <updated>2021-03-24T06:43:15.835Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;SpringBoot-03-yaml-JSR303&quot;&gt;&lt;a href=&quot;#SpringBoot-03-yaml-JSR303&quot; class=&quot;headerlink&quot; title=&quot;SpringBoot-03 </summary>
+        
+      
+    
+    
+    
+    <category term="SpringBoot" scheme="https://www.moyuzc.cn/categories/SpringBoot/"/>
+    
+    
+    <category term="SpringBoot" scheme="https://www.moyuzc.cn/tags/SpringBoot/"/>
+    
+  </entry>
   
   <entry>
     <title>SpringBoot-02  运行原理初探</title>
@@ -509,33 +534,6 @@
         
         
     <summary type="html">&lt;h1 id=&quot;Spring-04-Bean的自动装配&quot;&gt;&lt;a href=&quot;#Spring-04-Bean的自动装配&quot; class=&quot;headerlink&quot; title=&quot;Spring-04  Bean的自动装配&quot;&gt;&lt;/a&gt;Spring-04 </summary>
-        
-      
-    
-    
-    
-    <category term="Spring" scheme="https://www.moyuzc.cn/categories/Spring/"/>
-    
-    
-    <category term="SSM" scheme="https://www.moyuzc.cn/tags/SSM/"/>
-    
-    <category term="Spring" scheme="https://www.moyuzc.cn/tags/Spring/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Spring-03  依赖注入（DI）</title>
-    <link href="https://www.moyuzc.cn/2021/02/25/Spring-03%20%E4%BE%9D%E8%B5%96%E6%B3%A8%E5%85%A5%EF%BC%88DI%EF%BC%89/"/>
-    <id>https://www.moyuzc.cn/2021/02/25/Spring-03%20%E4%BE%9D%E8%B5%96%E6%B3%A8%E5%85%A5%EF%BC%88DI%EF%BC%89/</id>
-    <published>2021-02-24T16:00:00.000Z</published>
-    <updated>2021-02-25T10:20:35.287Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;Spring-03-依赖注入（DI）&quot;&gt;&lt;a href=&quot;#Spring-03-依赖注入（DI）&quot; class=&quot;headerlink&quot; title=&quot;Spring-03  依赖注入（DI）&quot;&gt;&lt;/a&gt;Spring-03  依赖注入（DI）&lt;/h1&gt;&lt;h2</summary>
         
       
     

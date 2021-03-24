@@ -4920,4 +4920,218 @@
         <tag>SpringBoot</tag>
       </tags>
   </entry>
+  <entry>
+    <title>SpringBoot-03  yaml+JSR303</title>
+    <url>/2021/03/24/SpringBoot-03%20%20yaml+JSR303/</url>
+    <content><![CDATA[<h1 id="SpringBoot-03-yaml-JSR303"><a href="#SpringBoot-03-yaml-JSR303" class="headerlink" title="SpringBoot-03  yaml+JSR303"></a>SpringBoot-03  yaml+JSR303</h1><h2 id="Yaml"><a href="#Yaml" class="headerlink" title="Yaml"></a>Yaml</h2><h3 id="1-配置文件"><a href="#1-配置文件" class="headerlink" title="1.配置文件"></a>1.配置文件</h3><p>SpringBoot使用一个全局的配置文件 ， 配置文件名称是固定的</p>
+<p>YAML是 “YAML Ain’t a Markup Language” （YAML不是一种标记语言）的递归缩写。在开发的这种语言时，YAML 的意思其实是：”Yet Another Markup Language”（仍是一种标记语言）</p>
+<p><strong>这种语言以数据作为中心，而不是以标记语言为重点！</strong></p>
+<ul>
+<li><p>application.properties</p>
+</li>
+<li><ul>
+<li>语法结构 ：key=value</li>
+</ul>
+</li>
+<li><p>application.yaml</p>
+</li>
+<li><ul>
+<li>语法结构 ：key: 空格 value</li>
+</ul>
+</li>
+</ul>
+<p><strong>配置文件的作用 ：</strong>修改SpringBoot自动配置的默认值，因为SpringBoot在底层都给我们自动配置好了；</p>
+<p>SpringBoot可以有<strong>多个配置文件</strong>，但是他会自动识别后缀名识别优先级。</p>
+<h3 id="2-Yaml配置"><a href="#2-Yaml配置" class="headerlink" title="2.Yaml配置"></a>2.Yaml配置</h3><p>通过对比<code>XML</code>、<code>properties</code>、<code>Yaml</code>文件：</p>
+<p>比如我们可以在配置文件中修改Tomcat 默认启动的端口号</p>
+<p><strong>XML文件</strong></p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">server</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">port</span>&gt;</span>8081<span class="tag">&lt;<span class="name">port</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">server</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>properties文件</strong></p>
+<figure class="highlight properties"><table><tr><td class="code"><pre><span class="line"><span class="meta">server.port</span>=<span class="string">8081</span></span><br></pre></td></tr></table></figure>
+
+<p><img src= "/img/loading.gif" data-lazy-src="https://gitee.com/MoYu-zc/picgo/raw/master/img/20210223174847.png" alt="1"></p>
+<p><strong>Yaml文件</strong></p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">server:</span></span><br><span class="line">  <span class="attr">port:</span> <span class="number">8081</span></span><br></pre></td></tr></table></figure>
+
+<p><img src= "/img/loading.gif" data-lazy-src="https://gitee.com/MoYu-zc/picgo/raw/master/img/20210223174905.png" alt="2"></p>
+<p>这时候访问路径为：<a href="http://localhost:8081/">http://localhost:8081/</a>    ，端口号已经发生变化。</p>
+<h3 id="3-yaml基础语法"><a href="#3-yaml基础语法" class="headerlink" title="3.yaml基础语法"></a>3.yaml基础语法</h3><p><strong>语法要求严格：</strong></p>
+<p>1、空格不能省略</p>
+<p>2、以缩进来控制层级关系，只要是左边对齐的一列数据都是同一个层级的。</p>
+<p>3、属性和值的大小写都是十分敏感的。</p>
+<p><strong>字面量：普通的值 [ 数字，布尔值，字符串 ]</strong></p>
+<p>字面量直接写在后面就可以 ， 字符串默认不用加上双引号或者单引号；</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">k:</span> <span class="string">v</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>注意：</strong></p>
+<ul>
+<li><p>“ ” 双引号，不会转义字符串里面的特殊字符 ， 特殊字符会作为本身想表示的意思；</p>
+<p>比如 ：name: “kuang \n shen” 输出 ：kuang 换行 shen</p>
+</li>
+<li><p>‘’ 单引号，会转义特殊字符 ， 特殊字符最终会变成和普通字符一样输出</p>
+<p>比如 ：name: ‘kuang \n shen’ 输出 ：kuang \n shen</p>
+</li>
+</ul>
+<p><strong>对象、Map（键值对）</strong></p>
+<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="comment">#对象、Map格式</span></span><br><span class="line"><span class="attr">k:</span> </span><br><span class="line"> <span class="attr">v1:</span></span><br><span class="line"> <span class="attr">v2:</span></span><br></pre></td></tr></table></figure>
+
+<p>在下一行来写对象的属性和值得关系，注意缩进；比如：</p>
+<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">people:</span></span><br><span class="line">    <span class="attr">name:</span> <span class="string">zc</span></span><br><span class="line">    <span class="attr">age:</span> <span class="number">20</span></span><br></pre></td></tr></table></figure>
+
+<p>行内写法</p>
+<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">people:</span> &#123;<span class="attr">name:</span> <span class="string">zc</span>,<span class="attr">age:</span> <span class="number">20</span>&#125;     <span class="comment">#对象用&#123;&#125;</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>数组（ List、set ）</strong></p>
+<p>用 - 值表示数组中的一个元素,比如：</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">pets:</span></span><br><span class="line"> <span class="bullet">-</span> <span class="string">cat</span></span><br><span class="line"> <span class="bullet">-</span> <span class="string">dog</span></span><br><span class="line"> <span class="bullet">-</span> <span class="string">pig</span></span><br></pre></td></tr></table></figure>
+
+<p>行内写法</p>
+<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">pets:</span> [<span class="string">cat</span>,<span class="string">dog</span>,<span class="string">pig</span>]    <span class="comment">#数组用[]</span></span><br></pre></td></tr></table></figure>
+
+<p>yaml文件更强大的地方在于，他可以给我们的实体类直接注入匹配值！</p>
+<h3 id="4-yaml注入配置文件"><a href="#4-yaml注入配置文件" class="headerlink" title="4.yaml注入配置文件"></a>4.yaml注入配置文件</h3><blockquote>
+<p>该项目中的 <strong>class类</strong> 都要在 <strong>启动类同级目录</strong> 下才可以</p>
+</blockquote>
+<h4 id="4-1-Vlaue注入"><a href="#4-1-Vlaue注入" class="headerlink" title="4.1 @Vlaue注入"></a>4.1 @Vlaue注入</h4><p>1.项目中的<code>resources资源文件夹</code>下新建一个文件 <code>application.yaml</code></p>
+<p>2.创建实体类</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Component</span>           <span class="comment">//将实体类注册到容器中</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">people</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> age;</span><br><span class="line">    <span class="comment">// 有参无参构造方法</span></span><br><span class="line">    <span class="comment">// get、set方法</span></span><br><span class="line">    <span class="comment">// toString()方法  </span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>3.使用 @Vlaue 注解</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">  <span class="meta">@Component</span>           <span class="comment">//将实体类注册到容器中</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">people</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Value(&quot;zc&quot;)</span></span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line">    </span><br><span class="line">    <span class="meta">@Value(&quot;20&quot;)</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> age;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 有参无参构造方法</span></span><br><span class="line">    <span class="comment">// get、set方法</span></span><br><span class="line">    <span class="comment">// toString()方法  </span></span><br><span class="line">&#125;  </span><br></pre></td></tr></table></figure>
+
+<p>4.进行测试</p>
+<p>在<strong>test</strong>中进行，不要在启动器</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@SpringBootTest</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ZcApplicationTests</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    people people;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">contextLoads</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(people);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<img src= "/img/loading.gif" data-lazy-src="https://gitee.com/MoYu-zc/picgo/raw/master/img/20210223195842.png" alt="3" style="zoom: 67%;" />
+
+
+
+<h4 id="4-2-Yaml配置文件注入"><a href="#4-2-Yaml配置文件注入" class="headerlink" title="4.2 Yaml配置文件注入"></a>4.2 Yaml配置文件注入</h4><p>1.创建一个新的实体类</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Component</span>               <span class="comment">//注册bean到容器中</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Person</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line">    <span class="keyword">private</span> Integer age;</span><br><span class="line">    <span class="keyword">private</span> Boolean happy;</span><br><span class="line">    <span class="keyword">private</span> Date birth;</span><br><span class="line">    <span class="keyword">private</span> Map&lt;String,Object&gt; maps;</span><br><span class="line">    <span class="keyword">private</span> List&lt;Object&gt; lists;</span><br><span class="line">    <span class="keyword">private</span> people people;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 有参无参构造方法</span></span><br><span class="line">    <span class="comment">// get、set方法</span></span><br><span class="line">    <span class="comment">// toString()方法  </span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>2.在yaml配置文件进行注入</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">person:</span></span><br><span class="line">  <span class="attr">name:</span> <span class="string">zc</span></span><br><span class="line">  <span class="attr">age:</span> <span class="number">20</span></span><br><span class="line">  <span class="attr">happy:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">birth:</span> <span class="number">2000</span><span class="string">/10/29</span></span><br><span class="line">  <span class="attr">maps:</span> &#123;<span class="attr">k1:</span> <span class="string">v1</span>,<span class="attr">k2:</span> <span class="string">v2</span>&#125;</span><br><span class="line">  <span class="attr">lists:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">a</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">b</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">c</span></span><br><span class="line">  <span class="attr">people:</span></span><br><span class="line">    <span class="attr">name:</span> <span class="string">zc</span></span><br><span class="line">    <span class="attr">age:</span> <span class="number">20</span></span><br></pre></td></tr></table></figure>
+
+<p>3.注入到实体类中</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@ConfigurationProperties</span>作用：</span><br><span class="line">将配置文件中配置的每一个属性的值，映射到这个组件中；</span><br><span class="line">告诉SpringBoot将本类中的所有属性和配置文件中相关的配置进行绑定</span><br><span class="line">参数 prefix = “person” : 将配置文件中的person下面的所有属性一一对应</span><br><span class="line">*/</span><br><span class="line"><span class="meta">@Component</span>               <span class="comment">//注册bean到容器中</span></span><br><span class="line"><span class="meta">@ConfigurationProperties(prefix = &quot;person&quot;)</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Person</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line">    <span class="keyword">private</span> Integer age;</span><br><span class="line">    <span class="keyword">private</span> Boolean happy;</span><br><span class="line">    <span class="keyword">private</span> Date birth;</span><br><span class="line">    <span class="keyword">private</span> Map&lt;String,Object&gt; maps;</span><br><span class="line">    <span class="keyword">private</span> List&lt;Object&gt; lists;</span><br><span class="line">    <span class="keyword">private</span> people people;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 有参无参构造方法</span></span><br><span class="line">    <span class="comment">// get、set方法</span></span><br><span class="line">    <span class="comment">// toString()方法  </span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>4.这时候会出现一个问题，打开后，提示需要加入依赖</p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://gitee.com/MoYu-zc/picgo/raw/master/img/20210224124909.png" alt="4"></p>
+<img src= "/img/loading.gif" data-lazy-src="https://gitee.com/MoYu-zc/picgo/raw/master/img/20210224125022.png" alt="5" style="zoom:80%;" />
+
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-configuration-processor<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">optional</span>&gt;</span>true<span class="tag">&lt;/<span class="name">optional</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>5.测试运行</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@SpringBootTest</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ZcApplicationTests</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    Person person;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">contextLoads</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(person);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<img src= "/img/loading.gif" data-lazy-src="https://gitee.com/MoYu-zc/picgo/raw/master/img/20210224125640.png" alt="6" style="zoom: 67%;" />
+
+<blockquote>
+<p><strong>注意：</strong>将配置文件的key 值 和 属性的值设置为不一样，则结果输出为null，注入失败</p>
+</blockquote>
+<h4 id="4-3-加载指定的配置文件"><a href="#4-3-加载指定的配置文件" class="headerlink" title="4.3 加载指定的配置文件"></a>4.3 加载指定的配置文件</h4><blockquote>
+<p><strong>@PropertySource ：</strong>加载指定的配置文件；</p>
+<p><strong>@configurationProperties</strong>：默认从全局配置文件中获取值；</p>
+</blockquote>
+<p>1.在<code>resources共享文件夹</code>下新建一个<strong>person.properties</strong>文件</p>
+<figure class="highlight properties"><table><tr><td class="code"><pre><span class="line"><span class="attr">name</span>=<span class="string">zc1</span></span><br></pre></td></tr></table></figure>
+
+<p>2.在我们的实体类中指定加载文件</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Component</span> </span><br><span class="line"><span class="meta">@PropertySource(value = &quot;classpath:person.properties&quot;)</span>  </span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Person</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line">    <span class="keyword">private</span> Integer age;</span><br><span class="line">    <span class="keyword">private</span> Boolean happy;</span><br><span class="line">    <span class="keyword">private</span> Date birth;</span><br><span class="line">    <span class="keyword">private</span> Map&lt;String,Object&gt; maps;</span><br><span class="line">    <span class="keyword">private</span> List&lt;Object&gt; lists;</span><br><span class="line">    <span class="keyword">private</span> people people;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 有参无参构造方法</span></span><br><span class="line">    <span class="comment">// get、set方法</span></span><br><span class="line">    <span class="comment">// toString()方法  </span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><strong>注意：</strong></p>
+<p>@PropertySource() ——-@PropertySources()</p>
+<p>这两个只差一个<code>s</code>，有时候看不清就会补充出错</p>
+<p>在这里使用的是**@PropertySource()**，只引用了一个资源文件</p>
+<p><strong>用法对比：</strong></p>
+<p>都可以加载多个配置文件，但是**@PropertySources**可以添加约束。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@PropertySource(value = &#123;&quot;classpath:person.properties&quot;,&quot;classpath:test.properties&quot;&#125;)</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">@PropertySources(&#123;@PropertySource(value = &quot;classpath:person.properties&quot;,ignoreResourceNotFound = true,encoding = &quot;UTF-8&quot;),</span></span><br><span class="line"><span class="meta">        @PropertySource(value = &quot;classpath:test.properties&quot;,ignoreResourceNotFound = true,encoding = &quot;UTF-8&quot;)&#125;)</span></span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>3.测试运行</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@SpringBootTest</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ZcApplicationTests</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    Person person;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">contextLoads</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(person);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<img src= "/img/loading.gif" data-lazy-src="https://gitee.com/MoYu-zc/picgo/raw/master/img/20210224131957.png" alt="7" style="zoom: 80%;" />
+
+<h4 id="4-4-配置文件占位符"><a href="#4-4-配置文件占位符" class="headerlink" title="4.4 配置文件占位符"></a>4.4 配置文件占位符</h4><p>配置文件还可以编写占位符生成<strong>随机数</strong></p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">person:</span></span><br><span class="line">  <span class="attr">name:</span> <span class="string">$&#123;random.uuid&#125;</span>      <span class="comment">#随机uuid</span></span><br><span class="line">  <span class="attr">age:</span> <span class="string">$&#123;random.int&#125;</span>        <span class="comment">#随机int</span></span><br><span class="line">  <span class="attr">happy:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">birth:</span> <span class="number">2000</span><span class="string">/10/29</span></span><br><span class="line">  <span class="attr">maps:</span> &#123;<span class="attr">k1:</span> <span class="string">v1</span>,<span class="attr">k2:</span> <span class="string">v2</span>&#125;</span><br><span class="line">  <span class="attr">lists:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">a</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">b</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">c</span></span><br><span class="line">  <span class="attr">people:</span></span><br><span class="line">    <span class="attr">name:</span> <span class="string">zc</span></span><br><span class="line">    <span class="attr">age:</span> <span class="number">20</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="5-回顾properties配置"><a href="#5-回顾properties配置" class="headerlink" title="5.回顾properties配置"></a>5.回顾properties配置</h3><p>上面采用的yaml方法都是最简单的方式。</p>
+<p>开发中最常用的；也是springboot所推荐的那我们来唠唠其他的实现方式；</p>
+<blockquote>
+<p>【注意】properties配置文件在写中文的时候，会有乱码 ， 我们需要去IDEA中设置编码格式为<strong>UTF-8</strong>；</p>
+<p><code>settings</code>–&gt;<code> Editor</code>–&gt;<code>FileEncodings</code> 中配置:</p>
+<img src= "/img/loading.gif" data-lazy-src="https://gitee.com/MoYu-zc/picgo/raw/master/img/20210224145912.png" alt="8" style="zoom:90%;" />
+</blockquote>
+<p><strong>测试案例：</strong></p>
+<p>1、新建一个实体类User</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">User</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> age;</span><br><span class="line">    <span class="keyword">private</span> String sex;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 有参无参构造方法</span></span><br><span class="line">    <span class="comment">// get、set方法</span></span><br><span class="line">    <span class="comment">// toString()方法  </span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>2、编辑配置文件 user.properties</p>
+<figure class="highlight properties"><table><tr><td class="code"><pre><span class="line"><span class="meta">user.name</span>=<span class="string">zc</span></span><br><span class="line"><span class="meta">user.age</span>=<span class="string">20</span></span><br><span class="line"><span class="meta">user.sex</span>=<span class="string">男</span></span><br></pre></td></tr></table></figure>
+
+<p>3.@Value注入</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Value(&quot;$&#123;user.name&#125;&quot;)</span> <span class="comment">//从配置文件中取值</span></span><br><span class="line"><span class="keyword">private</span> String name;</span><br><span class="line"><span class="meta">@Value(&quot;#&#123;9*2&#125;&quot;)</span>  <span class="comment">// #&#123;SPEL&#125; Spring表达式</span></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">int</span> age;</span><br><span class="line"><span class="meta">@Value(&quot;男&quot;)</span>  <span class="comment">// 字面量</span></span><br><span class="line"><span class="keyword">private</span> String sex;</span><br></pre></td></tr></table></figure>
+
+<p>4.测试运行</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@SpringBootTest</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ZcApplicationTests</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    User user;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">contextLoads</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(user);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这里测试的是完全引用<strong>user.properties</strong>的配置</p>
+<img src= "/img/loading.gif" data-lazy-src="https://gitee.com/MoYu-zc/picgo/raw/master/img/20210224151751.png" alt="9" style="zoom:80%;" />
+
+
+
+<h3 id="6-Yaml总结"><a href="#6-Yaml总结" class="headerlink" title="6.Yaml总结"></a>6.Yaml总结</h3><p>1、**@ConfigurationProperties<strong>只需要写一次即可 ， **@Value</strong>则需要每个字段都添加</p>
+<p>2、松散绑定：比如我的yml中写的last-name，这个和lastName是一样的， <code>-</code> 后面跟着的字母默认是大写的。这就是松散绑定。</p>
+<p>3、**JSR303数据校验 **， 这个就是在字段是增加一层过滤器验证 ， 可以保证数据的合法性</p>
+<p>4、复杂类型封装，yml中可以<strong>封装对象</strong> ， 使用value就不支持</p>
+<h4 id="结论："><a href="#结论：" class="headerlink" title="结论："></a>结论：</h4><p>配置yml和配置properties都可以获取到值 ， 强烈推荐 yml；</p>
+<p>如果我们在某个业务中，只需要获取配置文件中的某个值，可以使用一下 @value；</p>
+<p>如果说，我们专门编写了一个JavaBean来和配置文件进行一一映射，就直接**@ConfigurationProperties**</p>
+<h2 id="JSR303"><a href="#JSR303" class="headerlink" title="JSR303"></a>JSR303</h2><h3 id="1-使用方法"><a href="#1-使用方法" class="headerlink" title="1.使用方法"></a>1.使用方法</h3><p>Springboot中可以用**@validated**来校验数据，如果数据异常则会统一抛出异常，方便异常中心统一处理。</p>
+<p>这里来写个注解让我们的<code>name</code>只能支持<code>Email</code>格式；</p>
+<p><strong>这里新版本要注意：</strong></p>
+<p>需要加上<strong>validation启动器</strong></p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-validation<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>之后加入注解：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Component</span>               </span><br><span class="line"><span class="meta">@ConfigurationProperties(prefix = &quot;person&quot;)</span></span><br><span class="line"><span class="meta">@Validated</span>            <span class="comment">//数据校验</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Person</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Email()</span></span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line">    <span class="keyword">private</span> Integer age;</span><br><span class="line">    <span class="keyword">private</span> Boolean happy;</span><br><span class="line">    <span class="keyword">private</span> Date birth;</span><br><span class="line">    <span class="keyword">private</span> Map&lt;String,Object&gt; maps;</span><br><span class="line">    <span class="keyword">private</span> List&lt;Object&gt; lists;</span><br><span class="line">    <span class="keyword">private</span> people people;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Set/Get方法</span></span><br><span class="line">    <span class="comment">// 有参/无参方法</span></span><br><span class="line">    <span class="comment">// toString()方法</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>运行会发现错误：</p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://gitee.com/MoYu-zc/picgo/raw/master/img/20210224170927.png" alt="1"></p>
+<h3 id="2-常见参数"><a href="#2-常见参数" class="headerlink" title="2.常见参数"></a>2.常见参数</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@NotNull(message=&quot;名字不能为空&quot;)</span></span><br><span class="line"><span class="keyword">private</span> String userName;</span><br><span class="line"><span class="meta">@Max(value=120,message=&quot;年龄最大不能查过120&quot;)</span></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">int</span> age;</span><br><span class="line"><span class="meta">@Email(message=&quot;邮箱格式错误&quot;)</span></span><br><span class="line"><span class="keyword">private</span> String email;</span><br><span class="line"></span><br><span class="line">空检查</span><br><span class="line"><span class="meta">@Null</span>       验证对象是否为<span class="keyword">null</span></span><br><span class="line"><span class="meta">@NotNull</span>    验证对象是否不为<span class="keyword">null</span>, 无法查检长度为<span class="number">0</span>的字符串</span><br><span class="line"><span class="meta">@NotBlank</span>   检查约束字符串是不是Null还有被Trim的长度是否大于<span class="number">0</span>,只对字符串,且会去掉前后空格.</span><br><span class="line"><span class="meta">@NotEmpty</span>   检查约束元素是否为NULL或者是EMPTY.</span><br><span class="line">    </span><br><span class="line">Booelan检查</span><br><span class="line"><span class="meta">@AssertTrue</span>     验证 Boolean 对象是否为 <span class="keyword">true</span>  </span><br><span class="line"><span class="meta">@AssertFalse</span>    验证 Boolean 对象是否为 <span class="keyword">false</span>  </span><br><span class="line">    </span><br><span class="line">长度检查</span><br><span class="line"><span class="meta">@Size(min=, max=)</span> 验证对象（Array,Collection,Map,String）长度是否在给定的范围之内  </span><br><span class="line"><span class="meta">@Length(min=, max=)</span> string is between min and max included.</span><br><span class="line"></span><br><span class="line">日期检查</span><br><span class="line"><span class="meta">@Past</span>       验证 Date 和 Calendar 对象是否在当前时间之前  </span><br><span class="line"><span class="meta">@Future</span>     验证 Date 和 Calendar 对象是否在当前时间之后  </span><br><span class="line"><span class="meta">@Pattern</span>    验证 String 对象是否符合正则表达式的规则</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-多配置切换"><a href="#3-多配置切换" class="headerlink" title="3.多配置切换"></a>3.多配置切换</h3><blockquote>
+<p>配置文件可以存放的位置：</p>
+<p>1.file:./config/<br>2.file:./<br>3.classpath:/config/<br>4.classpath:/</p>
+</blockquote>
+<p><strong>优先顺序也是按这个1234排序，下图为项目中位置</strong></p>
+<img src= "/img/loading.gif" data-lazy-src="https://gitee.com/MoYu-zc/picgo/raw/master/img/20210224162331.png" alt="2" style="zoom:80%;" />
+
+<h4 id="3-1-多环境配置"><a href="#3-1-多环境配置" class="headerlink" title="3.1 多环境配置"></a>3.1 多环境配置</h4><p>profile是Spring对不同环境提供不同配置功能的支持，可以通过激活不同的环境版本，实现快速切换环境</p>
+<p>我们在主配置文件编写的时候，文件名可以是 application-{profile}.properties/yml , 用来指定多个环境版本；</p>
+<p><strong>例如：</strong></p>
+<p><strong>application-test.properties</strong> 代表测试环境配置</p>
+<p><strong>application-dev.properties</strong> 代表开发环境配置</p>
+<p>但是Springboot并不会直接启动这些配置文件，它<strong>默认使用application.properties主配置文件</strong>；</p>
+<p>我们需要通过一个配置来选择需要激活的环境：</p>
+<p>在<strong>application.properties</strong>选择你想用的环境配置；</p>
+<figure class="highlight properties"><table><tr><td class="code"><pre><span class="line"><span class="comment">#我们启动SpringBoot，就可以看到已经切换到dev/test下的配置了</span></span><br><span class="line"><span class="meta">spring.profiles.active</span>=<span class="string">test</span></span><br><span class="line"><span class="comment">#或者</span></span><br><span class="line"><span class="meta">spring.profiles.active</span>=<span class="string">dev</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="3-2-yaml的多文档块"><a href="#3-2-yaml的多文档块" class="headerlink" title="3.2 yaml的多文档块"></a>3.2 yaml的多文档块</h4><figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">server:</span></span><br><span class="line">  <span class="attr">port:</span> <span class="number">8081</span></span><br><span class="line"><span class="comment">#选择要激活那个环境块</span></span><br><span class="line"><span class="attr">spring:</span></span><br><span class="line">  <span class="attr">profiles:</span></span><br><span class="line">    <span class="attr">active:</span> <span class="string">dev</span></span><br><span class="line"></span><br><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">server:</span></span><br><span class="line">  <span class="attr">port:</span> <span class="number">8082</span></span><br><span class="line"><span class="attr">spring:</span></span><br><span class="line">  <span class="attr">profiles:</span> <span class="string">dev</span></span><br><span class="line"></span><br><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">server:</span></span><br><span class="line">  <span class="attr">port:</span> <span class="number">8083</span></span><br><span class="line"><span class="attr">spring:</span></span><br><span class="line">  <span class="attr">profiles:</span> <span class="string">test</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>注意：如果yml和properties同时都配置了端口，并且没有激活其他环境 ， 默认会使用properties配置文件的</strong></p>
+<blockquote>
+<p>个人博客为：<br><a href="https://www.moyuzc.cn/">MoYu’s HomePage</a><br><a href="https://moyu-zc.gitee.io/">MoYu’s Gitee  Blog</a></p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>SpringBoot</category>
+      </categories>
+      <tags>
+        <tag>SpringBoot</tag>
+      </tags>
+  </entry>
 </search>
