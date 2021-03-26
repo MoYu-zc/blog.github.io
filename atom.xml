@@ -6,7 +6,7 @@
   <link href="https://www.moyuzc.cn/atom.xml" rel="self"/>
   
   <link href="https://www.moyuzc.cn/"/>
-  <updated>2021-03-24T06:43:15.835Z</updated>
+  <updated>2021-03-26T04:22:12.274Z</updated>
   <id>https://www.moyuzc.cn/</id>
   
   <author>
@@ -15,6 +15,56 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>SpringBoot-05  Web开发</title>
+    <link href="https://www.moyuzc.cn/2021/03/26/SpringBoot-05%20%20Web%E5%BC%80%E5%8F%91/"/>
+    <id>https://www.moyuzc.cn/2021/03/26/SpringBoot-05%20%20Web%E5%BC%80%E5%8F%91/</id>
+    <published>2021-03-25T16:00:00.000Z</published>
+    <updated>2021-03-26T04:22:12.274Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;SpringBoot-05-Web开发&quot;&gt;&lt;a href=&quot;#SpringBoot-05-Web开发&quot; class=&quot;headerlink&quot; title=&quot;SpringBoot-05  Web开发&quot;&gt;&lt;/a&gt;SpringBoot-05 </summary>
+        
+      
+    
+    
+    
+    <category term="SpringBoot" scheme="https://www.moyuzc.cn/categories/SpringBoot/"/>
+    
+    
+    <category term="SpringBoot" scheme="https://www.moyuzc.cn/tags/SpringBoot/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>SpringBoot-04 自动配置原理</title>
+    <link href="https://www.moyuzc.cn/2021/03/25/SpringBoot-04%20%E8%87%AA%E5%8A%A8%E9%85%8D%E7%BD%AE%E5%8E%9F%E7%90%86/"/>
+    <id>https://www.moyuzc.cn/2021/03/25/SpringBoot-04%20%E8%87%AA%E5%8A%A8%E9%85%8D%E7%BD%AE%E5%8E%9F%E7%90%86/</id>
+    <published>2021-03-24T16:00:00.000Z</published>
+    <updated>2021-03-26T04:24:05.315Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;SpringBoot-04-自动配置原理&quot;&gt;&lt;a href=&quot;#SpringBoot-04-自动配置原理&quot; class=&quot;headerlink&quot; title=&quot;SpringBoot-04 自动配置原理&quot;&gt;&lt;/a&gt;SpringBoot-04</summary>
+        
+      
+    
+    
+    
+    <category term="SpringBoot" scheme="https://www.moyuzc.cn/categories/SpringBoot/"/>
+    
+    
+    <category term="SpringBoot" scheme="https://www.moyuzc.cn/tags/SpringBoot/"/>
+    
+  </entry>
   
   <entry>
     <title>SpringBoot-03  yaml+JSR303</title>
@@ -480,60 +530,6 @@
         
         
     <summary type="html">&lt;h1 id=&quot;Spring-06-AOP&quot;&gt;&lt;a href=&quot;#Spring-06-AOP&quot; class=&quot;headerlink&quot; title=&quot;Spring-06  AOP&quot;&gt;&lt;/a&gt;Spring-06  AOP&lt;/h1&gt;&lt;h2 id=&quot;AOP&quot;&gt;&lt;a</summary>
-        
-      
-    
-    
-    
-    <category term="Spring" scheme="https://www.moyuzc.cn/categories/Spring/"/>
-    
-    
-    <category term="SSM" scheme="https://www.moyuzc.cn/tags/SSM/"/>
-    
-    <category term="Spring" scheme="https://www.moyuzc.cn/tags/Spring/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Spring-05  使用注解开发</title>
-    <link href="https://www.moyuzc.cn/2021/03/02/Spring-05%20%E4%BD%BF%E7%94%A8%E6%B3%A8%E8%A7%A3%E5%BC%80%E5%8F%91/"/>
-    <id>https://www.moyuzc.cn/2021/03/02/Spring-05%20%E4%BD%BF%E7%94%A8%E6%B3%A8%E8%A7%A3%E5%BC%80%E5%8F%91/</id>
-    <published>2021-03-01T16:00:00.000Z</published>
-    <updated>2021-03-02T16:04:55.585Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;Spring-05-使用注解开发&quot;&gt;&lt;a href=&quot;#Spring-05-使用注解开发&quot; class=&quot;headerlink&quot; title=&quot;Spring-05  使用注解开发&quot;&gt;&lt;/a&gt;Spring-05  使用注解开发&lt;/h1&gt;&lt;h2</summary>
-        
-      
-    
-    
-    
-    <category term="Spring" scheme="https://www.moyuzc.cn/categories/Spring/"/>
-    
-    
-    <category term="SSM" scheme="https://www.moyuzc.cn/tags/SSM/"/>
-    
-    <category term="Spring" scheme="https://www.moyuzc.cn/tags/Spring/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Spring-04  Bean的自动装配</title>
-    <link href="https://www.moyuzc.cn/2021/02/27/Spring-04%20Bean%E7%9A%84%E8%87%AA%E5%8A%A8%E8%A3%85%E9%85%8D/"/>
-    <id>https://www.moyuzc.cn/2021/02/27/Spring-04%20Bean%E7%9A%84%E8%87%AA%E5%8A%A8%E8%A3%85%E9%85%8D/</id>
-    <published>2021-02-26T16:00:00.000Z</published>
-    <updated>2021-02-27T15:29:37.430Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;Spring-04-Bean的自动装配&quot;&gt;&lt;a href=&quot;#Spring-04-Bean的自动装配&quot; class=&quot;headerlink&quot; title=&quot;Spring-04  Bean的自动装配&quot;&gt;&lt;/a&gt;Spring-04 </summary>
         
       
     
