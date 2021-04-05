@@ -6169,4 +6169,127 @@
         <tag>SpringBoot</tag>
       </tags>
   </entry>
+  <entry>
+    <title>SpringBoot-11  扩展功能</title>
+    <url>/2021/04/05/SpringBoot-11%20%20%E6%89%A9%E5%B1%95%E5%8A%9F%E8%83%BD/</url>
+    <content><![CDATA[<h1 id="SpringBoot-11-扩展功能"><a href="#SpringBoot-11-扩展功能" class="headerlink" title="SpringBoot-11  扩展功能"></a>SpringBoot-11  扩展功能</h1><h2 id="异步"><a href="#异步" class="headerlink" title="异步"></a>异步</h2><p><strong>同步</strong>就是一个任务的完成需要依赖另外一个任务时，只有等待被依赖的任务完成后，依赖的任务才能算完成，这是一种可靠的任务序列。要么成功都成功，失败都失败，两个任务的状态可以保持一致。</p>
+<p><strong>异步</strong>是不需要等待被依赖的任务完成，只是通知被依赖的任务要完成什么工作，依赖的任务也立即执行，只要自己完成了整个任务就算完成了。至于被依赖的任务最终是否真正完成，依赖它的任务无法确定，所以它是不可靠的任务序列。</p>
+<p><strong>但是在某些时刻，线程进行休眠，如果不进行异步编程，你就要等待休眠时间过去，程序才可以进行。</strong></p>
+<h3 id="Service层"><a href="#Service层" class="headerlink" title="Service层"></a>Service层</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Service</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">AsynService</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 要告诉Spring这是一个异步方法</span></span><br><span class="line">    <span class="meta">@Async</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">hello</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            Thread.sleep(<span class="number">3000</span>);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.printf(<span class="string">&quot;数据正在处理。。。。&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="controller层"><a href="#controller层" class="headerlink" title="controller层"></a>controller层</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@RestController</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">AsynController</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    AsynService asynService;</span><br><span class="line">    <span class="meta">@RequestMapping(&quot;/hello&quot;)</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">hello</span><span class="params">()</span></span>&#123;</span><br><span class="line">        asynService.hello();   <span class="comment">//停止3s</span></span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;OK&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="启动器"><a href="#启动器" class="headerlink" title="启动器"></a>启动器</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@SpringBootApplication</span></span><br><span class="line"><span class="meta">@EnableAsync</span>   <span class="comment">// 开启异步功能</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SpringBoot10AsynApplication</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        SpringApplication.run(SpringBoot10AsynApplication.class, args);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>这个时候，不会等待休眠结束才输出语句。</strong></p>
+<h2 id="邮箱"><a href="#邮箱" class="headerlink" title="邮箱"></a>邮箱</h2><h3 id="导入依赖"><a href="#导入依赖" class="headerlink" title="导入依赖"></a>导入依赖</h3><figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!--        邮件       --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-mail<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="Test类测试代码"><a href="#Test类测试代码" class="headerlink" title="Test类测试代码"></a>Test类测试代码</h3><h3 id="1-开启自己邮件smtp"><a href="#1-开启自己邮件smtp" class="headerlink" title="1.开启自己邮件smtp"></a>1.开启自己邮件smtp</h3><p>打开自己的邮箱，设置中开启：</p>
+<img src= "/img/loading.gif" data-lazy-src="https://gitee.com/MoYu-zc/picgo/raw/master/img/20210318184030.png" alt="1" style="zoom: 80%;" />
+
+<p>开启之后，经过验证，会出现授权码；授权码填入后面的密码处：</p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://gitee.com/MoYu-zc/picgo/raw/master/img/20210318184303.png" alt="2"></p>
+<h3 id="2-配置文件"><a href="#2-配置文件" class="headerlink" title="2.配置文件"></a>2.配置文件</h3><figure class="highlight properties"><table><tr><td class="code"><pre><span class="line"><span class="comment">#qq邮箱就.qq ; 163邮箱就.163</span></span><br><span class="line"><span class="meta">spring.mail.host</span>=<span class="string">smtp.qq.com</span></span><br><span class="line"><span class="meta">spring.mail.username</span>=<span class="string">1437101473@qq.com</span></span><br><span class="line"><span class="comment">#这里就是授权码</span></span><br><span class="line"><span class="meta">spring.mail.password</span>=<span class="string">owahyrpgzrtfbaca    </span></span><br><span class="line"><span class="meta">spring.mail.default-encoding</span>=<span class="string">utf-8</span></span><br><span class="line"><span class="comment"># 开启加密验证</span></span><br><span class="line"><span class="meta">spring.mail.properties.mail.smtp.ssl.enable</span>=<span class="string">true</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="3-注入邮件类"><a href="#3-注入邮件类" class="headerlink" title="3.注入邮件类"></a>3.注入邮件类</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Autowired</span></span><br><span class="line">JavaMailSenderImpl mailSender;</span><br></pre></td></tr></table></figure>
+
+<p><strong>问题：</strong></p>
+<p><strong>JavaMailSenderImpl</strong>  注入报错。</p>
+<p><strong>解决方法：</strong></p>
+<p>一、</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-mail<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">scope</span>&gt;</span>test<span class="tag">&lt;/<span class="name">scope</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>该依赖中存在 <scope>test</scope>，删除即可。</p>
+<p>二、</p>
+<p>配置文件中没加入 <strong>host</strong></p>
+<figure class="highlight properties"><table><tr><td class="code"><pre><span class="line"><span class="meta">spring.mail.host</span>=<span class="string">xxxx</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="4-简单邮件发送"><a href="#4-简单邮件发送" class="headerlink" title="4.简单邮件发送"></a>4.简单邮件发送</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">contextLoads</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    SimpleMailMessage message = <span class="keyword">new</span> SimpleMailMessage();</span><br><span class="line">    message.setSubject(<span class="string">&quot;这是一个Test&quot;</span>);  <span class="comment">// 标题</span></span><br><span class="line">    message.setText(<span class="string">&quot;这里是正文&quot;</span>);     <span class="comment">// 正文</span></span><br><span class="line">    message.setTo(<span class="string">&quot;1437101473@qq.com&quot;</span>);       <span class="comment">// 发送给</span></span><br><span class="line">    message.setFrom(<span class="string">&quot;1437101473@qq.com&quot;</span>);     <span class="comment">// 发送来自</span></span><br><span class="line"></span><br><span class="line">    mailSender.send(message);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<img src= "/img/loading.gif" data-lazy-src="https://gitee.com/MoYu-zc/picgo/raw/master/img/20210318184717.png" alt="3" style="zoom:80%;" />
+
+
+
+<h3 id="5-复杂邮件发送"><a href="#5-复杂邮件发送" class="headerlink" title="5.复杂邮件发送"></a>5.复杂邮件发送</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">contextLoads1</span><span class="params">()</span> <span class="keyword">throws</span> MessagingException </span>&#123;</span><br><span class="line">    MimeMessage message = mailSender.createMimeMessage();</span><br><span class="line">    MimeMessageHelper helper = <span class="keyword">new</span> MimeMessageHelper(message, <span class="keyword">true</span>);</span><br><span class="line">    <span class="comment">//组装</span></span><br><span class="line">    helper.setSubject(<span class="string">&quot;这是一个复杂邮件Test&quot;</span>);</span><br><span class="line">    helper.setText(<span class="string">&quot;&lt;h1&gt;这里是正文&lt;/h1&gt;&quot;</span>, <span class="keyword">true</span>);     <span class="comment">// 正文</span></span><br><span class="line">    <span class="comment">//附件</span></span><br><span class="line">    helper.addAttachment(<span class="string">&quot;1.jpg&quot;</span>, <span class="keyword">new</span> File(<span class="string">&quot;D:\\桌面\\1.jpg&quot;</span>));</span><br><span class="line"></span><br><span class="line">    helper.setTo(<span class="string">&quot;1437101473@qq.com&quot;</span>);       <span class="comment">// 发送给</span></span><br><span class="line">    helper.setFrom(<span class="string">&quot;1437101473@qq.com&quot;</span>);     <span class="comment">// 发送来自</span></span><br><span class="line"></span><br><span class="line">    mailSender.send(message);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<img src= "/img/loading.gif" data-lazy-src="https://gitee.com/MoYu-zc/picgo/raw/master/img/20210318184740.png" alt="4" style="zoom:95%;" />
+
+
+
+<h2 id="定时"><a href="#定时" class="headerlink" title="定时"></a>定时</h2><p>可以让一个操作进行<strong>定时开始</strong>，或者<strong>循环执行</strong>。</p>
+<h3 id="1-启动器开启定时功能"><a href="#1-启动器开启定时功能" class="headerlink" title="1.启动器开启定时功能"></a>1.启动器开启定时功能</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@SpringBootApplication</span></span><br><span class="line"><span class="meta">@EnableScheduling</span> <span class="comment">//开启定时功能</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SpringBoot10AsynApplication</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        SpringApplication.run(SpringBoot10AsynApplication.class, args);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-编写功能类"><a href="#2-编写功能类" class="headerlink" title="2.编写功能类"></a>2.编写功能类</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Service</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ScheduledService</span> </span>&#123;</span><br><span class="line">    <span class="comment">// cron表达式</span></span><br><span class="line">    <span class="comment">// 秒 分 时 日 月 周几</span></span><br><span class="line">    <span class="meta">@Scheduled(cron = &quot;0/2 * * * * ?&quot;)</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">hello</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;hello---&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-扩展"><a href="#3-扩展" class="headerlink" title="3.扩展"></a>3.扩展</h3><p>该功能使用的是<strong>cron表达式</strong>。</p>
+<p>当然，可以直接使用生成器：<a href="https://cron.qqe2.com/">https://cron.qqe2.com/</a></p>
+<p><strong>cron表达式格式：</strong></p>
+<p>{秒数} {分钟} {小时} {日期} {月份} {星期} {年份(可为空)}</p>
+<p>例 : “0 0 12 ? * WED”   ——-&gt; 在每星期三下午12:00 执行（年份通常 省略）</p>
+<table>
+<thead>
+<tr>
+<th>位置</th>
+<th>时间域名</th>
+<th>允许值</th>
+<th>允许的特殊字符</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>秒</td>
+<td>0-59</td>
+<td>, - * /</td>
+</tr>
+<tr>
+<td>2</td>
+<td>分钟</td>
+<td>0-59</td>
+<td>, - * /</td>
+</tr>
+<tr>
+<td>3</td>
+<td>小时</td>
+<td>0-23</td>
+<td>, - * /</td>
+</tr>
+<tr>
+<td>4</td>
+<td>日期</td>
+<td>1-31</td>
+<td>, - * / ？ L W C</td>
+</tr>
+<tr>
+<td>5</td>
+<td>月份</td>
+<td>1-12</td>
+<td>, - * /</td>
+</tr>
+<tr>
+<td>6</td>
+<td>星期</td>
+<td>1-7</td>
+<td>, - * / ？ L C #</td>
+</tr>
+<tr>
+<td>7</td>
+<td>年（可选）</td>
+<td>空值 1970-2099</td>
+<td>, - * /</td>
+</tr>
+</tbody></table>
+<p><strong>Cron表达式的时间字段除允许设置数值之外，还可以使用一些特殊的字符，提供列表、范围、通配符等功能：如下：</strong></p>
+<p>星号(<em>)：可用在所有的字段中，表示对应时间域的每一个时刻。如：</em>在分钟字段时，表示“每分钟”。<br>问号(?)：该字符只在日期和星期字段中使用，它通常指定为“无意义的值”，想当于占位符。<br>减号(-)：表达一个范围。如在小时字断中使用“10-12”，则表示从10点到12点，即10，11，12.<br>逗号(,)：表示一个列值表。如在星期字段中使用“MON,WED,FRI”，则表示星期一、星期三和星期五。<br>斜杠(/)：x/y表达一个等步长序列，x为起始值，y为增量步长值。如：在分钟字段中使用0/15，则表示0，15，30，和45秒；5/15在分钟字段中表示5，20，35和50分钟。用户也可以使用*/y，它等同于0/y。<br>L：该字段只在日期和星期字段中使用，代表“Last”的意思，但它在两个字段中的意思不同。如果L用在日期字段中，则表示这个月份的最后一天；如果L用在星期字段中，则表示星期六，等同于7（这里的规则是星期六为一星期的最后一天）。如果L出现在星期字段中，而且前面还有一个数字N，则表示“这个月的最后一个星期N”。例如，6L表示该月的最后一个星期五。<br>W：该字符只能出现在日期字段里，是对前导日期的修饰，表示离该日期最近的工作日。如：15W表示离该月15日最近的工作日，如果15日是星期六，则匹配14日星期五；如果15日是星期日，则匹配16日星期一；如果15日是星期二，那结果就是15日星期二。但必须注意到关联的匹配日期不能跨月，如用户指定1W，如果1日是星期六，结果匹配的是3日星期一，而非上个月最后一天。W字符只能指定单一日期，而不能指定日期范围。<br>LW组合：在日期字段中可以组合使用LW，它的意思是当月的最后一个工作日。<br>#号：该字符只能在星期字段中使用，表示当月的某个工作日。如6#3表示当月的第三个星期五（6表示星期五，#3表示当前的第三个），而4#5表示当月的第五个星期三。假设当月没有第五个星期三，则忽略不触发。<br>C：该字符只在日期和星期字段中使用，代表“Calendar”的意思。它的意思是计划所关联的日期，如果日期没有被关联，则相当于日历中的所有日期。例如，5C在日期字段中相当于5日以后的那一天，1C在星期字段中相当于星期日后的第一天。</p>
+<h3 id="常用的Cron表达式"><a href="#常用的Cron表达式" class="headerlink" title="常用的Cron表达式"></a>常用的Cron表达式</h3><p>“0 0 12 * * ?”           每天12:00运行<br>“0 15 10 ？* <em>”          每天10:15运行<br>“0 15 10 * * ?”          每天10:15运行<br>“0 15 10 * * ? *”        每天10:15运行<br>“0 15 10 * * ? 2008”      在2008年的每天10:15运行<br>“0 * 14 * * ?”         每天14点到15点每分钟运行一次，开始于14:00，结束于14:59<br>“0 0/5 14 * * ?”          每天14点到15点每5分钟运行一次，开始于14:00，结束于14:55<br>“0 0/5 14,18 * * ?”            每天14点到15点每5分钟运行一次，此外每天18点到19点每5分钟也运行一次<br>“0 0-5 14 * * ?”      每天14:00到14:05，每分钟运行一次<br>“0 10,44 14 ? 3 WED”         三月每周三的14:10和14:44，运行一次<br>“0 15 10 ？</em> MON-FRI”    每周一、二、三、四、五的10:15运行<br>“0 15 10 15 * ?”    每月的15日的10:15运行<br>“0 15 10 L * ?”    每月最后一天的10:15运行<br>“0 15 10 ? * 6L”    每月最后一个星期五的10:15运行<br>“0 15 10 ? * 6L 2014-2016”    2014年、2015年、2016年每月最后一个星期五的10:15运行<br>“0 15 10 ? * 6#3”    每月第三个星期五的10:15运行</p>
+<blockquote>
+<p>个人博客为：<br><a href="https://www.moyuzc.cn/">MoYu’s HomePage</a><br><a href="https://moyu-zc.gitee.io/">MoYu’s Gitee  Blog</a></p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>SpringBoot</category>
+      </categories>
+      <tags>
+        <tag>SpringBoot</tag>
+      </tags>
+  </entry>
 </search>
