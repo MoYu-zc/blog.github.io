@@ -6292,4 +6292,122 @@
         <tag>SpringBoot</tag>
       </tags>
   </entry>
+  <entry>
+    <title>SpringBoot-12  Dubbo+Zookeeper</title>
+    <url>/2021/04/07/SpringBoot-12%20%20Dubbo+Zookeeper/</url>
+    <content><![CDATA[<h1 id="SpringBoot-12-Dubbo-Zookeeper"><a href="#SpringBoot-12-Dubbo-Zookeeper" class="headerlink" title="SpringBoot-12  Dubbo+Zookeeper"></a>SpringBoot-12  Dubbo+Zookeeper</h1><h2 id="1-Dubbo概念"><a href="#1-Dubbo概念" class="headerlink" title="1.Dubbo概念"></a>1.Dubbo概念</h2><p>Apache Dubbo (incubating) |ˈdʌbəʊ| 是一款高性能、轻量级的开源Java RPC框架，它提供了六大核心能力：面向接口代理的高性能RPC调用，智能容错和负载均衡，服务自动注册和发现，高度可扩展能力，运行期流量调度，可视化的服务治理与运维。</p>
+<p>官网：<a href="http://dubbo.apache.org/">http://dubbo.apache.org/</a></p>
+<img src= "/img/loading.gif" data-lazy-src="https://gitee.com/MoYu-zc/picgo/raw/master/img/20210320103202.png" alt="1" style="zoom: 80%;" />
+
+<ul>
+<li><strong>服务提供者（Provider）</strong>：暴露服务的服务提供方，服务提供者在启动时，向注册中心注册自己提供的服务。</li>
+<li><strong>服务消费者（Consumer）</strong>：调用远程服务的服务消费方，服务消费者在启动时，向注册中心订阅自己所需的服务，服务消费者，从提供者地址列表中，基于软负载均衡算法，选一台提供者进行调用，如果调用失败，再选另一台调用。</li>
+<li><strong>注册中心（Registry）</strong>：注册中心返回服务提供者地址列表给消费者，如果有变更，注册中心将基于长连接推送变更数据给消费者</li>
+<li><strong>监控中心（Monitor）</strong>：服务消费者和提供者，在内存中累计调用X数和调用时间，定时每分钟发送一次统计数据到监控中心</li>
+</ul>
+<h4 id="调用关系说明"><a href="#调用关系说明" class="headerlink" title="调用关系说明"></a>调用关系说明</h4><ul>
+<li>服务容器负责启动，加载，运行服务提供者。</li>
+<li>服务提供者在启动时，向注册中心注册自己提供的服务1服务消费者在启动时，向注册中心订阅自己所需的服务</li>
+<li>注册中心返回服务提供者地址列表给消费者，如果有变更，注册中心将基于长连接推送变更数据给消费者。</li>
+<li>服务消费者，从提供者地址列表中，基于软负载均衡算法，选一台提供者进行调用，如果调用失败，再选另一台调用。</li>
+<li>服务消费者和提供者，在内存中累计调用次数和调用时间，定时每分钟发送一次统计数据到监控中心。</li>
+</ul>
+<h2 id="2-Dubbo环境搭建"><a href="#2-Dubbo环境搭建" class="headerlink" title="2.Dubbo环境搭建"></a>2.Dubbo环境搭建</h2><p> <strong>这里我们可以使用<a href="https://zookeeper.apache.org/">Zookeeper注册中心</a></strong></p>
+<h4 id="2-1-安装Zookeeper"><a href="#2-1-安装Zookeeper" class="headerlink" title="2.1 安装Zookeeper"></a>2.1 安装Zookeeper</h4><p>下载地址：<a href="http://mirror.bit.edu.cn/apache/zookeeper/zookeeper-3.6.2/">http://mirror.bit.edu.cn/apache/zookeeper/zookeeper-3.6.2/</a></p>
+<blockquote>
+<p>zookeeper 从 3.5 版本以后，命名就发生了改变</p>
+<p>如果是 apache-zookeeper-3.<em>.</em>.tar.gz 这般命名的，都是未编译的</p>
+<p>而 apache-zookeeper-3.<em>.</em>-bin.tar.gz 这般命名的，才是已编译的包</p>
+</blockquote>
+<p><strong>进入之后下载压缩包即可：</strong></p>
+<img src= "/img/loading.gif" data-lazy-src="https://gitee.com/MoYu-zc/picgo/raw/master/img/20210320120545.png" alt="2" style="zoom:90%;" />
+
+<p><strong>下载好解压：</strong></p>
+<img src= "/img/loading.gif" data-lazy-src="https://gitee.com/MoYu-zc/picgo/raw/master/img/20210320120722.png" alt="3" style="zoom:80%;" />
+
+<p>bin文件夹中有 <strong>zkServer.cmd</strong>，双击启动：</p>
+<img src= "/img/loading.gif" data-lazy-src="https://gitee.com/MoYu-zc/picgo/raw/master/img/20210320111740.png" alt="4" style="zoom:80%;" />
+
+
+
+<h4 id="2-2-遇到问题"><a href="#2-2-遇到问题" class="headerlink" title="2.2 遇到问题"></a>2.2 遇到问题</h4><blockquote>
+<p><strong>找不到或无法加载主类 org.apache.zookeeper.server.quorum.QuorumPeerMain</strong></p>
+</blockquote>
+<p><strong>原因分析：</strong></p>
+<p>zookeeper 从 3.5 版本以后，命名就发生了改变</p>
+<p>如果是 apache-zookeeper-*.tar.gz 这般命名的，都是未编译的</p>
+<p>而 apache-zookeeper-*-bin.tar.gz 这般命名的，才是已编译的包</p>
+<p><strong>解决方案：</strong><br>重新下载 apache-zookeeper-3.<em>.</em>-bin.tar.gz 包，然后解压使用。</p>
+<blockquote>
+<p><strong>闪退问题</strong></p>
+</blockquote>
+<p>第一次使用的话，可能会遇到<strong>闪退</strong>的问题：</p>
+<p><strong>解决方法：</strong></p>
+<p>编辑该文件，在 <strong>endlocal</strong> 上面一行加入 <strong>pause</strong></p>
+<p>该语句会使程序运行到这个地方停止，等待你的操作</p>
+<img src= "/img/loading.gif" data-lazy-src="https://gitee.com/MoYu-zc/picgo/raw/master/img/20210320112210.png" alt="5" style="zoom:80%;" />
+
+<p>双击打开：</p>
+<img src= "/img/loading.gif" data-lazy-src="https://gitee.com/MoYu-zc/picgo/raw/master/img/20210320121107.png" alt="6" style="zoom:80%;" />
+
+<p><strong>原因分析：</strong></p>
+<p>解压的文件夹根目录下，有一个<strong>conf文件夹</strong>，中间没有<strong>zoo.cfg</strong></p>
+<p><strong>解决方案：</strong><br>将文件中原有的<strong>zoo_sample.cfg</strong>复制一下，改名为<strong>zoo.cfg</strong></p>
+<p><strong>这时候就运行成功了</strong></p>
+<h4 id="2-3-Zookeeper运行"><a href="#2-3-Zookeeper运行" class="headerlink" title="2.3 Zookeeper运行"></a>2.3 Zookeeper运行</h4><p><strong>依次</strong> 先打开 bin文件夹下的：<strong>zkServer.cmd</strong> 、<strong>zkCli.cmd</strong></p>
+<img src= "/img/loading.gif" data-lazy-src="https://gitee.com/MoYu-zc/picgo/raw/master/img/20210320123134.png" alt="7" style="zoom:80%;" />
+
+<p>这说明已经运行成功。</p>
+<blockquote>
+<p> <strong>Zookeeper语句</strong></p>
+</blockquote>
+<p>1.查看现存有的文件夹</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">ls /</span><br></pre></td></tr></table></figure>
+
+<p>2.创建新文件夹</p>
+<p>下方语句意思为：创建一个<strong>zc</strong>文件夹，存值<strong>123</strong></p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">creste -e /zc 123</span><br></pre></td></tr></table></figure>
+
+<p>3.查看文件夹内容</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">get /zc</span><br></pre></td></tr></table></figure>
+
+<p><img src= "/img/loading.gif" data-lazy-src="https://gitee.com/MoYu-zc/picgo/raw/master/img/20210320123516.png" alt="8"></p>
+<h2 id="3-安装dubbo-admin"><a href="#3-安装dubbo-admin" class="headerlink" title="3.安装dubbo-admin"></a>3.安装dubbo-admin</h2><h4 id="3-1-下载项目"><a href="#3-1-下载项目" class="headerlink" title="3.1 下载项目"></a>3.1 下载项目</h4><p><a href="https://github.com/apache/dubbo-admin">dubbo-admin下载地址</a></p>
+<p><strong>注意</strong>：记得更改该项目分支为<strong>master</strong>再下载</p>
+<p>下载好解压，在根目录下  <strong>dubbo-admin—-src—-main—-resources文件夹</strong>下的 <strong>application.properties</strong></p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://gitee.com/MoYu-zc/picgo/raw/master/img/20210320152439.png" alt="9"></p>
+<figure class="highlight properties"><table><tr><td class="code"><pre><span class="line"><span class="meta">admin.registry.address</span>=<span class="string">zookeeper://127.0.0.1:2181</span></span><br></pre></td></tr></table></figure>
+
+<p>此处就是<strong>注册中心地址</strong></p>
+<h4 id="3-2-打包项目"><a href="#3-2-打包项目" class="headerlink" title="3.2 打包项目"></a>3.2 打包项目</h4><p>在cmd命令指示框进入到根目录：</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">mvn clean package -Dmaven.test.skip=<span class="literal">true</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>第一次打包项目是挺慢的。</strong></p>
+<img src= "/img/loading.gif" data-lazy-src="https://gitee.com/MoYu-zc/picgo/raw/master/img/20210320164021.png" alt="9" style="zoom:90%;" />
+
+<p>这时候进入  <strong>dubbo-admin—-target</strong>，会出现jar包</p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://gitee.com/MoYu-zc/picgo/raw/master/img/20210320164210.png" alt="11"></p>
+<h4 id="3-3-运行测试"><a href="#3-3-运行测试" class="headerlink" title="3.3 运行测试"></a>3.3 运行测试</h4><p>我们需要打开的网址为：<a href="http://localhost:7001/">http://localhost:7001/</a></p>
+<p>cmd下，执行该语句，这时候会发现报错。</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">java -jar dubbo-admin-0. 3. 0-SNAPSHOT. jar</span><br></pre></td></tr></table></figure>
+
+<p>然后我们先启动Zookeeper服务器，在启动jar包</p>
+<img src= "/img/loading.gif" data-lazy-src="https://gitee.com/MoYu-zc/picgo/raw/master/img/20210320164633.png" alt="12" style="zoom:80%;" />
+
+<p>默认账号密码都是：<strong>root</strong>，输入就进入了。</p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://gitee.com/MoYu-zc/picgo/raw/master/img/20210320164712.png" alt="13"></p>
+<h2 id="4-小结"><a href="#4-小结" class="headerlink" title="4.小结"></a>4.小结</h2><p><strong>zookeeper：注册中心</strong></p>
+<p><strong>dubbo-admin：是一个监控管理后台-查看我们注册了哪些服务，哪些服务被消费了</strong></p>
+<p><strong>Dubbo：jar包</strong></p>
+<blockquote>
+<p>个人博客为：<br><a href="https://www.moyuzc.cn/">MoYu’s HomePage</a><br><a href="https://moyu-zc.gitee.io/">MoYu’s Gitee  Blog</a></p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>SpringBoot</category>
+      </categories>
+      <tags>
+        <tag>SpringBoot</tag>
+      </tags>
+  </entry>
 </search>
