@@ -6497,4 +6497,98 @@
         <tag>SpringBoot</tag>
       </tags>
   </entry>
+  <entry>
+    <title>常用Linux操作</title>
+    <url>/2021/04/11/%E5%B8%B8%E7%94%A8Linux%E6%93%8D%E4%BD%9C/</url>
+    <content><![CDATA[<h1 id="常用Linux操作"><a href="#常用Linux操作" class="headerlink" title="常用Linux操作"></a>常用Linux操作</h1><blockquote>
+<p>这里我使用的是<strong>Git</strong>进行的Linux操作，如果你有<strong>服务器</strong>、或者<strong>LInux系统</strong>可以直接尝试</p>
+</blockquote>
+<p>首先保证自己电脑上成功安装好了Git，右键鼠标:</p>
+<img src= "/img/loading.gif" data-lazy-src="https://gitee.com/MoYu-zc/picgo/raw/master/img/20210331092959.png" alt="1" style="zoom:80%;" />
+
+<p>随便找一个文件夹(我这里使用的是桌面的<strong>GitTest</strong>文件夹)，右键点击<strong>Git Bash</strong> （启动的是Linux输入框）</p>
+<img src= "/img/loading.gif" data-lazy-src="https://gitee.com/MoYu-zc/picgo/raw/master/img/20210331093118.png" alt="2" style="zoom:90%;" />
+
+
+
+<ul>
+<li>cd：改变目录</li>
+</ul>
+<p>在GitTest文件夹中有一个 1 文件夹：</p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://gitee.com/MoYu-zc/picgo/raw/master/img/20210331093641.png" alt="3"></p>
+<ul>
+<li>cd..回退到上一个目录，直接cd进入默认目录</li>
+</ul>
+<p><img src= "/img/loading.gif" data-lazy-src="https://gitee.com/MoYu-zc/picgo/raw/master/img/20210331093700.png" alt="4"></p>
+<ul>
+<li>pwd：显示当前所在的目录路径。</li>
+</ul>
+<p><img src= "/img/loading.gif" data-lazy-src="https://gitee.com/MoYu-zc/picgo/raw/master/img/20210331093720.png" alt="5"></p>
+<ul>
+<li><p>clear：清屏        </p>
+<p><strong>这个输入之后全部消失了</strong></p>
+</li>
+</ul>
+<ul>
+<li>ls(||)：都是列出当前目录中的所有文件，只不过||（两个||）列出的内容更为详细</li>
+</ul>
+<p><strong>GitTest文件夹</strong>中有一个<strong>1文件夹</strong>和一个<strong>常用Linux操作.md</strong></p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://gitee.com/MoYu-zc/picgo/raw/master/img/20210331094056.png" alt="6"></p>
+<ul>
+<li>touch：新建一个文件</li>
+</ul>
+<img src= "/img/loading.gif" data-lazy-src="https://gitee.com/MoYu-zc/picgo/raw/master/img/20210331094311.png" alt="7" style="zoom: 67%;" />
+
+
+
+<ul>
+<li>rm：移除一个文件</li>
+</ul>
+<img src= "/img/loading.gif" data-lazy-src="https://gitee.com/MoYu-zc/picgo/raw/master/img/20210331094436.png" alt="8" style="zoom:67%;" />
+
+
+
+<ul>
+<li>mkdir：创建一个文件夹</li>
+</ul>
+<img src= "/img/loading.gif" data-lazy-src="https://gitee.com/MoYu-zc/picgo/raw/master/img/20210331095148.png" alt="9" style="zoom: 80%;" />
+
+
+
+<ul>
+<li>rm-r：删除一个文件夹</li>
+</ul>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">rm -rf /    递归清除根目录，切勿在Linux中尝试</span><br></pre></td></tr></table></figure>
+
+<p><img src= "/img/loading.gif" data-lazy-src="https://gitee.com/MoYu-zc/picgo/raw/master/img/20210331095542.png" alt="10"></p>
+<ul>
+<li>mv：移动文件</li>
+</ul>
+<p>创建一个test.html和一个test文件夹</p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://gitee.com/MoYu-zc/picgo/raw/master/img/20210331130921.png" alt="11"></p>
+<p><strong>之后使用命令</strong></p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://gitee.com/MoYu-zc/picgo/raw/master/img/20210331130936.png" alt="12"></p>
+<ul>
+<li><p>reset：重新初始化终端/清屏</p>
+<p><strong>可以理解为重启Git</strong></p>
+</li>
+<li><p>history：查看命令历史</p>
+<p><strong>会出现你曾经使用过了全部语句</strong></p>
+</li>
+</ul>
+<p><img src= "/img/loading.gif" data-lazy-src="https://gitee.com/MoYu-zc/picgo/raw/master/img/20210331131114.png" alt="13"></p>
+<ul>
+<li>help：帮助</li>
+<li>exit ：退出</li>
+</ul>
+<p>个人博客为：<br><a href="https://www.moyuzc.cn/">MoYu’s HomePage</a><br><a href="https://moyu-zc.gitee.io/">MoYu’s Gitee  Blog</a></p>
+]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>Git</tag>
+        <tag>Linux</tag>
+      </tags>
+  </entry>
 </search>
