@@ -44,6 +44,33 @@
   </entry>
   
   <entry>
+    <title>Mybatis-plus 上</title>
+    <link href="https://www.moyuzc.cn/2021/04/11/Mybatis-plus%20%E4%B8%8A/"/>
+    <id>https://www.moyuzc.cn/2021/04/11/Mybatis-plus%20%E4%B8%8A/</id>
+    <published>2021-04-10T16:00:00.000Z</published>
+    <updated>2021-04-11T14:49:25.146Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;Mybatis-plus-上&quot;&gt;&lt;a href=&quot;#Mybatis-plus-上&quot; class=&quot;headerlink&quot; title=&quot;Mybatis-plus 上&quot;&gt;&lt;/a&gt;Mybatis-plus 上&lt;/h1&gt;&lt;h2 id=&quot;简介&quot;&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="Mybatis-plus" scheme="https://www.moyuzc.cn/categories/Mybatis-plus/"/>
+    
+    
+    <category term="SpringBoot" scheme="https://www.moyuzc.cn/tags/SpringBoot/"/>
+    
+    <category term="Mybatis-plus" scheme="https://www.moyuzc.cn/tags/Mybatis-plus/"/>
+    
+  </entry>
+  
+  <entry>
     <title>SpringBoot-13  Dubbo实战</title>
     <link href="https://www.moyuzc.cn/2021/04/10/SpringBoot-13%20%20Dubbo%E5%AE%9E%E6%88%98/"/>
     <id>https://www.moyuzc.cn/2021/04/10/SpringBoot-13%20%20Dubbo%E5%AE%9E%E6%88%98/</id>
@@ -504,33 +531,6 @@
     <category term="Mybatis" scheme="https://www.moyuzc.cn/tags/Mybatis/"/>
     
     <category term="Spring" scheme="https://www.moyuzc.cn/tags/Spring/"/>
-    
-    <category term="SpringMVC" scheme="https://www.moyuzc.cn/tags/SpringMVC/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>SpringMVC-07  拦截器+文件上传下载</title>
-    <link href="https://www.moyuzc.cn/2021/03/11/SpringMVC-07%20%20%E6%8B%A6%E6%88%AA%E5%99%A8+%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%E4%B8%8B%E8%BD%BD/"/>
-    <id>https://www.moyuzc.cn/2021/03/11/SpringMVC-07%20%20%E6%8B%A6%E6%88%AA%E5%99%A8+%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%E4%B8%8B%E8%BD%BD/</id>
-    <published>2021-03-10T16:00:00.000Z</published>
-    <updated>2021-03-11T15:33:41.166Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;SpringMVC-07-拦截器-文件上传下载&quot;&gt;&lt;a href=&quot;#SpringMVC-07-拦截器-文件上传下载&quot; class=&quot;headerlink&quot; title=&quot;SpringMVC-07  拦截器+文件上传下载&quot;&gt;&lt;/a&gt;SpringMVC-07 </summary>
-        
-      
-    
-    
-    
-    <category term="SpringMVC" scheme="https://www.moyuzc.cn/categories/SpringMVC/"/>
-    
-    
-    <category term="SSM" scheme="https://www.moyuzc.cn/tags/SSM/"/>
     
     <category term="SpringMVC" scheme="https://www.moyuzc.cn/tags/SpringMVC/"/>
     
