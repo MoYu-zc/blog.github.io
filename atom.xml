@@ -6,7 +6,7 @@
   <link href="https://www.moyuzc.cn/atom.xml" rel="self"/>
   
   <link href="https://www.moyuzc.cn/"/>
-  <updated>2021-04-12T15:17:10.109Z</updated>
+  <updated>2021-04-15T14:50:28.174Z</updated>
   <id>https://www.moyuzc.cn/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Mybatis-plus 下</title>
+    <link href="https://www.moyuzc.cn/2021/04/15/Mybatis-plus%20%E4%B8%8B/"/>
+    <id>https://www.moyuzc.cn/2021/04/15/Mybatis-plus%20%E4%B8%8B/</id>
+    <published>2021-04-14T16:00:00.000Z</published>
+    <updated>2021-04-15T14:50:28.174Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;Mybatis-plus-下&quot;&gt;&lt;a href=&quot;#Mybatis-plus-下&quot; class=&quot;headerlink&quot; title=&quot;Mybatis-plus 下&quot;&gt;&lt;/a&gt;Mybatis-plus 下&lt;/h1&gt;&lt;h2 id=&quot;查询操作&quot;&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="Mybatis-plus" scheme="https://www.moyuzc.cn/categories/Mybatis-plus/"/>
+    
+    
+    <category term="SpringBoot" scheme="https://www.moyuzc.cn/tags/SpringBoot/"/>
+    
+    <category term="Mybatis-plus" scheme="https://www.moyuzc.cn/tags/Mybatis-plus/"/>
+    
+  </entry>
   
   <entry>
     <title>Mybatis-plus 上</title>
@@ -504,35 +531,6 @@
     <category term="Mybatis" scheme="https://www.moyuzc.cn/tags/Mybatis/"/>
     
     <category term="Spring" scheme="https://www.moyuzc.cn/tags/Spring/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>SSM整合</title>
-    <link href="https://www.moyuzc.cn/2021/03/19/SSM%E6%95%B4%E5%90%88/"/>
-    <id>https://www.moyuzc.cn/2021/03/19/SSM%E6%95%B4%E5%90%88/</id>
-    <published>2021-03-18T16:00:00.000Z</published>
-    <updated>2021-03-19T16:04:55.444Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;SSM整合&quot;&gt;&lt;a href=&quot;#SSM整合&quot; class=&quot;headerlink&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="SSM" scheme="https://www.moyuzc.cn/categories/SSM/"/>
-    
-    
-    <category term="Mybatis" scheme="https://www.moyuzc.cn/tags/Mybatis/"/>
-    
-    <category term="Spring" scheme="https://www.moyuzc.cn/tags/Spring/"/>
-    
-    <category term="SpringMVC" scheme="https://www.moyuzc.cn/tags/SpringMVC/"/>
     
   </entry>
   
