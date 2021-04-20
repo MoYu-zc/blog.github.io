@@ -6,7 +6,7 @@
   <link href="https://www.moyuzc.cn/atom.xml" rel="self"/>
   
   <link href="https://www.moyuzc.cn/"/>
-  <updated>2021-04-18T12:54:09.584Z</updated>
+  <updated>2021-04-20T15:55:12.854Z</updated>
   <id>https://www.moyuzc.cn/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Vue-Axios</title>
+    <link href="https://www.moyuzc.cn/2021/04/20/Vue-Axios/"/>
+    <id>https://www.moyuzc.cn/2021/04/20/Vue-Axios/</id>
+    <published>2021-04-19T16:00:00.000Z</published>
+    <updated>2021-04-20T15:55:12.854Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;Vue-Axios&quot;&gt;&lt;a href=&quot;#Vue-Axios&quot; class=&quot;headerlink&quot; title=&quot;Vue-Axios&quot;&gt;&lt;/a&gt;Vue-Axios&lt;/h1&gt;&lt;h2 id=&quot;什么是Axios&quot;&gt;&lt;a href=&quot;#什么是Axios&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="Vue" scheme="https://www.moyuzc.cn/categories/Vue/"/>
+    
+    
+    <category term="Vue" scheme="https://www.moyuzc.cn/tags/Vue/"/>
+    
+  </entry>
   
   <entry>
     <title>第一个 vue-cli项目</title>
@@ -500,31 +525,6 @@
     
     
     <category term="SpringBoot" scheme="https://www.moyuzc.cn/tags/SpringBoot/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Java 之 JUC</title>
-    <link href="https://www.moyuzc.cn/2021/03/21/Java%20%E4%B9%8B%20JUC/"/>
-    <id>https://www.moyuzc.cn/2021/03/21/Java%20%E4%B9%8B%20JUC/</id>
-    <published>2021-03-20T16:00:00.000Z</published>
-    <updated>2021-03-21T04:44:53.100Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;Java-之-JUC&quot;&gt;&lt;a href=&quot;#Java-之-JUC&quot; class=&quot;headerlink&quot; title=&quot;Java 之 JUC&quot;&gt;&lt;/a&gt;Java 之 JUC&lt;/h2&gt;&lt;h3 id=&quot;1-JUC-简介&quot;&gt;&lt;a href=&quot;#1-JUC-简介&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="JUC" scheme="https://www.moyuzc.cn/categories/JUC/"/>
-    
-    
-    <category term="JUC" scheme="https://www.moyuzc.cn/tags/JUC/"/>
     
   </entry>
   
