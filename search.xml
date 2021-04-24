@@ -7285,4 +7285,143 @@
         <tag>Vue</tag>
       </tags>
   </entry>
+  <entry>
+    <title>JWT</title>
+    <url>/2021/04/24/JWT/</url>
+    <content><![CDATA[<h1 id="JWT"><a href="#JWT" class="headerlink" title="JWT"></a>JWT</h1><h2 id="1-什么是JWT"><a href="#1-什么是JWT" class="headerlink" title="1.什么是JWT"></a>1.什么是JWT</h2><p><strong>JSON Web Token（JWT）</strong>是一个开放的行业标准（RFC 7519），它定义了一种简介的、自包含的协议格式用于在通信双方传递json对象，传递的信息经过数字签名可以被验证和信任，JWT可以使用<strong>HMAC</strong>算法或使用<strong>RSA</strong>的公钥私钥对来签名，防止被篡改。</p>
+<ul>
+<li>官网 <a href="https://jwt.io/">https://jwt.io/</a></li>
+<li>标准 <a href="https://tools.ietf.org/html/rfc7519">https://tools.ietf.org/html/rfc7519</a></li>
+</ul>
+<p><strong>优点：</strong></p>
+<ol>
+<li>jwt基于ison，非常方便解析</li>
+<li>可以在令牌中自定义丰富的内容，易扩展。</li>
+<li>通过非对称加密算法及数字签名技术，JwT防止算改，安全性高。</li>
+<li>资源服务使用JwT可不依赖认证服务即可完成授权。</li>
+</ol>
+<p><strong>缺点：</strong> JWT令牌较长，占存储空间比较大.</p>
+<h2 id="2-JWT组成"><a href="#2-JWT组成" class="headerlink" title="2.JWT组成"></a>2.JWT组成</h2><p> 一个 JWT 实际上就是一个字符串，它由三部分组成，第一部分我们称它为<strong>头部（header)</strong> , 第二部分我们称其为<strong>载荷（payload）</strong> ，第三部分是<strong>签证（signature)</strong></p>
+<h3 id="2-1-头部"><a href="#2-1-头部" class="headerlink" title="2.1 头部"></a>2.1 头部</h3><p>jwt的头部承载两部分信息：</p>
+<ul>
+<li>声明类型，这里是jwt</li>
+<li>声明加密的算法 通常直接使用 HMAC SHA256</li>
+</ul>
+<p>完整的头部就像下面这样的JSON：</p>
+<figure class="highlight"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &#x27;typ&#x27;: &#x27;JWT&#x27;,</span><br><span class="line">  &#x27;alg&#x27;: &#x27;HS256&#x27;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>然后将头部进行<strong>base64</strong>加密（该加密是可以对称解密的),构成了第一部分.</p>
+<figure class="highlight"><table><tr><td class="code"><pre><span class="line">eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9</span><br></pre></td></tr></table></figure>
+
+<p><strong>Base64</strong>是一种基于64个可打印字符来表示二进制数据的表示方法。由于2的6次方等于64，所以每6个比特为一个单元，对应某个可打印字符。三个字节有24个比特，对应于4个Base64单元，即3个字节需要用4个可打印字符来表示。</p>
+<p>JDK中提供了非常方便的<strong>BASE64Encoder</strong>和<strong>BASE64Decoder</strong>，用它们可以非常方便的完成基于BASE64的编码和解码。</p>
+<h3 id="2-2载荷"><a href="#2-2载荷" class="headerlink" title="2.2载荷"></a>2.2载荷</h3><p>载荷就是存放有效信息的地方。这个名字像是特指飞机上承载的货品，这些有效信息包含三个部分</p>
+<ul>
+<li>标准中注册的声明</li>
+<li>公共的声明</li>
+<li>私有的声明</li>
+</ul>
+<p><strong>标准中注册的声明</strong> (建议但不强制使用) ：</p>
+<ul>
+<li><strong>iss</strong>: jwt签发者</li>
+<li><strong>sub</strong>: jwt所面向的用户</li>
+<li><strong>aud</strong>: 接收jwt的一方</li>
+<li><strong>exp</strong>: jwt的过期时间，这个过期时间必须要大于签发时间</li>
+<li><strong>nbf</strong>: 定义在什么时间之前，该jwt都是不可用的.</li>
+<li><strong>iat</strong>: jwt的签发时间</li>
+<li><strong>jti</strong>: jwt的唯一身份标识，主要用来作为一次性token,从而回避重放攻击。</li>
+</ul>
+<p><strong>公共的声明</strong> ：<br>公共的声明可以添加任何的信息，一般添加用户的相关信息或其他业务需要的必要信息.但不建议添加敏感信息，因为该部分在客户端可解密.</p>
+<p><strong>私有的声明</strong> ：<br>私有声明是提供者和消费者所共同定义的声明，一般不建议存放敏感信息，因为base64是对称解密的，意味着该部分信息可以归类为明文信息。</p>
+<p>定义一个载荷：</p>
+<figure class="highlight json"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">&quot;sub&quot;</span>: <span class="string">&quot;123456&quot;</span>,</span><br><span class="line">  <span class="attr">&quot;name&quot;</span>: <span class="string">&quot;MoYu&quot;</span>,</span><br><span class="line">  <span class="attr">&quot;admin&quot;</span>: <span class="literal">true</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>然后将其进行base64加密，得到Jwt的第二部分:</p>
+<figure class="highlight"><table><tr><td class="code"><pre><span class="line">ewogICJzdWIiOiAiMTIzNDU2IiwKICAibmFtZSI6ICJNb1l1IiwKICAiYWRtaW4iOiB0cnVlCn0=</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>提示：不要放一些 <strong>敏感信息</strong></p>
+</blockquote>
+<h3 id="2-3-签证"><a href="#2-3-签证" class="headerlink" title="2.3 签证"></a>2.3 签证</h3><p>jwt的第三部分是一个签证信息，这个签证信息由三部分组成：</p>
+<ul>
+<li>header (base64后的)</li>
+<li>payload (base64后的)</li>
+<li>secret (<strong>一定要保密</strong>)</li>
+</ul>
+<blockquote>
+<p><strong>注意：</strong>secret是保存在服务器端的，jwt的签发生成也是在服务器端的，secret就是用来进行jwt的签发和jwt的验证，所以，它就是你服务端的私钥，在任何场景都不应该流露出去。一旦客户端得知这个secret, 那就意味着客户端是可以自我签发jwt了。</p>
+</blockquote>
+<p>作者：Dearmadman<br>链接：<a href="https://www.jianshu.com/p/576dbf44b2ae">https://www.jianshu.com/p/576dbf44b2ae</a><br>来源：简书<br>著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</p>
+<p>这个部分需要base64加密后的header和base64加密后的payload使用<code>.</code>连接组成的字符串，然后通过header中声明的加密方式进行加盐<code>secret</code>组合加密，然后就构成了jwt的第三部分。</p>
+<figure class="highlight"><table><tr><td class="code"><pre><span class="line">TJVA95OrM7E2cBab30RMHrHDcEfxjoYZgeFONFh7HgQ</span><br></pre></td></tr></table></figure>
+
+<p>将这三部分用<code>.</code>连接成一个完整的字符串,构成了最终的jwt:</p>
+<figure class="highlight"><table><tr><td class="code"><pre><span class="line">eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.ewogICJzdWIiOiAiMTIzNDU2IiwKICAibmFtZSI6ICJNb1l1IiwKICAiYWRtaW4iOiB0cnVlCn0=.TJVA95OrM7E2cBab30RMHrHDcEfxjoYZgeFONFh7HgQ</span><br></pre></td></tr></table></figure>
+
+<p><img src= "/img/loading.gif" data-lazy-src="https://gitee.com/MoYu-zc/picgo/raw/master/img/20210411005559.png" alt="1"></p>
+<h2 id="3-JWT-dome"><a href="#3-JWT-dome" class="headerlink" title="3.JWT-dome"></a>3.JWT-dome</h2><h3 id="3-1-生成token"><a href="#3-1-生成token" class="headerlink" title="3.1 生成token"></a>3.1 生成token</h3><p><strong>1.创建一个maven项目：</strong></p>
+<p>（该项目选用的Mavend的QuickStart版本，注意别选错）</p>
+<img src= "/img/loading.gif" data-lazy-src="https://gitee.com/MoYu-zc/picgo/raw/master/img/20210411010112.png" alt="2" style="zoom:80%;" />
+
+<p><strong>2.使其成为SpringBoot项目、导入依赖</strong></p>
+<p><strong>pom.xml 中加入</strong></p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">parent</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-parent<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.4.4<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">relativePath</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">parent</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-web<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--    JWT--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>io.jsonwebtoken<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>jjwt<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">version</span>&gt;</span>0.9.1<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-test<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">scope</span>&gt;</span>test<span class="tag">&lt;/<span class="name">scope</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">exclusions</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">exclusion</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.junit.vintage<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>junit-vintage-engine<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">exclusion</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">exclusions</span>&gt;</span><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>3.创建启动类</strong></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@SpringBootApplication</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Application</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        SpringApplication.run(Application.class,args);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>4.创建测试类</strong></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@SpringBootTest</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">JwtTest</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testJwt</span><span class="params">()</span></span>&#123;</span><br><span class="line">        JwtBuilder jwtBuilder = Jwts.builder()</span><br><span class="line">            <span class="comment">//设置id，&#123;“jti”:“888”&#125;</span></span><br><span class="line">            .setId(<span class="string">&quot;888&quot;</span>)</span><br><span class="line">            <span class="comment">//签发用户，&#123;&quot;sub&quot;:&quot;MoYu&quot;&#125;</span></span><br><span class="line">            .setSubject(<span class="string">&quot;MoYu&quot;</span>)</span><br><span class="line">            <span class="comment">//签发时间，&#123;&quot;iat&quot;:&quot;xxxxx&quot;&#125;</span></span><br><span class="line">            .setIssuedAt(<span class="keyword">new</span> Date())</span><br><span class="line">            .signWith(SignatureAlgorithm.HS256, <span class="string">&quot;xxxx&quot;</span>);</span><br><span class="line">        <span class="comment">//生成token</span></span><br><span class="line">        String token = jwtBuilder.compact();</span><br><span class="line">        System.out.println(token);</span><br><span class="line">        String[] split = token.split(<span class="string">&quot;\\.&quot;</span>);</span><br><span class="line">        <span class="comment">//头部</span></span><br><span class="line">        System.out.println(Base64Codec.BASE64.decodeToString(split[<span class="number">0</span>]));</span><br><span class="line">        <span class="comment">//载荷</span></span><br><span class="line">        System.out.println(Base64Codec.BASE64.decodeToString(split[<span class="number">1</span>]));</span><br><span class="line">        <span class="comment">//签名  乱码</span></span><br><span class="line">        System.out.println(Base64Codec.BASE64.decodeToString(split[<span class="number">2</span>]));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>  运行测试：</p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://gitee.com/MoYu-zc/picgo/raw/master/img/20210411012428.png" alt="3"></p>
+<p>将生成的jwt令牌在jwt官网查看：</p>
+<img src= "/img/loading.gif" data-lazy-src="https://gitee.com/MoYu-zc/picgo/raw/master/img/20210411012457.png" alt="4" style="zoom:80%;" />
+
+<h3 id="3-2-解析token"><a href="#3-2-解析token" class="headerlink" title="3.2 解析token"></a>3.2 解析token</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">parseToken</span><span class="params">()</span></span>&#123;</span><br><span class="line">    String token = <span class="string">&quot;eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiI4ODgiLCJzdWIiOiJNb1l1IiwiaWF0IjoxNjE4MTE5MDkwfQ.-GSkCkgflTs6IQHmWQjrgY6YD0hOgRBmFwG64x5mgdk&quot;</span>;</span><br><span class="line">    Claims claims = Jwts.parser()</span><br><span class="line">        .setSigningKey(<span class="string">&quot;xxxx&quot;</span>)</span><br><span class="line">        .parseClaimsJws(token)</span><br><span class="line">        .getBody();</span><br><span class="line">    </span><br><span class="line">    System.out.println(<span class="string">&quot;jti:&quot;</span>+claims.getId());</span><br><span class="line">    System.out.println(<span class="string">&quot;sub:&quot;</span>+claims.getSubject());</span><br><span class="line">    System.out.println(<span class="string">&quot;iat:&quot;</span>+claims.getIssuedAt());</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src= "/img/loading.gif" data-lazy-src="https://gitee.com/MoYu-zc/picgo/raw/master/img/20210411133358.png" alt="5"></p>
+<h3 id="3-3-token过期校验"><a href="#3-3-token过期校验" class="headerlink" title="3.3 token过期校验"></a>3.3 token过期校验</h3><p>创建一个带<code>过期时间exp</code>的token令牌</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 生成token(带过期时间)</span></span><br><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testJwtHasExp</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">long</span> now = System.currentTimeMillis();</span><br><span class="line">    <span class="comment">//过期时间</span></span><br><span class="line">    <span class="keyword">long</span> exp = now + <span class="number">60</span> * <span class="number">1000</span>;</span><br><span class="line">    JwtBuilder jwtBuilder = Jwts.builder()</span><br><span class="line">        <span class="comment">//设置id，&#123;“jti”:“888”&#125;</span></span><br><span class="line">        .setId(<span class="string">&quot;888&quot;</span>)</span><br><span class="line">        <span class="comment">//签发用户，&#123;&quot;sub&quot;:&quot;MoYu&quot;&#125;</span></span><br><span class="line">        .setSubject(<span class="string">&quot;MoYu&quot;</span>)</span><br><span class="line">        <span class="comment">//签发时间，&#123;&quot;iat&quot;:&quot;xxxxx&quot;&#125;</span></span><br><span class="line">        .setIssuedAt(<span class="keyword">new</span> Date())</span><br><span class="line">        .signWith(SignatureAlgorithm.HS256, <span class="string">&quot;xxxx&quot;</span>)</span><br><span class="line">        <span class="comment">//设置过期时间，&#123;“exp”:&quot;xxxx&quot;&#125;</span></span><br><span class="line">        .setExpiration(<span class="keyword">new</span> Date(exp));</span><br><span class="line">    <span class="comment">//生成token</span></span><br><span class="line">    String token = jwtBuilder.compact();</span><br><span class="line">    System.out.println(token);</span><br><span class="line">    String[] split = token.split(<span class="string">&quot;\\.&quot;</span>);</span><br><span class="line">    <span class="comment">//头部</span></span><br><span class="line">    System.out.println(Base64Codec.BASE64.decodeToString(split[<span class="number">0</span>]));</span><br><span class="line">    <span class="comment">//载荷</span></span><br><span class="line">    System.out.println(Base64Codec.BASE64.decodeToString(split[<span class="number">1</span>]));</span><br><span class="line">    <span class="comment">//签名  乱码</span></span><br><span class="line">    System.out.println(Base64Codec.BASE64.decodeToString(split[<span class="number">2</span>]));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src= "/img/loading.gif" data-lazy-src="https://gitee.com/MoYu-zc/picgo/raw/master/img/20210411134532.png" alt="6"></p>
+<p>对应的修改token解析方法：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 解析token(带过期时间)</span></span><br><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">parseTokenHasExp</span><span class="params">()</span></span>&#123;</span><br><span class="line">    String token = <span class="string">&quot;eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiI4ODgiLCJzdWIiOiJNb1l1IiwiaWF0IjoxNjE4MTE5NzY2LCJleHAiOjE2MTgxMTk4MjZ9.T5vAI5KK2QYY7W7qqWZXYn9JHHZ9kW6IdtTFg_hX98Q&quot;</span>;</span><br><span class="line">    Claims claims = Jwts.parser()</span><br><span class="line">        .setSigningKey(<span class="string">&quot;xxxx&quot;</span>)</span><br><span class="line">        .parseClaimsJws(token)</span><br><span class="line">        .getBody();</span><br><span class="line">    System.out.println(<span class="string">&quot;jti:&quot;</span>+claims.getId());</span><br><span class="line">    System.out.println(<span class="string">&quot;sub:&quot;</span>+claims.getSubject());</span><br><span class="line">    System.out.println(<span class="string">&quot;iat:&quot;</span>+claims.getIssuedAt());</span><br><span class="line">    SimpleDateFormat format = <span class="keyword">new</span> SimpleDateFormat(<span class="string">&quot;yyyy-MM-dd HH:mm:ss&quot;</span>);</span><br><span class="line">    System.out.println(<span class="string">&quot;过期时间:&quot;</span>+format.format(claims.getExpiration()));</span><br><span class="line">    System.out.println(<span class="string">&quot;签发时间:&quot;</span>+format.format(claims.getIssuedAt()));</span><br><span class="line">    System.out.println(<span class="string">&quot;当前时间:&quot;</span>+format.format(<span class="keyword">new</span> Date()));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>过期时间内：</strong></p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://gitee.com/MoYu-zc/picgo/raw/master/img/20210411134633.png" alt="7"></p>
+<p><strong>过期时间外：</strong></p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://gitee.com/MoYu-zc/picgo/raw/master/img/20210411134722.png" alt="8"></p>
+<h3 id="3-4-token自定义申明"><a href="#3-4-token自定义申明" class="headerlink" title="3.4  token自定义申明"></a>3.4  token自定义申明</h3><p>对于token的自定义申明有两种方式：</p>
+<ul>
+<li><strong>.addClaims()</strong> ，参数类型为 <strong>Map</strong></li>
+<li><strong>.claim(“xxxx”,”xxxx”)</strong> ，这个方法可以进行逐条添加</li>
+</ul>
+<p>生成带有自定义申明的toke令牌：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 生成token(自定义申明)</span></span><br><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testJwtHasClaims</span><span class="params">()</span></span>&#123;</span><br><span class="line">    JwtBuilder jwtBuilder = Jwts.builder()</span><br><span class="line">        <span class="comment">//设置id，&#123;“jti”:“888”&#125;</span></span><br><span class="line">        .setId(<span class="string">&quot;888&quot;</span>)</span><br><span class="line">        <span class="comment">//签发用户，&#123;&quot;sub&quot;:&quot;MoYu&quot;&#125;</span></span><br><span class="line">        .setSubject(<span class="string">&quot;MoYu&quot;</span>)</span><br><span class="line">        <span class="comment">//签发时间，&#123;&quot;iat&quot;:&quot;xxxxx&quot;&#125;</span></span><br><span class="line">        .setIssuedAt(<span class="keyword">new</span> Date())</span><br><span class="line">        .signWith(SignatureAlgorithm.HS256, <span class="string">&quot;xxxx&quot;</span>)</span><br><span class="line">        <span class="comment">//自定义申明  参数是map</span></span><br><span class="line">        <span class="comment">// .addClaims();</span></span><br><span class="line">        .claim(<span class="string">&quot;logo&quot;</span>,<span class="string">&quot;xxx,jpg&quot;</span>)</span><br><span class="line">        .claim(<span class="string">&quot;一句话&quot;</span>,<span class="string">&quot;这只是一句话&quot;</span>);</span><br><span class="line">    <span class="comment">//生成token</span></span><br><span class="line">    String token = jwtBuilder.compact();</span><br><span class="line">    System.out.println(token);</span><br><span class="line">    String[] split = token.split(<span class="string">&quot;\\.&quot;</span>);</span><br><span class="line">    <span class="comment">//头部</span></span><br><span class="line">    System.out.println(Base64Codec.BASE64.decodeToString(split[<span class="number">0</span>]));</span><br><span class="line">    <span class="comment">//载荷</span></span><br><span class="line">    System.out.println(Base64Codec.BASE64.decodeToString(split[<span class="number">1</span>]));</span><br><span class="line">    <span class="comment">//签名  乱码</span></span><br><span class="line">    System.out.println(Base64Codec.BASE64.decodeToString(split[<span class="number">2</span>]));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src= "/img/loading.gif" data-lazy-src="https://gitee.com/MoYu-zc/picgo/raw/master/img/20210411135929.png" alt="9"></p>
+<p>进行对带有<strong>自定义申明的token令牌</strong>进行解析：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 解析token(自定义申明)</span></span><br><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">parseTokenHasClaims</span><span class="params">()</span></span>&#123;</span><br><span class="line">    String token = <span class="string">&quot;eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiI4ODgiLCJzdWIiOiJNb1l1IiwiaWF0IjoxNjE4MTIwNTg0LCJsb2dvIjoieHh4LGpwZyIsIuS4gOWPpeivnSI6Iui_meWPquaYr-S4gOWPpeivnSJ9.m44gqMFO863jI5B2qjb9yXvaRJsIRYcfdEI3KiJgW1M&quot;</span>;</span><br><span class="line">    Claims claims = Jwts.parser()</span><br><span class="line">        .setSigningKey(<span class="string">&quot;xxxx&quot;</span>)</span><br><span class="line">        .parseClaimsJws(token)</span><br><span class="line">        .getBody();</span><br><span class="line">    System.out.println(<span class="string">&quot;jti:&quot;</span>+claims.getId());</span><br><span class="line">    System.out.println(<span class="string">&quot;sub:&quot;</span>+claims.getSubject());</span><br><span class="line">    System.out.println(<span class="string">&quot;iat:&quot;</span>+claims.getIssuedAt());</span><br><span class="line">    System.out.println(<span class="string">&quot;logo:&quot;</span>+claims.get(<span class="string">&quot;logo&quot;</span>));</span><br><span class="line">    System.out.println(<span class="string">&quot;一句话:&quot;</span>+claims.get(<span class="string">&quot;一句话&quot;</span>));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src= "/img/loading.gif" data-lazy-src="https://gitee.com/MoYu-zc/picgo/raw/master/img/20210411140147.png" alt="10"></p>
+<h3 id="3-5-刷新token令牌"><a href="#3-5-刷新token令牌" class="headerlink" title="3.5 刷新token令牌"></a>3.5 刷新token令牌</h3><p>刷新token令牌本质上就是，对之前的token令牌中的签发时间进行更新，从而生成新的token令牌</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">parseTokenRefresh</span><span class="params">()</span></span>&#123;</span><br><span class="line">    String token = <span class="string">&quot;eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiI4ODgiLCJzdWIiOiJNb1l1IiwiaWF0IjoxNjE4MTIwNTg0LCJsb2dvIjoieHh4LGpwZyIsIuS4gOWPpeivnSI6Iui_meWPquaYr-S4gOWPpeivnSJ9.m44gqMFO863jI5B2qjb9yXvaRJsIRYcfdEI3KiJgW1M&quot;</span>;</span><br><span class="line">    Claims claims = Jwts.parser()</span><br><span class="line">        .setSigningKey(<span class="string">&quot;xxxx&quot;</span>)</span><br><span class="line">        .parseClaimsJws(token)</span><br><span class="line">        .getBody();</span><br><span class="line">    <span class="comment">//更新签发时间</span></span><br><span class="line">    JwtBuilder jwtBuilder = Jwts.builder()</span><br><span class="line">        .setId(claims.getId())</span><br><span class="line">        .setSubject(claims.getSubject())</span><br><span class="line">        .setIssuedAt(<span class="keyword">new</span> Date())</span><br><span class="line">        .signWith(SignatureAlgorithm.HS256, <span class="string">&quot;xxxx&quot;</span>);</span><br><span class="line">    String refresh_token = jwtBuilder.compact();</span><br><span class="line"></span><br><span class="line">    System.out.println(<span class="string">&quot;更新前:&quot;</span>+token);</span><br><span class="line">    System.out.println(<span class="string">&quot;更新后:&quot;</span>+refresh_token);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src= "/img/loading.gif" data-lazy-src="https://gitee.com/MoYu-zc/picgo/raw/master/img/20210411145206.png" alt="11"></p>
+<blockquote>
+<p>个人博客为：<br><a href="https://www.moyuzc.cn/">MoYu’s Github Blog</a><br><a href="https://moyu-zc.gitee.io/">MoYu’s Gitee  Blog</a></p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>JWT</category>
+      </categories>
+      <tags>
+        <tag>JWT</tag>
+        <tag>token</tag>
+        <tag>加密</tag>
+      </tags>
+  </entry>
 </search>
