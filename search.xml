@@ -7629,6 +7629,166 @@
 <h4 id="2-修改配置类"><a href="#2-修改配置类" class="headerlink" title="2.修改配置类"></a>2.修改配置类</h4><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">configure</span><span class="params">(HttpSecurity http)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">    http.exceptionHandling().accessDeniedPage(<span class="string">&quot;/uuauth.html&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p><img src= "/img/loading.gif" data-lazy-src="https://gitee.com/MoYu-zc/picgo/raw/master/img/20210414150150.png" alt="9"></p>
+<blockquote>
+<p>个人博客为：<br><a href="https://www.moyuzc.cn/">MoYu’s Github Blog</a><br><a href="https://moyu-zc.gitee.io/">MoYu’s Gitee  Blog</a></p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>SpringSecurity</category>
+      </categories>
+      <tags>
+        <tag>SpringBoot</tag>
+        <tag>SpringSecurity</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Spring Security  下</title>
+    <url>/2021/05/06/Spring%20Security%20%20%E4%B8%8B/</url>
+    <content><![CDATA[<h1 id="Spring-Security-下"><a href="#Spring-Security-下" class="headerlink" title="Spring Security  下"></a>Spring Security  下</h1><h2 id="Security-注解使用"><a href="#Security-注解使用" class="headerlink" title="Security 注解使用"></a>Security 注解使用</h2><h3 id="1-Secured"><a href="#1-Secured" class="headerlink" title="1.@Secured"></a>1.@Secured</h3><blockquote>
+<p>判断是否具有角色，另外需要注意的是这里匹配的字符串需要添加前缀 <code>ROLE</code></p>
+</blockquote>
+<p>1.在 <code>启动类</code> 或者 <code>配置类</code> 上加入注解  开启该注解</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@EnableGlobalMethodSecurity(securedEnabled = true)</span></span><br></pre></td></tr></table></figure>
+
+<p>2.Controller层加入方法注解</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@GetMapping(&quot;/update&quot;)</span></span><br><span class="line"><span class="meta">@Secured(&#123;&quot;ROLE_sale&quot;,&quot;ROLE_man&quot;&#125;)</span>   <span class="comment">//有该权限才可以</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">update</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&quot;update&quot;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>3.在UserDetailsService实现类中添加权限</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">List&lt;GrantedAuthority&gt; auths =</span><br><span class="line">                AuthorityUtils.commaSeparatedStringToAuthorityList(<span class="string">&quot;admins,ROLE_user&quot;</span>);</span><br></pre></td></tr></table></figure>
+
+<p>4.运行测试</p>
+<p><strong>你登陆之后，如果登录用户没有对应权限，就算是可以登陆上去，也无法进入该路径</strong></p>
+<h3 id="2-PreAuthorize"><a href="#2-PreAuthorize" class="headerlink" title="2.@PreAuthorize"></a>2.@PreAuthorize</h3><blockquote>
+<p>该注解适合进入方法前的权限验证 ，可以将登录用户的 <code>roles/permissions</code> 参数传到方法中。.</p>
+</blockquote>
+<p>1.在 <code>启动类</code> 或者 <code>配置类</code> 上加入注解  开启该注解</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@EnableGlobalMethodSecurity(prePostEnabled = true)</span></span><br></pre></td></tr></table></figure>
+
+<p>2.Controller层加入方法注解</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@GetMapping(&quot;/update&quot;)</span></span><br><span class="line"><span class="meta">@PreAuthorize(&quot;hasAnyAuthority(&#x27;admins&#x27;)&quot;)</span></span><br><span class="line">    <span class="comment">/* @PreAuthorize(&quot;hasAnyAuthority(&#x27;admins&#x27;)&quot;) </span></span><br><span class="line"><span class="comment">    *  @PreAuthorize(&quot;hasRole(&#x27;admins&#x27;)&quot;)</span></span><br><span class="line"><span class="comment">    */</span> <span class="meta">@PreAuthorize(&quot;hasAnyRole(&#x27;admins&#x27;)&quot;)</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">update</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&quot;update&quot;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>3.在UserDetailsService实现类中添加权限</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">List&lt;GrantedAuthority&gt; auths =</span><br><span class="line">                AuthorityUtils.commaSeparatedStringToAuthorityList(<span class="string">&quot;admins,ROLE_user&quot;</span>);</span><br></pre></td></tr></table></figure>
+
+<p>4.运行测试</p>
+<p><strong>该方法，与在配置类中给网页加上进入权限相同，连四个方法都完全一样</strong></p>
+<h3 id="3-PostAuthorize"><a href="#3-PostAuthorize" class="headerlink" title="3.@PostAuthorize"></a>3.@PostAuthorize</h3><blockquote>
+<p>该注解使用不多，在方法执行后再进行权限验证，适合验证带有返回值的权限</p>
+</blockquote>
+<p>1.在 <code>启动类</code> 或者 <code>配置类</code> 上加入注解  开启该注解</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@EnableGlobalMethodSecurity(prePostEnabled = true)</span></span><br></pre></td></tr></table></figure>
+
+<p>2.Controller层加入方法注解</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@GetMapping(&quot;/update&quot;)</span></span><br><span class="line"><span class="meta">@PostAuthorize(&quot;hasAnyAuthority(&#x27;admin&#x27;)&quot;)</span>  <span class="comment">//也是参数为 四种方法</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">update</span><span class="params">()</span></span>&#123;</span><br><span class="line">    System.out.println(<span class="string">&quot;update。。。&quot;</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&quot;update&quot;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>3.在UserDetailsService实现类中添加权限</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">List&lt;GrantedAuthority&gt; auths =</span><br><span class="line">                AuthorityUtils.commaSeparatedStringToAuthorityList(<span class="string">&quot;admins,ROLE_user&quot;</span>);</span><br></pre></td></tr></table></figure>
+
+<p>4.运行测试</p>
+<p><strong>该注解下，虽然权限不足仍然无法进入页面或者返回信息，但是可以先运行方法体中的内容，再校验</strong></p>
+<p><strong>所以对于上面的实例，进入路径后，虽然还是显示 没权限403，但是 <code>update</code> 会输出</strong></p>
+<h3 id="4-PostFilter"><a href="#4-PostFilter" class="headerlink" title="4.@PostFilter"></a>4.@PostFilter</h3><blockquote>
+<p>权限验证之后对<strong>返回的数据</strong>进行过滤</p>
+</blockquote>
+<p>1.在 <code>启动类</code> 或者 <code>配置类</code> 上加入注解  开启该注解</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@EnableGlobalMethodSecurity(prePostEnabled = true)</span></span><br></pre></td></tr></table></figure>
+
+<p>2.Controller层加入方法注解</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@GetMapping(&quot;getAll&quot;)</span></span><br><span class="line"><span class="meta">@PostAuthorize(&quot;hasAnyAuthority(&#x27;admins&#x27;) &quot;)</span></span><br><span class="line"><span class="meta">@PostFilter(&quot;filterObject.username == &#x27;admin1&#x27;&quot;)</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> List&lt;Users&gt; <span class="title">getAllUser</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    ArrayList&lt;Users&gt; list = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">    list.add(<span class="keyword">new</span> Users(<span class="number">1</span>, <span class="string">&quot;admin1&quot;</span>, <span class="string">&quot;666&quot;</span>));</span><br><span class="line">    list.add(<span class="keyword">new</span> Users(<span class="number">2</span>, <span class="string">&quot; admin2&quot;</span>, <span class="string">&quot;888&quot;</span>));</span><br><span class="line">    <span class="keyword">return</span> list;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>3.在UserDetailsService实现类中添加权限</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">List&lt;GrantedAuthority&gt; auths =</span><br><span class="line">                AuthorityUtils.commaSeparatedStringToAuthorityList(<span class="string">&quot;admins,ROLE_user&quot;</span>);</span><br></pre></td></tr></table></figure>
+
+<p>4.运行测试</p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://gitee.com/MoYu-zc/picgo/raw/master/img/20210414160713.png" alt="1"></p>
+<h3 id="5-PreFilter"><a href="#5-PreFilter" class="headerlink" title="5.@PreFilter"></a>5.@PreFilter</h3><blockquote>
+<p>进入控制器之前对<strong>传递回来的数据</strong>进行过滤</p>
+</blockquote>
+<p>和 <code>@PostFilter</code> 类似， 不做演示</p>
+<h2 id="用户注销"><a href="#用户注销" class="headerlink" title="用户注销"></a>用户注销</h2><p><strong>1.创建登录成功页面</strong></p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;en&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Title<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    登录成功！</span><br><span class="line">    <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;/logout&quot;</span>&gt;</span>退出<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>2.配置类中配置注销功能</strong></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">configure</span><span class="params">(HttpSecurity http)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">    <span class="comment">//注销，第一个路径为 退出是设置的路径 ； 第二个路径为 成功退出后的路径</span></span><br><span class="line">    http.logout().logoutUrl(<span class="string">&quot;/logout&quot;</span>).logoutSuccessUrl(<span class="string">&quot;/login.html&quot;</span>).permitAll();</span><br><span class="line">    http.exceptionHandling().accessDeniedPage(<span class="string">&quot;/uuauth.html&quot;</span>);</span><br><span class="line">    http.formLogin()   </span><br><span class="line">        .loginPage(<span class="string">&quot;/login.html&quot;</span>) </span><br><span class="line">        .loginProcessingUrl(<span class="string">&quot;/user/login&quot;</span>) </span><br><span class="line">        .defaultSuccessUrl(<span class="string">&quot;/success.html&quot;</span>).permitAll()  <span class="comment">//这里更换为登录成功页面</span></span><br><span class="line">        .and().authorizeRequests()</span><br><span class="line">        .antMatchers(<span class="string">&quot;/&quot;</span>,<span class="string">&quot;/hello&quot;</span>,<span class="string">&quot;/user/login&quot;</span>) </span><br><span class="line">        .permitAll()</span><br><span class="line">        .antMatchers(<span class="string">&quot;/index&quot;</span>).hasRole(<span class="string">&quot;user&quot;</span>)</span><br><span class="line">        .anyRequest().authenticated()</span><br><span class="line">        .and().csrf().disable(); </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>3.运行测试</strong></p>
+<p>上述两个操作已经足够了</p>
+<p>登录页面之后，会出现在 成功登录页面 ，这时候 你进入其他的页面也是可以的(如果权限允许)</p>
+<p>点击退出，返回设置好的页面，这时候  其他页面都无法进入</p>
+<h2 id="基于数据库实现记住我"><a href="#基于数据库实现记住我" class="headerlink" title="基于数据库实现记住我"></a>基于数据库实现记住我</h2><p><img src= "/img/loading.gif" data-lazy-src="https://gitee.com/MoYu-zc/picgo/raw/master/img/20210414200748.png" alt="2"></p>
+<blockquote>
+<p><strong>步骤：</strong></p>
+</blockquote>
+<ol>
+<li><p>创建数据库</p>
+</li>
+<li><p>配置类 、配置数据源</p>
+</li>
+<li><p>配置类中 配置 自动登录</p>
+</li>
+<li><p>登陆页面添加 复选框</p>
+</li>
+</ol>
+<hr>
+<p>1.创建数据库  </p>
+<p>该数据库语句是 Security 框架中 <strong>内置的创建语句</strong></p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> <span class="string">`persistent_logins`</span>( </span><br><span class="line"><span class="string">`username`</span> <span class="built_in">varchar</span>(<span class="number">64</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line"><span class="string">`series`</span> <span class="built_in">varchar</span>(<span class="number">64</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line"><span class="string">`token`</span> <span class="built_in">varchar</span>(<span class="number">64</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span>, </span><br><span class="line"><span class="string">`last_used`</span> <span class="built_in">timestamp</span> <span class="keyword">NOT</span> <span class="literal">NULL</span> <span class="keyword">DEFAULT</span> <span class="keyword">CURRENT_TIMESTAMP</span> <span class="keyword">ON</span> <span class="keyword">UPDATE</span> <span class="keyword">CURRENT_TIMESTAMP</span>,</span><br><span class="line"> PRIMARY <span class="keyword">KEY</span> (series)</span><br><span class="line">) <span class="keyword">ENGINE</span>=<span class="keyword">InnoDB</span> <span class="keyword">DEFAULT</span> <span class="keyword">CHARSET</span>=utf8</span><br></pre></td></tr></table></figure>
+
+<p>2.配置数据源</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Autowired</span></span><br><span class="line"><span class="keyword">private</span> DataSource dataSource;</span><br><span class="line"><span class="meta">@Bean</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> PersistentTokenRepository <span class="title">persistentTokenRepository</span><span class="params">()</span></span>&#123;</span><br><span class="line">    JdbcTokenRepositoryImpl jdbcTokenRepository = <span class="keyword">new</span> JdbcTokenRepositoryImpl();</span><br><span class="line">    jdbcTokenRepository.setDataSource(dataSource);</span><br><span class="line">    <span class="comment">// jdbcTokenRepository.setCreateTableOnStartup(true);  启动时 创建表</span></span><br><span class="line">    <span class="keyword">return</span> jdbcTokenRepository;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>3.配置自动登录</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">configure</span><span class="params">(HttpSecurity http)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">    http.logout().logoutUrl(<span class="string">&quot;/logout&quot;</span>).logoutSuccessUrl(<span class="string">&quot;/login.html&quot;</span>).permitAll();</span><br><span class="line">    http.exceptionHandling().accessDeniedPage(<span class="string">&quot;/uuauth.html&quot;</span>);</span><br><span class="line">    http.formLogin()   </span><br><span class="line">        .loginPage(<span class="string">&quot;/login.html&quot;</span>)  </span><br><span class="line">        .loginProcessingUrl(<span class="string">&quot;/user/login&quot;</span>) </span><br><span class="line">        .defaultSuccessUrl(<span class="string">&quot;/success.html&quot;</span>).permitAll()  </span><br><span class="line">        .and().authorizeRequests()</span><br><span class="line">        .antMatchers(<span class="string">&quot;/&quot;</span>,<span class="string">&quot;/hello&quot;</span>,<span class="string">&quot;/user/login&quot;</span>) </span><br><span class="line">        .permitAll()   </span><br><span class="line">        .antMatchers(<span class="string">&quot;/index&quot;</span>).hasRole(<span class="string">&quot;user&quot;</span>)</span><br><span class="line">        .anyRequest().authenticated()</span><br><span class="line">        </span><br><span class="line">        .and().rememberMe().tokenRepository(persistentTokenRepository())</span><br><span class="line">        .tokenValiditySeconds(<span class="number">60</span>)   <span class="comment">//设置有效时长</span></span><br><span class="line">        .userDetailsService(userDetailsService)</span><br><span class="line"></span><br><span class="line">        .and().csrf().disable(); </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>4.登陆页面添加 记住我</p>
+<figure class="highlight"><table><tr><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=<span class="string">&quot;en&quot;</span>&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset=<span class="string">&quot;UTF-8&quot;</span>&gt;</span><br><span class="line">    &lt;title&gt;Title&lt;/title&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;form method=<span class="string">&quot;post&quot;</span> action=<span class="string">&quot;/user/login&quot;</span>&gt;</span><br><span class="line">        用户名：&lt;input type=<span class="string">&quot;text&quot;</span> name=<span class="string">&quot;username&quot;</span>&gt;</span><br><span class="line">        &lt;br&gt;</span><br><span class="line">        密码：&lt;input type=<span class="string">&quot;text&quot;</span> name=<span class="string">&quot;password&quot;</span>&gt;</span><br><span class="line">        &lt;br&gt;</span><br><span class="line">        &lt;input type=<span class="string">&quot;checkbox&quot;</span> name=<span class="string">&quot;remember-me&quot;</span>&gt; 自动登录   &lt;!-- name 必须为 <span class="string">&quot;remember-me&quot;</span>  --&gt;</span><br><span class="line">        &lt;br&gt;</span><br><span class="line">        &lt;input type=<span class="string">&quot;submit&quot;</span> value=<span class="string">&quot;login&quot;</span>&gt;</span><br><span class="line">    &lt;/form&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+
+<p>5.运行测试</p>
+<p>等着之后，数据会存在 cookie  中 ; 也因为数据库为框架内部设置好的，所以也会存在数据库表中</p>
+<img src= "/img/loading.gif" data-lazy-src="https://gitee.com/MoYu-zc/picgo/raw/master/img/20210414234022.png" alt="3"  />
+
+<p><img src= "/img/loading.gif" data-lazy-src="https://gitee.com/MoYu-zc/picgo/raw/master/img/20210414234026.png" alt="4"></p>
+<h2 id="CSRF-保护"><a href="#CSRF-保护" class="headerlink" title="CSRF 保护"></a>CSRF 保护</h2><blockquote>
+<p>CSRF（Cross-site request forgery）跨站请求伪造，也被称为“One Click Attack“或者Session Riding，通常缩写为CSRF或XSRF，是一种对网站的恶意攻击。是一种依赖web浏览器的、被混淆过的代理人攻击。</p>
+<p><strong>常见特性:</strong></p>
+<ul>
+<li>依靠用户标识危害网站</li>
+<li>利用网站对用户表识的信任</li>
+<li>欺骗用户的浏览器发送HTTP请求给目标站点</li>
+<li>可以通过IMG标签会触发一个GET请求，可以利用它来实现CSRF攻击。</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>该种方式只能对 <code>POST</code> 、<code>PUT</code> 、 <code>DELETE</code> 、<code>PATCH</code>  发送方式进行保护</p>
+</blockquote>
+<p>1.引入依赖</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!-- thymeleaf 引擎 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.thymeleaf.extras<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>thymeleaf-extras-springsecurity4<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>3.0.2.RELEASE<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>2.创建CSRF测试前端页面</p>
+<p>先直接在static文件夹下创建一个login页面</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;en&quot;</span>  <span class="attr">xmlns:th</span>=<span class="string">&quot;http://www.thymeleaf.org&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Title<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">form</span> <span class="attr">method</span>=<span class="string">&quot;post&quot;</span> <span class="attr">action</span>=<span class="string">&quot;/user/login&quot;</span>&gt;</span></span><br><span class="line">        用户名：<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> <span class="attr">name</span>=<span class="string">&quot;username&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">        密码：<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> <span class="attr">name</span>=<span class="string">&quot;password&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;checkbox&quot;</span> <span class="attr">name</span>=<span class="string">&quot;remember-me&quot;</span>&gt;</span> 自动登录</span><br><span class="line">        <span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">         <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;submit&quot;</span> <span class="attr">value</span>=<span class="string">&quot;login&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>首先在resources文件夹下创建 templates 文件夹， Spring Boot 默认Controller层跳转路径为该文件夹下页面</p>
+<p>csrf.html</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;en&quot;</span>  <span class="attr">xmlns:th</span>=<span class="string">&quot;http://www.thymeleaf.org&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Title<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">form</span> <span class="attr">method</span>=<span class="string">&quot;post&quot;</span> <span class="attr">action</span>=<span class="string">&quot;token&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;hidden&quot;</span>  <span class="attr">th:name</span>= <span class="string">&quot;$&#123;_csrf.parameterName&#125;&quot;</span> <span class="attr">th:value</span>=<span class="string">&quot;$&#123;_csrf.token&#125;&quot;</span> /&gt;</span></span><br><span class="line">        用户名：<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> <span class="attr">name</span>=<span class="string">&quot;username&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">        密码：<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> <span class="attr">name</span>=<span class="string">&quot;password&quot;</span>&gt;</span></span><br><span class="line"></span><br><span class="line">         <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;submit&quot;</span> <span class="attr">value</span>=<span class="string">&quot;login&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>csrf_success.html</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;en&quot;</span> <span class="attr">xmlns:th</span>=<span class="string">&quot;http://www.thymeleaf.org&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Title<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">span</span> <span class="attr">th:text</span>=<span class="string">&quot;$&#123;_csrf.token&#125;&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span> <span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>3.创建Controller层代码</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Controller</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CSRFController</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@GetMapping(&quot;/csrf&quot;)</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">csrf</span><span class="params">(Model model)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;csrf&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="meta">@PostMapping(&quot;/csrf_success&quot;)</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">success</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;csrf_success&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>4.修改配置类代码</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">http.formLogin()</span><br><span class="line">    .loginProcessingUrl(<span class="string">&quot;/user/login&quot;</span>) </span><br><span class="line">    .defaultSuccessUrl(<span class="string">&quot;/&quot;</span>).permitAll() </span><br><span class="line">    .and().authorizeRequests()</span><br><span class="line">    .antMatchers(<span class="string">&quot;/&quot;</span>,<span class="string">&quot;/csrf&quot;</span>,<span class="string">&quot;/user/login&quot;</span>) </span><br><span class="line">    .permitAll();</span><br><span class="line"><span class="comment">//	.and().csrf().disable(); //关闭csrf</span></span><br></pre></td></tr></table></figure>
+
+<p>5.运行测试</p>
+<p>这时候已经将CSRF开启了，这时候进入测试路径：</p>
+<p><a href="http://localhost:8081/csrf">http://localhost:8081/csrf</a></p>
+<p>输入账号密码，会成功进入 /csrf_success   ； 并且页面中显示 <code>_csrf.token</code></p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://gitee.com/MoYu-zc/picgo/raw/master/img/20210415103149.png" alt="5"></p>
+<blockquote>
+<p>个人博客为：<br><a href="https://www.moyuzc.cn/">MoYu’s Github Blog</a><br><a href="https://moyu-zc.gitee.io/">MoYu’s Gitee  Blog</a></p>
+</blockquote>
 ]]></content>
       <categories>
         <category>SpringSecurity</category>
