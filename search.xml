@@ -7798,4 +7798,34 @@
         <tag>SpringSecurity</tag>
       </tags>
   </entry>
+  <entry>
+    <title>source is null for getProperty(null, &quot;name&quot;)</title>
+    <url>/2021/05/07/source%20is%20null%20for%20getProperty(null,%20name)/</url>
+    <content><![CDATA[<h1 id="source-is-null-for-getProperty-null-“name”"><a href="#source-is-null-for-getProperty-null-“name”" class="headerlink" title="source is null for getProperty(null, “name”)"></a>source is null for getProperty(null, “name”)</h1><p>这个问题的发生一般是在 <code>Mapper.xml</code> 的 sql语句中出错。</p>
+<p>我在项目中使用到了，用到了XML中的判断条件查询方式，代码如下：</p>
+<figure class="highlight"><table><tr><td class="code"><pre><span class="line">&lt;if test=&quot;employee.name != null and employee.name != &#x27;&#x27;&quot;&gt;</span><br><span class="line">    AND e.`name` LIKE CONCAT( &#x27;%&#x27;, <span class="comment">#&#123;employee.name&#125;, &#x27;%&#x27; )</span></span><br><span class="line">&lt;/if&gt;</span><br></pre></td></tr></table></figure>
+
+<p>上述语句的简单来说，当传过来的<code>employee.name</code>不等于 <code>null</code> 并且不等于 <code>&#39;&#39;</code>  ，就按这个条件查询，这时候运行项目，报错：</p>
+<p>==source is null for getProperty(null, “name”)==</p>
+<p>这时候可能有两个原因：</p>
+<h4 id="一、你并没有对应的对象参数"><a href="#一、你并没有对应的对象参数" class="headerlink" title="一、你并没有对应的对象参数"></a>一、你并没有对应的对象参数</h4><p>你可以查看方法参数中是否有<code>对应的对象参数</code> ；</p>
+<p>例如：我这个方法中要查看是否有 <code>employee</code></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//  错误</span></span><br><span class="line"><span class="function">List&lt;Employee&gt; <span class="title">getEmployee</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//  正确</span></span><br><span class="line"><span class="function">List&lt;Employee&gt; <span class="title">getEmployee</span><span class="params">(Employee employee)</span></span>;</span><br></pre></td></tr></table></figure>
+
+<h4 id="二、有对应对象，但是对象传值为NULL"><a href="#二、有对应对象，但是对象传值为NULL" class="headerlink" title="二、有对应对象，但是对象传值为NULL"></a>二、有对应对象，但是对象传值为NULL</h4><p>这种情况可以在外层加入判断：</p>
+<figure class="highlight"><table><tr><td class="code"><pre><span class="line">&lt;if test=&quot;employee != null and employee != &#x27;&#x27; &quot;&gt;</span><br><span class="line">	&lt;if test=&quot;employee.name != null and employee.name != &#x27;&#x27;&quot;&gt;</span><br><span class="line">       AND e.`name` LIKE CONCAT( &#x27;%&#x27;, <span class="comment">#&#123;employee.name&#125;, &#x27;%&#x27; )</span></span><br><span class="line">    &lt;/if&gt;</span><br><span class="line">&lt;/if&gt;</span><br></pre></td></tr></table></figure>
+
+<p>这样，没有传入任何参数时，也不会报错了</p>
+<blockquote>
+<p>个人博客为：<br><a href="https://www.moyuzc.cn/">MoYu’s Github Blog</a><br><a href="https://moyu-zc.gitee.io/">MoYu’s Gitee  Blog</a></p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>Bug</category>
+      </categories>
+      <tags>
+        <tag>Bug</tag>
+        <tag>Sql</tag>
+      </tags>
+  </entry>
 </search>

@@ -6,7 +6,7 @@
   <link href="https://www.moyuzc.cn/atom.xml" rel="self"/>
   
   <link href="https://www.moyuzc.cn/"/>
-  <updated>2021-05-06T12:25:09.014Z</updated>
+  <updated>2021-05-07T15:10:11.261Z</updated>
   <id>https://www.moyuzc.cn/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>source is null for getProperty(null, &quot;name&quot;)</title>
+    <link href="https://www.moyuzc.cn/2021/05/07/source%20is%20null%20for%20getProperty(null,%20name)/"/>
+    <id>https://www.moyuzc.cn/2021/05/07/source%20is%20null%20for%20getProperty(null,%20name)/</id>
+    <published>2021-05-06T16:00:00.000Z</published>
+    <updated>2021-05-07T15:10:11.261Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;source-is-null-for-getProperty-null-“name”&quot;&gt;&lt;a href=&quot;#source-is-null-for-getProperty-null-“name”&quot; class=&quot;headerlink&quot; title=&quot;source</summary>
+        
+      
+    
+    
+    
+    <category term="Bug" scheme="https://www.moyuzc.cn/categories/Bug/"/>
+    
+    
+    <category term="Bug" scheme="https://www.moyuzc.cn/tags/Bug/"/>
+    
+    <category term="Sql" scheme="https://www.moyuzc.cn/tags/Sql/"/>
+    
+  </entry>
   
   <entry>
     <title>Spring Security  下</title>
@@ -499,31 +526,6 @@
         
         
     <summary type="html">&lt;h1 id=&quot;SpringBoot-06-员工管理系统&quot;&gt;&lt;a href=&quot;#SpringBoot-06-员工管理系统&quot; class=&quot;headerlink&quot; title=&quot;SpringBoot-06  员工管理系统&quot;&gt;&lt;/a&gt;SpringBoot-06 </summary>
-        
-      
-    
-    
-    
-    <category term="SpringBoot" scheme="https://www.moyuzc.cn/categories/SpringBoot/"/>
-    
-    
-    <category term="SpringBoot" scheme="https://www.moyuzc.cn/tags/SpringBoot/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>SpringBoot-05  Web开发</title>
-    <link href="https://www.moyuzc.cn/2021/03/26/SpringBoot-05%20%20Web%E5%BC%80%E5%8F%91/"/>
-    <id>https://www.moyuzc.cn/2021/03/26/SpringBoot-05%20%20Web%E5%BC%80%E5%8F%91/</id>
-    <published>2021-03-25T16:00:00.000Z</published>
-    <updated>2021-03-27T12:51:41.479Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;SpringBoot-05-Web开发&quot;&gt;&lt;a href=&quot;#SpringBoot-05-Web开发&quot; class=&quot;headerlink&quot; title=&quot;SpringBoot-05  Web开发&quot;&gt;&lt;/a&gt;SpringBoot-05 </summary>
         
       
     
