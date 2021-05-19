@@ -7828,4 +7828,35 @@
         <tag>Sql</tag>
       </tags>
   </entry>
+  <entry>
+    <title>使用 yum 出现 Loaded plugins fastestmirror</title>
+    <url>/2021/05/19/%E4%BD%BF%E7%94%A8%20yum%20%E5%87%BA%E7%8E%B0%20Loaded%20plugins%20fastestmirror/</url>
+    <content><![CDATA[<h1 id="使用-yum-出现-Loaded-plugins-fastestmirror"><a href="#使用-yum-出现-Loaded-plugins-fastestmirror" class="headerlink" title="使用 yum 出现 Loaded plugins: fastestmirror"></a>使用 yum 出现 Loaded plugins: fastestmirror</h1><blockquote>
+<p><strong>Loaded plugins: fastestmirror</strong> </p>
+<p>意思为：<strong>插件不可用</strong></p>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">[root@localhost ~]# yum –y install xxx</span><br><span class="line">Loaded plugins: fastestmirror</span><br></pre></td></tr></table></figure>
+
+<h2 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h2><h4 id="1-修改fastestmirror配置文件"><a href="#1-修改fastestmirror配置文件" class="headerlink" title="1.修改fastestmirror配置文件"></a>1.修改fastestmirror配置文件</h4><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">vim /etc/yum/pluginconf.d/fastestmirror.conf</span><br></pre></td></tr></table></figure>
+
+<p>将 <code>enable=1</code> 改为 <code>enable=0</code></p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://gitee.com/MoYu-zc/picgo/raw/master/img/20210509011133.png" alt="1"></p>
+<h4 id="2-修改yum配置文件"><a href="#2-修改yum配置文件" class="headerlink" title="2.修改yum配置文件"></a>2.修改yum配置文件</h4><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">vim /etc/yum,conf</span><br></pre></td></tr></table></figure>
+
+<p><img src= "/img/loading.gif" data-lazy-src="https://gitee.com/MoYu-zc/picgo/raw/master/img/20210509011313.png" alt="2"></p>
+<h4 id="3-重新构建yum"><a href="#3-重新构建yum" class="headerlink" title="3.重新构建yum"></a>3.重新构建yum</h4><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">yum clean all</span><br><span class="line"></span><br><span class="line">rm -rf /var/cache/yum</span><br><span class="line"></span><br><span class="line">yum makecache</span><br></pre></td></tr></table></figure>
+
+<p>清除缓存并重新构建 <strong>yum</strong> 源</p>
+<p>这样就可以解决这个问题了</p>
+<blockquote>
+<p>个人博客为：<br><a href="https://www.moyuzc.cn/">MoYu’s HomePage</a><br><a href="https://moyu-zc.gitee.io/">MoYu’s Gitee  Blog</a></p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>Bug</category>
+      </categories>
+      <tags>
+        <tag>Bug</tag>
+      </tags>
+  </entry>
 </search>
