@@ -6,7 +6,7 @@
   <link href="https://www.moyuzc.cn/atom.xml" rel="self"/>
   
   <link href="https://www.moyuzc.cn/"/>
-  <updated>2021-05-19T08:03:27.050Z</updated>
+  <updated>2021-05-23T15:25:21.798Z</updated>
   <id>https://www.moyuzc.cn/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>FastDFS依赖无法导入</title>
+    <link href="https://www.moyuzc.cn/2021/05/23/FastDFS%E4%BE%9D%E8%B5%96%E6%97%A0%E6%B3%95%E5%AF%BC%E5%85%A5/"/>
+    <id>https://www.moyuzc.cn/2021/05/23/FastDFS%E4%BE%9D%E8%B5%96%E6%97%A0%E6%B3%95%E5%AF%BC%E5%85%A5/</id>
+    <published>2021-05-22T16:00:00.000Z</published>
+    <updated>2021-05-23T15:25:21.798Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;FastDFS依赖无法导入&quot;&gt;&lt;a href=&quot;#FastDFS依赖无法导入&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="Bug" scheme="https://www.moyuzc.cn/categories/Bug/"/>
+    
+    
+    <category term="Maven" scheme="https://www.moyuzc.cn/tags/Maven/"/>
+    
+    <category term="FastDFS" scheme="https://www.moyuzc.cn/tags/FastDFS/"/>
+    
+  </entry>
   
   <entry>
     <title>使用 yum 出现 Loaded plugins fastestmirror</title>
@@ -510,31 +537,6 @@
     <category term="Spring" scheme="https://www.moyuzc.cn/tags/Spring/"/>
     
     <category term="SpringMVC" scheme="https://www.moyuzc.cn/tags/SpringMVC/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>SpringBoot-07  整合</title>
-    <link href="https://www.moyuzc.cn/2021/03/28/SpringBoot-07%20%20%E6%95%B4%E5%90%88/"/>
-    <id>https://www.moyuzc.cn/2021/03/28/SpringBoot-07%20%20%E6%95%B4%E5%90%88/</id>
-    <published>2021-03-27T16:00:00.000Z</published>
-    <updated>2021-03-28T05:35:29.249Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;SpringBoot-07-整合&quot;&gt;&lt;a href=&quot;#SpringBoot-07-整合&quot; class=&quot;headerlink&quot; title=&quot;SpringBoot-07  整合&quot;&gt;&lt;/a&gt;SpringBoot-07  整合&lt;/h1&gt;&lt;p&gt;</summary>
-        
-      
-    
-    
-    
-    <category term="SpringBoot" scheme="https://www.moyuzc.cn/categories/SpringBoot/"/>
-    
-    
-    <category term="SpringBoot" scheme="https://www.moyuzc.cn/tags/SpringBoot/"/>
     
   </entry>
   
