@@ -7859,4 +7859,62 @@
         <tag>Bug</tag>
       </tags>
   </entry>
+  <entry>
+    <title>FastDFS依赖无法导入</title>
+    <url>/2021/03/03/FastDFS%E4%BE%9D%E8%B5%96%E6%97%A0%E6%B3%95%E5%AF%BC%E5%85%A5/</url>
+    <content><![CDATA[<h1 id="FastDFS依赖无法导入"><a href="#FastDFS依赖无法导入" class="headerlink" title="FastDFS依赖无法导入"></a>FastDFS依赖无法导入</h1><blockquote>
+<p><strong>fastdfs-client-java 导入爆红</strong></p>
+</blockquote>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!--   FastDFS--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.csource<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>fastdfs-client-java<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.29-SNAPSHOT<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p><img src= "/img/loading.gif" data-lazy-src="https://gitee.com/MoYu-zc/picgo/raw/master/img/20210523134042.png" alt="1"></p>
+<h2 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h2><p>1.先从 <code>github</code> 上拉取下来 <code>fastdfs-client-java</code> 项目</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">git clone https://github.com/happyfish100/fastdfs-client-java.git</span><br></pre></td></tr></table></figure>
+
+<p><img src= "/img/loading.gif" data-lazy-src="https://gitee.com/MoYu-zc/picgo/raw/master/img/20210523134155.png" alt="2"></p>
+<p><strong>成功拉取的样子：</strong></p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://gitee.com/MoYu-zc/picgo/raw/master/img/20210523134234.png" alt="3"></p>
+<p>2.<strong>进入文件夹</strong>，然后使用<code>maven</code>打包</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">mvn package</span><br></pre></td></tr></table></figure>
+
+<p><img src= "/img/loading.gif" data-lazy-src="https://gitee.com/MoYu-zc/picgo/raw/master/img/20210523134422.png" alt="4"></p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://gitee.com/MoYu-zc/picgo/raw/master/img/20210523134425.png" alt="5"></p>
+<blockquote>
+<p> 出现 <strong>BUILD SUCCESS</strong> 说明你这一步成功了</p>
+</blockquote>
+<p>然后你可以在项目 <code>target</code> 文件夹中查看输入jar包</p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://gitee.com/MoYu-zc/picgo/raw/master/img/20210523134558.png" alt="6"></p>
+<p>3.然后<strong>进入这个文件夹</strong>，进行最后一步</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">mvn install:install-file -DgroupId=org.csource -DartifactId=fastdfs-client-java -Dversion=$&#123;version&#125; -Dpackaging=jar -Dfile=fastdfs-client-java-$&#123;version&#125;.jar</span><br></pre></td></tr></table></figure>
+
+<p>版本可以通过输出文件夹的jar包查看，这里是1.29-SNAPSHOT</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">mvn install:install-file -DgroupId=org.csource -DartifactId=fastdfs-client-java -Dversion=1.29-SNAPSHOT -Dpackaging=jar -Dfile=fastdfs-client-java-1.29-SNAPSHOT.jar</span><br></pre></td></tr></table></figure>
+
+<p><img src= "/img/loading.gif" data-lazy-src="https://gitee.com/MoYu-zc/picgo/raw/master/img/20210523134842.png" alt="7"></p>
+<blockquote>
+<p>这时候你的jar包已经在本地Maven中成功安装</p>
+<p>可以在路径下查看：</p>
+<p><strong>本地Maven仓库地址\org\csource\fastdfs-client-java</strong></p>
+<p>其中文件夹中有 jar 包 的就是成功的</p>
+</blockquote>
+<p><img src= "/img/loading.gif" data-lazy-src="https://gitee.com/MoYu-zc/picgo/raw/master/img/20210523135118.png" alt="8"></p>
+<hr>
+<p>这时候你已经可以再次尝试导入依赖了：</p>
+<p>这里以我的举例</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!--   FastDFS--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.csource<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>fastdfs-client-java<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.29-SNAPSHOT<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p><img src= "/img/loading.gif" data-lazy-src="https://gitee.com/MoYu-zc/picgo/raw/master/img/20210523135246.png" alt="9"></p>
+<p><strong>成功！！！</strong></p>
+<blockquote>
+<p>个人博客为：<br><a href="https://www.moyuzc.cn/">MoYu’s Github Blog</a><br><a href="https://moyu-zc.gitee.io/">MoYu’s Gitee  Blog</a></p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>Bug</category>
+      </categories>
+      <tags>
+        <tag>Maven</tag>
+        <tag>FastDFS</tag>
+      </tags>
+  </entry>
 </search>
