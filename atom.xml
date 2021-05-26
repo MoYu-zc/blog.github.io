@@ -6,7 +6,7 @@
   <link href="https://www.moyuzc.cn/atom.xml" rel="self"/>
   
   <link href="https://www.moyuzc.cn/"/>
-  <updated>2021-05-23T15:25:21.798Z</updated>
+  <updated>2021-05-26T05:55:28.881Z</updated>
   <id>https://www.moyuzc.cn/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Could not autowire. No beans of &#39;xxx&#39; type found</title>
+    <link href="https://www.moyuzc.cn/2021/05/26/Could%20not%20autowire.%20No%20beans%20of%20&#39;xxx&#39;%20type%20found/"/>
+    <id>https://www.moyuzc.cn/2021/05/26/Could%20not%20autowire.%20No%20beans%20of%20&#39;xxx&#39;%20type%20found/</id>
+    <published>2021-05-25T16:00:00.000Z</published>
+    <updated>2021-05-26T05:55:28.881Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;Could-not-autowire-No-beans-of-‘xxx’-type-found&quot;&gt;&lt;a href=&quot;#Could-not-autowire-No-beans-of-‘xxx’-type-found&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="Bug" scheme="https://www.moyuzc.cn/categories/Bug/"/>
+    
+    
+    <category term="Bug" scheme="https://www.moyuzc.cn/tags/Bug/"/>
+    
+    <category term="SpringBoot" scheme="https://www.moyuzc.cn/tags/SpringBoot/"/>
+    
+    <category term="Maven" scheme="https://www.moyuzc.cn/tags/Maven/"/>
+    
+  </entry>
   
   <entry>
     <title>FastDFS依赖无法导入</title>
@@ -506,37 +535,6 @@
     
     
     <category term="SpringBoot" scheme="https://www.moyuzc.cn/tags/SpringBoot/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>SSM  电影后台管理项目</title>
-    <link href="https://www.moyuzc.cn/2021/03/29/SSM%20%20%E7%94%B5%E5%BD%B1%E5%90%8E%E5%8F%B0%E7%AE%A1%E7%90%86%E9%A1%B9%E7%9B%AE/"/>
-    <id>https://www.moyuzc.cn/2021/03/29/SSM%20%20%E7%94%B5%E5%BD%B1%E5%90%8E%E5%8F%B0%E7%AE%A1%E7%90%86%E9%A1%B9%E7%9B%AE/</id>
-    <published>2021-03-28T16:00:00.000Z</published>
-    <updated>2021-03-29T12:36:19.378Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;SSM-电影后台管理项目&quot;&gt;&lt;a href=&quot;#SSM-电影后台管理项目&quot; class=&quot;headerlink&quot; title=&quot;SSM  电影后台管理项目&quot;&gt;&lt;/a&gt;SSM  电影后台管理项目&lt;/h1&gt;&lt;h2 id=&quot;概述&quot;&gt;&lt;a href=&quot;#概述&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="SSM" scheme="https://www.moyuzc.cn/categories/SSM/"/>
-    
-    
-    <category term="Mybatis" scheme="https://www.moyuzc.cn/tags/Mybatis/"/>
-    
-    <category term="Mysql" scheme="https://www.moyuzc.cn/tags/Mysql/"/>
-    
-    <category term="Spring" scheme="https://www.moyuzc.cn/tags/Spring/"/>
-    
-    <category term="SpringMVC" scheme="https://www.moyuzc.cn/tags/SpringMVC/"/>
     
   </entry>
   

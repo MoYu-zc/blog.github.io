@@ -7917,4 +7917,47 @@
         <tag>FastDFS</tag>
       </tags>
   </entry>
+  <entry>
+    <title>Could not autowire. No beans of &#39;xxx&#39; type found</title>
+    <url>/2021/05/26/Could%20not%20autowire.%20No%20beans%20of%20&#39;xxx&#39;%20type%20found/</url>
+    <content><![CDATA[<h1 id="Could-not-autowire-No-beans-of-‘xxx’-type-found"><a href="#Could-not-autowire-No-beans-of-‘xxx’-type-found" class="headerlink" title="Could not autowire. No beans of ‘xxx’ type found"></a>Could not autowire. No beans of ‘xxx’ type found</h1><blockquote>
+<p>如果是<code>Spring Boot</code> 项目中  <code>Mapper</code> 文件注入出现报错，可以尝试启动，如果可以正常启动的话，是不会影响的。</p>
+</blockquote>
+<blockquote>
+<p> <strong>首先，检查三点</strong></p>
+<ol>
+<li><strong>导入类是不是导入错了</strong></li>
+<li><strong>依赖是不是导入错了</strong></li>
+<li><strong>引入的类是不是对应依赖的</strong></li>
+</ol>
+<p>检查完毕，<strong>如果还是出现这样的问题</strong>，参考以下解决方法：</p>
+</blockquote>
+<h2 id="遇到的问题"><a href="#遇到的问题" class="headerlink" title="遇到的问题"></a>遇到的问题</h2><p><strong>Could not autowire. No beans of ‘xxx’ type found</strong></p>
+<p>这是我是在使用 <code>WebSocket</code> 的时候，引入 <code>SimpMessagingTemplate</code> 类，出现这个问题：</p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://gitee.com/MoYu-zc/picgo/raw/master/img/20210526002827.png" alt="1"></p>
+<p>如果启动的话：</p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://gitee.com/MoYu-zc/picgo/raw/master/img/20210526002912.png" alt="2"></p>
+<h2 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h2><p>1.启动类，加入启动注解  <code>@SpringBootApplication</code></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@SpringBootApplication</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CloudApplication</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        SpringApplication.run(CloudApplication.class,args);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>2.将启动类，移动到一个包下，不要放在根目录</p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://gitee.com/MoYu-zc/picgo/raw/master/img/20210526003152.png" alt="3"></p>
+<p>这是我是新建的一个 <code>start</code> 包，启动类移入其中，就可以注入了</p>
+<blockquote>
+<p>请大家一定注意：</p>
+<p>大部分的无法注入问题，都是因为 <strong>依赖导入错误、引入错误 或者 直接写错了类</strong> ，一定先排除这些可能</p>
+</blockquote>
+<blockquote>
+<p>个人博客为：<br><a href="https://www.moyuzc.cn/">MoYu’s Github Blog</a><br><a href="https://moyu-zc.gitee.io/">MoYu’s Gitee  Blog</a></p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>Bug</category>
+      </categories>
+      <tags>
+        <tag>Bug</tag>
+        <tag>SpringBoot</tag>
+        <tag>Maven</tag>
+      </tags>
+  </entry>
 </search>
