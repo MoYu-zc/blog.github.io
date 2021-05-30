@@ -6,7 +6,7 @@
   <link href="https://www.moyuzc.cn/atom.xml" rel="self"/>
   
   <link href="https://www.moyuzc.cn/"/>
-  <updated>2021-05-26T05:55:28.881Z</updated>
+  <updated>2021-05-30T15:03:23.505Z</updated>
   <id>https://www.moyuzc.cn/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>初识Redis</title>
+    <link href="https://www.moyuzc.cn/2021/05/30/%E5%88%9D%E8%AF%86Redis/"/>
+    <id>https://www.moyuzc.cn/2021/05/30/%E5%88%9D%E8%AF%86Redis/</id>
+    <published>2021-05-29T16:00:00.000Z</published>
+    <updated>2021-05-30T15:03:23.505Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;初识Redis&quot;&gt;&lt;a href=&quot;#初识Redis&quot; class=&quot;headerlink&quot; title=&quot;初识Redis&quot;&gt;&lt;/a&gt;初识Redis&lt;/h1&gt;&lt;h2 id=&quot;概述&quot;&gt;&lt;a href=&quot;#概述&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="SpringBoot" scheme="https://www.moyuzc.cn/categories/SpringBoot/"/>
+    
+    
+    <category term="Redis" scheme="https://www.moyuzc.cn/tags/Redis/"/>
+    
+  </entry>
   
   <entry>
     <title>Could not autowire. No beans of &#39;xxx&#39; type found</title>
@@ -501,31 +526,6 @@
         
         
     <summary type="html">&lt;h1 id=&quot;SpringBoot-09-Shiro&quot;&gt;&lt;a href=&quot;#SpringBoot-09-Shiro&quot; class=&quot;headerlink&quot; title=&quot;SpringBoot-09  Shiro&quot;&gt;&lt;/a&gt;SpringBoot-09 </summary>
-        
-      
-    
-    
-    
-    <category term="SpringBoot" scheme="https://www.moyuzc.cn/categories/SpringBoot/"/>
-    
-    
-    <category term="SpringBoot" scheme="https://www.moyuzc.cn/tags/SpringBoot/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>SpringBoot-08  SpringSecurity</title>
-    <link href="https://www.moyuzc.cn/2021/03/29/SpringBoot-08%20%20SpringSecurity/"/>
-    <id>https://www.moyuzc.cn/2021/03/29/SpringBoot-08%20%20SpringSecurity/</id>
-    <published>2021-03-28T16:00:00.000Z</published>
-    <updated>2021-03-29T12:36:32.689Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;SpringBoot-08-SpringSecurity&quot;&gt;&lt;a href=&quot;#SpringBoot-08-SpringSecurity&quot; class=&quot;headerlink&quot; title=&quot;SpringBoot-08 </summary>
         
       
     
