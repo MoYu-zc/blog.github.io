@@ -6,7 +6,7 @@
   <link href="https://www.moyuzc.cn/atom.xml" rel="self"/>
   
   <link href="https://www.moyuzc.cn/"/>
-  <updated>2021-05-30T15:03:23.505Z</updated>
+  <updated>2021-06-03T02:47:14.672Z</updated>
   <id>https://www.moyuzc.cn/</id>
   
   <author>
@@ -17,11 +17,36 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Redis入门命令</title>
+    <link href="https://www.moyuzc.cn/2021/06/03/Redis%E5%85%A5%E9%97%A8%E5%91%BD%E4%BB%A4/"/>
+    <id>https://www.moyuzc.cn/2021/06/03/Redis%E5%85%A5%E9%97%A8%E5%91%BD%E4%BB%A4/</id>
+    <published>2021-06-02T16:00:00.000Z</published>
+    <updated>2021-06-03T02:47:14.672Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;Redis入门命令&quot;&gt;&lt;a href=&quot;#Redis入门命令&quot; class=&quot;headerlink&quot; title=&quot;Redis入门命令&quot;&gt;&lt;/a&gt;Redis入门命令&lt;/h1&gt;&lt;h2 id=&quot;Redis基础&quot;&gt;&lt;a href=&quot;#Redis基础&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="Redis" scheme="https://www.moyuzc.cn/categories/Redis/"/>
+    
+    
+    <category term="Redis" scheme="https://www.moyuzc.cn/tags/Redis/"/>
+    
+  </entry>
+  
+  <entry>
     <title>初识Redis</title>
     <link href="https://www.moyuzc.cn/2021/05/30/%E5%88%9D%E8%AF%86Redis/"/>
     <id>https://www.moyuzc.cn/2021/05/30/%E5%88%9D%E8%AF%86Redis/</id>
     <published>2021-05-29T16:00:00.000Z</published>
-    <updated>2021-05-30T15:03:23.505Z</updated>
+    <updated>2021-06-03T02:47:41.592Z</updated>
     
     
       
@@ -34,7 +59,7 @@
     
     
     
-    <category term="SpringBoot" scheme="https://www.moyuzc.cn/categories/SpringBoot/"/>
+    <category term="Redis" scheme="https://www.moyuzc.cn/categories/Redis/"/>
     
     
     <category term="Redis" scheme="https://www.moyuzc.cn/tags/Redis/"/>
@@ -501,31 +526,6 @@
         
         
     <summary type="html">&lt;h1 id=&quot;SpringBoot-10-Swagger&quot;&gt;&lt;a href=&quot;#SpringBoot-10-Swagger&quot; class=&quot;headerlink&quot; title=&quot;SpringBoot-10  Swagger&quot;&gt;&lt;/a&gt;SpringBoot-10 </summary>
-        
-      
-    
-    
-    
-    <category term="SpringBoot" scheme="https://www.moyuzc.cn/categories/SpringBoot/"/>
-    
-    
-    <category term="SpringBoot" scheme="https://www.moyuzc.cn/tags/SpringBoot/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>SpringBoot-09  Shiro</title>
-    <link href="https://www.moyuzc.cn/2021/03/31/SpringBoot-09%20%20Shiro/"/>
-    <id>https://www.moyuzc.cn/2021/03/31/SpringBoot-09%20%20Shiro/</id>
-    <published>2021-03-30T16:00:00.000Z</published>
-    <updated>2021-03-31T14:23:04.515Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;SpringBoot-09-Shiro&quot;&gt;&lt;a href=&quot;#SpringBoot-09-Shiro&quot; class=&quot;headerlink&quot; title=&quot;SpringBoot-09  Shiro&quot;&gt;&lt;/a&gt;SpringBoot-09 </summary>
         
       
     
