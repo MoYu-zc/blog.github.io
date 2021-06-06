@@ -6,7 +6,7 @@
   <link href="https://www.moyuzc.cn/atom.xml" rel="self"/>
   
   <link href="https://www.moyuzc.cn/"/>
-  <updated>2021-06-03T02:47:14.672Z</updated>
+  <updated>2021-06-06T06:15:45.765Z</updated>
   <id>https://www.moyuzc.cn/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Redis数据类型及命令</title>
+    <link href="https://www.moyuzc.cn/2021/06/06/Redis%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E5%8F%8A%E5%91%BD%E4%BB%A4/"/>
+    <id>https://www.moyuzc.cn/2021/06/06/Redis%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E5%8F%8A%E5%91%BD%E4%BB%A4/</id>
+    <published>2021-06-05T16:00:00.000Z</published>
+    <updated>2021-06-06T06:15:45.765Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;Redis数据类型及命令&quot;&gt;&lt;a href=&quot;#Redis数据类型及命令&quot; class=&quot;headerlink&quot; title=&quot;Redis数据类型及命令&quot;&gt;&lt;/a&gt;Redis数据类型及命令&lt;/h1&gt;&lt;h2 id=&quot;基本数据类型&quot;&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="Redis" scheme="https://www.moyuzc.cn/categories/Redis/"/>
+    
+    
+    <category term="Redis" scheme="https://www.moyuzc.cn/tags/Redis/"/>
+    
+  </entry>
   
   <entry>
     <title>Redis入门命令</title>
@@ -501,31 +526,6 @@
         
         
     <summary type="html">&lt;h1 id=&quot;SpringBoot-11-扩展功能&quot;&gt;&lt;a href=&quot;#SpringBoot-11-扩展功能&quot; class=&quot;headerlink&quot; title=&quot;SpringBoot-11  扩展功能&quot;&gt;&lt;/a&gt;SpringBoot-11  扩展功能&lt;/h1&gt;&lt;h2</summary>
-        
-      
-    
-    
-    
-    <category term="SpringBoot" scheme="https://www.moyuzc.cn/categories/SpringBoot/"/>
-    
-    
-    <category term="SpringBoot" scheme="https://www.moyuzc.cn/tags/SpringBoot/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>SpringBoot-10  Swagger</title>
-    <link href="https://www.moyuzc.cn/2021/04/02/SpringBoot-10%20%20Swagger/"/>
-    <id>https://www.moyuzc.cn/2021/04/02/SpringBoot-10%20%20Swagger/</id>
-    <published>2021-04-01T16:00:00.000Z</published>
-    <updated>2021-04-02T03:45:46.458Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;SpringBoot-10-Swagger&quot;&gt;&lt;a href=&quot;#SpringBoot-10-Swagger&quot; class=&quot;headerlink&quot; title=&quot;SpringBoot-10  Swagger&quot;&gt;&lt;/a&gt;SpringBoot-10 </summary>
         
       
     

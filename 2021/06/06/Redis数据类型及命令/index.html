@@ -1,0 +1,502 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Redis数据类型及命令 | FATE</title><meta name="keywords" content="Redis"><meta name="author" content="MoYu-zc"><meta name="copyright" content="MoYu-zc"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><meta name="description" content="Redis数据类型及命令基本数据类型String - 字符串 我提前存入了两个数据 k:v 、z:c   追加字符串追加字符串,如果当前可以不存在就相当于 set APPEND xxx value  获取字符串长度STRLEN XXX   自动加 1INCR XXX  自动减 1DECR XXX  设置步长，指定增量INCRBY XXX 数值  设置步长，指定减量DECRBY XXX 数值">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Redis数据类型及命令">
+<meta property="og:url" content="https://www.moyuzc.cn/2021/06/06/Redis%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E5%8F%8A%E5%91%BD%E4%BB%A4/index.html">
+<meta property="og:site_name" content="FATE">
+<meta property="og:description" content="Redis数据类型及命令基本数据类型String - 字符串 我提前存入了两个数据 k:v 、z:c   追加字符串追加字符串,如果当前可以不存在就相当于 set APPEND xxx value  获取字符串长度STRLEN XXX   自动加 1INCR XXX  自动减 1DECR XXX  设置步长，指定增量INCRBY XXX 数值  设置步长，指定减量DECRBY XXX 数值">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://gitee.com/MoYu-zc/picgo/raw/master/img/20210219144530.jpg">
+<meta property="article:published_time" content="2021-06-05T16:00:00.000Z">
+<meta property="article:modified_time" content="2021-06-06T06:15:45.765Z">
+<meta property="article:author" content="MoYu-zc">
+<meta property="article:tag" content="Redis">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://gitee.com/MoYu-zc/picgo/raw/master/img/20210219144530.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://www.moyuzc.cn/2021/06/06/Redis%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E5%8F%8A%E5%91%BD%E4%BB%A4/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css"><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  hexoversion: '5.2.0',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  ClickShowText: undefined,
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#49b1f5","bgDark":"#121212","position":"top-right"},
+  justifiedGallery: {
+    js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+    css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+  },
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isanchor: false
+};
+
+var saveToLocal = {
+  set: function setWithExpiry(key, value, ttl) {
+    const now = new Date()
+    const expiryDay = ttl * 86400000
+    const item = {
+      value: value,
+      expiry: now.getTime() + expiryDay,
+    }
+    localStorage.setItem(key, JSON.stringify(item))
+  },
+
+  get: function getWithExpiry(key) {
+    const itemStr = localStorage.getItem(key)
+
+    if (!itemStr) {
+      return undefined
+    }
+    const item = JSON.parse(itemStr)
+    const now = new Date()
+
+    if (now.getTime() > item.expiry) {
+      localStorage.removeItem(key)
+      return undefined
+    }
+    return item.value
+  }
+}</script><script id="config_change">var GLOBAL_CONFIG_SITE = { 
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isSidebar: true,
+  postUpdate: '2021-06-06 14:15:45'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(function () {
+  window.activateDarkMode = function () {
+    document.documentElement.setAttribute('data-theme', 'dark')
+    if (document.querySelector('meta[name="theme-color"]') !== null) {
+      document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+    }
+  }
+  window.activateLightMode = function () {
+    document.documentElement.setAttribute('data-theme', 'light')
+    if (document.querySelector('meta[name="theme-color"]') !== null) {
+      document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+    }
+  }
+
+  const autoChangeMode = 'false'
+  const t = saveToLocal.get('theme')
+  if (autoChangeMode === '1') {
+    const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+    const isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+    const isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+    const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+
+    if (t === undefined) {
+      if (isLightMode) activateLightMode()
+      else if (isDarkMode) activateDarkMode()
+      else if (isNotSpecified || hasNoSupport) {
+        const now = new Date()
+        const hour = now.getHours()
+        const isNight = hour <= 6 || hour >= 18
+        isNight ? activateDarkMode() : activateLightMode()
+      }
+      window.matchMedia('(prefers-color-scheme: dark)').addListener(function (e) {
+        if (saveToLocal.get('theme') === undefined) {
+          e.matches ? activateDarkMode() : activateLightMode()
+        }
+      })
+    } else if (t === 'light') activateLightMode()
+    else activateDarkMode()
+  } else if (autoChangeMode === '2') {
+    const now = new Date()
+    const hour = now.getHours()
+    const isNight = hour <= 6 || hour >= 18
+    if (t === undefined) isNight ? activateDarkMode() : activateLightMode()
+    else if (t === 'light') activateLightMode()
+    else activateDarkMode()
+  } else {
+    if (t === 'dark') activateDarkMode()
+    else if (t === 'light') activateLightMode()
+  }
+})()</script><link rel="stylesheet" href="/css/iconfont.css"><link rel="stylesheet" href="/css/mycss.css"><meta name="generator" content="Hexo 5.2.0"><link rel="alternate" href="/atom.xml" title="FATE" type="application/atom+xml">
+</head><body><div id="mobile-sidebar"><div id="menu_mask"></div><div id="mobile-sidebar-menus"><div class="mobile_author_icon"><img class="avatar-img" data-lazy-src="/img/tit.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="mobile_post_data"><div class="mobile_data_item is-center"><div class="mobile_data_link"><a href="/archives/"><div class="headline">文章</div><div class="length_num">65</div></a></div></div><div class="mobile_data_item is-center">      <div class="mobile_data_link"><a href="/tags/"><div class="headline">标签</div><div class="length_num">38</div></a></div></div><div class="mobile_data_item is-center">     <div class="mobile_data_link"><a href="/categories/"><div class="headline">分类</div><div class="length_num">17</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="https://www.moyuzc.cn/"><i class="fa-fw fa fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fa fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/messageboard/"><i class="fa-fw fa fa-paper-plane"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/timeline/"><i class="fa-fw fa fa-bell"></i><span> 日志</span></a></div><div class="menus_item"><a class="site-page" href="/myself/"><i class="fa-fw fa fa-address-card"></i><span> myself</span></a></div></div></div></div><div id="body-wrap"><div id="web_bg"></div><div id="sidebar"><i class="fas fa-arrow-right on" id="toggle-sidebar"></i><div class="sidebar-toc"><div class="sidebar-toc__title">目录</div><div class="sidebar-toc__progress"><span class="progress-notice">你已经读了</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc__progress-bar">     </div></div><div class="sidebar-toc__content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Redis%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E5%8F%8A%E5%91%BD%E4%BB%A4"><span class="toc-text">Redis数据类型及命令</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="toc-text">基本数据类型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#String-%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="toc-text">String - 字符串</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%BF%BD%E5%8A%A0%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="toc-text">追加字符串</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96%E5%AD%97%E7%AC%A6%E4%B8%B2%E9%95%BF%E5%BA%A6"><span class="toc-text">获取字符串长度</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%87%AA%E5%8A%A8%E5%8A%A0-1"><span class="toc-text">自动加 1</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%87%AA%E5%8A%A8%E5%87%8F-1"><span class="toc-text">自动减 1</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%AE%BE%E7%BD%AE%E6%AD%A5%E9%95%BF%EF%BC%8C%E6%8C%87%E5%AE%9A%E5%A2%9E%E9%87%8F"><span class="toc-text">设置步长，指定增量</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%AE%BE%E7%BD%AE%E6%AD%A5%E9%95%BF%EF%BC%8C%E6%8C%87%E5%AE%9A%E5%87%8F%E9%87%8F"><span class="toc-text">设置步长，指定减量</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%88%AA%E5%8F%96%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="toc-text">截取字符串</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9B%BF%E6%8D%A2%E6%8C%87%E5%AE%9A%E4%BD%8D%E7%BD%AE%E5%BC%80%E5%A7%8B%E7%9A%84%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="toc-text">替换指定位置开始的字符串</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%AE%BE%E7%BD%AE%E8%BF%87%E6%9C%9F%E6%97%B6%E9%97%B4"><span class="toc-text">设置过期时间</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%8D%E5%AD%98%E5%9C%A8-%E5%86%8D%E8%AE%BE%E7%BD%AE"><span class="toc-text">不存在 再设置</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%90%8C%E6%97%B6%E8%AE%BE%E7%BD%AE%E5%A4%9A%E4%B8%AA%E5%80%BC"><span class="toc-text">同时设置多个值</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%90%8C%E6%97%B6%E8%8E%B7%E5%8F%96%E5%A4%9A%E4%B8%AA%E5%80%BC"><span class="toc-text">同时获取多个值</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%A4%9A%E4%B8%AA%E5%80%BC%E4%B8%8D%E5%AD%98%E5%9C%A8-%E5%86%8D%E8%AE%BE%E7%BD%AE"><span class="toc-text">多个值不存在  再设置</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AD%98%E5%8F%96%E5%AF%B9%E8%B1%A1"><span class="toc-text">存取对象</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%85%88%E8%8E%B7%E5%8F%96%E5%86%8D%E5%AD%98%E5%85%A5"><span class="toc-text">先获取再存入</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#List-%E5%88%97%E8%A1%A8"><span class="toc-text">List - 列表</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AD%98%E5%85%A5%E6%95%B0%E6%8D%AE-%E5%A4%B4%E6%8F%92"><span class="toc-text">存入数据(头插)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AD%98%E5%85%A5%E6%95%B0%E6%8D%AE-%E5%B0%BE%E6%8F%92"><span class="toc-text">存入数据(尾插)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96%E6%8C%87%E5%AE%9A%E8%8C%83%E5%9B%B4%E6%95%B0%E6%8D%AE"><span class="toc-text">获取指定范围数据</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8F%96%E5%87%BA%E6%95%B0%E6%8D%AE-%E4%BB%8E%E5%A4%B4%E9%83%A8"><span class="toc-text">取出数据(从头部)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8F%96%E5%87%BA%E6%95%B0%E6%8D%AE-%E4%BB%8E%E5%B0%BE%E9%83%A8"><span class="toc-text">取出数据(从尾部)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%80%9A%E8%BF%87%E4%B8%8B%E6%A0%87%E8%8E%B7%E5%BE%97%E5%80%BC"><span class="toc-text">通过下标获得值</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96%E5%88%97%E8%A1%A8%E9%95%BF%E5%BA%A6"><span class="toc-text">获取列表长度</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%A7%BB%E9%99%A4%E6%8C%87%E5%AE%9A%E5%80%BC"><span class="toc-text">移除指定值</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%88%AA%E5%8F%96%E6%8C%87%E5%AE%9A%E9%95%BF%E5%BA%A6%E6%95%B0%E6%8D%AE"><span class="toc-text">截取指定长度数据</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%A7%BB%E9%99%A4%E5%88%97%E8%A1%A8%E4%B8%AD%E5%85%83%E7%B4%A0%EF%BC%8C%E7%A7%BB%E5%8A%A8%E5%88%B0%E6%96%B0%E7%9A%84%E5%88%97%E8%A1%A8%E4%B8%AD"><span class="toc-text">移除列表中元素，移动到新的列表中</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9B%BF%E6%8D%A2%E6%8C%87%E5%AE%9A%E4%BD%8D%E7%BD%AE%E7%9A%84%E5%80%BC"><span class="toc-text">替换指定位置的值</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%8F%92%E5%85%A5%E5%85%B7%E4%BD%93%E5%80%BC"><span class="toc-text">插入具体值</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Set-%E9%9B%86%E5%90%88"><span class="toc-text">Set - 集合</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BF%9D%E5%AD%98%E8%8E%B7%E5%8F%96%E6%95%B0%E6%8D%AE"><span class="toc-text">保存获取数据</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%A4%E6%96%AD%E5%80%BC%E6%98%AF%E5%90%A6%E5%9C%A8%E9%9B%86%E5%90%88%E4%B8%AD"><span class="toc-text">判断值是否在集合中</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96set%E9%9B%86%E5%90%88%E6%95%B0%E6%8D%AE%E4%B8%AA%E6%95%B0"><span class="toc-text">获取set集合数据个数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%A7%BB%E9%99%A4set%E9%9B%86%E5%90%88%E6%8C%87%E5%AE%9A%E5%85%83%E7%B4%A0"><span class="toc-text">移除set集合指定元素</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%9A%8F%E6%9C%BA%E8%8E%B7%E5%8F%96%E5%85%83%E7%B4%A0"><span class="toc-text">随机获取元素</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%9A%8F%E6%9C%BA%E5%88%A0%E9%99%A4%E5%85%83%E7%B4%A0"><span class="toc-text">随机删除元素</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B0%86%E6%8C%87%E5%AE%9A%E5%80%BC%E7%A7%BB%E5%8A%A8%E5%8F%A6%E4%B8%80%E4%B8%AA%E9%9B%86%E5%90%88"><span class="toc-text">将指定值移动另一个集合</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%95%B0%E5%AD%97%E9%9B%86%E5%90%88%E7%B1%BB"><span class="toc-text">数字集合类</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Hash-%E5%93%88%E5%B8%8C"><span class="toc-text">Hash - 哈希</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AD%98%E5%85%A5%E4%B8%80%E4%B8%AA%E5%85%83%E7%B4%A0"><span class="toc-text">存入一个元素</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96%E4%B8%80%E4%B8%AA%E5%85%83%E7%B4%A0"><span class="toc-text">获取一个元素</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AD%98%E5%85%A5%E5%A4%9A%E4%B8%AA%E5%85%83%E7%B4%A0"><span class="toc-text">存入多个元素</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%8E%B7%E5%BE%97%E5%A4%9A%E4%B8%AA%E5%85%83%E7%B4%A0"><span class="toc-text">获得多个元素</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96%E5%85%A8%E9%83%A8%E6%95%B0%E6%8D%AE"><span class="toc-text">获取全部数据</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96%E9%9B%86%E5%90%88%E4%B8%AD%E5%AD%97%E6%AE%B5%E6%95%B0%E9%87%8F"><span class="toc-text">获取集合中字段数量</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%A0%E9%99%A4%E5%AF%B9%E5%BA%94%E5%85%83%E7%B4%A0"><span class="toc-text">删除对应元素</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%8E%B7%E5%BE%97%E6%89%80%E6%9C%89k%E5%AD%97%E6%AE%B5"><span class="toc-text">获得所有k字段</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%8E%B7%E5%BE%97%E6%89%80%E6%9C%89value"><span class="toc-text">获得所有value</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%A4%E6%96%AD%E6%8C%87%E5%AE%9A%E5%AD%97%E6%AE%B5%E6%98%AF%E5%90%A6%E5%AD%98%E5%9C%A8"><span class="toc-text">判断指定字段是否存在</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%A2%9E%E5%8A%A0%E6%8C%87%E5%AE%9A%E5%A2%9E%E9%87%8F"><span class="toc-text">增加指定增量</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%8D%E5%AD%98%E5%9C%A8-%E5%86%8D%E8%AE%BE%E7%BD%AE-1"><span class="toc-text">不存在 再设置</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Zset-%E6%9C%89%E5%BA%8F%E9%9B%86%E5%90%88"><span class="toc-text">Zset - 有序集合</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B7%BB%E5%8A%A0%E9%9B%86%E5%90%88%E4%B8%AD%E7%9A%84%E5%80%BC"><span class="toc-text">添加集合中的值</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%8E%B7%E5%BE%97%E8%8C%83%E5%9B%B4%E5%86%85%E7%9A%84%E9%9B%86%E5%90%88%E5%80%BC"><span class="toc-text">获得范围内的集合值</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%8E%B7%E5%BE%97%E9%9B%86%E5%90%88%E4%B8%AD%E7%9A%84%E4%B8%AA%E6%95%B0"><span class="toc-text">获得集合中的个数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BB%8E%E5%B0%8F%E5%88%B0%E5%A4%A7%EF%BC%8C%E6%98%BE%E7%A4%BA%E5%85%A8%E9%83%A8%E6%95%B0%E6%8D%AE"><span class="toc-text">从小到大，显示全部数据</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BB%8E%E5%A4%A7%E5%88%B0%E5%B0%8F%EF%BC%8C%E6%98%BE%E7%A4%BA%E5%85%A8%E9%83%A8%E6%95%B0%E6%8D%AE"><span class="toc-text">从大到小，显示全部数据</span></a></li><li class="toc-item toc-level-4"><a class="toc-link"><span class="toc-text"></span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96%E6%8C%87%E5%AE%9A%E5%8C%BA%E9%97%B4%E7%9A%84%E5%85%83%E7%B4%A0%E6%95%B0%E9%87%8F"><span class="toc-text">获取指定区间的元素数量</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%A7%BB%E9%99%A4%E9%9B%86%E5%90%88%E4%B8%AD%E6%8C%87%E5%AE%9A%E5%85%83%E7%B4%A0"><span class="toc-text">移除集合中指定元素</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%89%B9%E6%AE%8A%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="toc-text">特殊数据类型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Geospatial-%E5%9C%B0%E7%90%86%E4%BD%8D%E7%BD%AE"><span class="toc-text">Geospatial - 地理位置</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B7%BB%E5%8A%A0%E5%9C%B0%E7%90%86%E4%BD%8D%E7%BD%AE"><span class="toc-text">添加地理位置</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96%E6%8C%87%E5%AE%9A%E7%9A%84%E5%9F%8E%E5%B8%82%E7%9A%84%E7%B2%BE%E5%BA%A6%E5%92%8C%E7%BA%AC%E5%BA%A6"><span class="toc-text">获取指定的城市的精度和纬度</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9F%A5%E7%9C%8B%E4%B8%A4%E8%80%85%E4%B9%8B%E9%97%B4%E7%9A%84%E7%9B%B4%E7%BA%BF%E8%B7%9D%E7%A6%BB"><span class="toc-text">查看两者之间的直线距离</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BB%A5%E7%BB%99%E5%AE%9A%E7%9A%84%E7%BB%8F%E7%BA%AC%E5%BA%A6%E4%B8%BA%E4%B8%AD%E5%BF%83-%E6%89%BE%E5%87%BA%E6%9F%90%E4%B8%80%E5%8D%8A%E5%BE%84%E5%86%85%E7%9A%84%E5%85%83%E7%B4%A0"><span class="toc-text">以给定的经纬度为中心,找出某一半径内的元素</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9F%A5%E7%9C%8B%E6%8C%87%E5%AE%9A%E5%85%83%E7%B4%A0%E5%91%A8%E5%9B%B4%E7%9A%84%E5%85%B6%E4%BB%96%E5%85%83%E7%B4%A0"><span class="toc-text">查看指定元素周围的其他元素</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%BF%94%E5%9B%9E%E4%BD%8D%E7%BD%AE%E5%85%83%E7%B4%A0%E7%9A%84Geohash%E8%A1%A8%E7%A4%BA"><span class="toc-text">返回位置元素的Geohash表示</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BA%95%E5%B1%82%E7%9A%84%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86"><span class="toc-text">底层的实现原理</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Hyperloglog-%E5%9F%BA%E6%95%B0%E7%BB%9F%E8%AE%A1"><span class="toc-text">Hyperloglog - 基数统计</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E4%B8%80%E7%BB%84%E5%85%83%E7%B4%A0"><span class="toc-text">创建一组元素</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BB%9F%E8%AE%A1%E5%85%83%E7%B4%A0%E7%9A%84%E5%9F%BA%E6%95%B0%E6%95%B0%E9%87%8F"><span class="toc-text">统计元素的基数数量</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%90%88%E5%B9%B6%E4%B8%A4%E7%BB%84%E5%85%83%E7%B4%A0"><span class="toc-text">合并两组元素</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Bitmaps-%E4%BD%8D%E5%9B%BE%E5%9C%BA%E6%99%AF"><span class="toc-text">Bitmaps - 位图场景</span></a></li></ol></li></ol></li></ol></div></div></div><header class="post-bg" id="page-header" style="background-image: url(https://gitee.com/MoYu-zc/picgo/raw/master/img/20210219144530.jpg)"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">FATE</a></span><span id="menus"><div id="search_button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="https://www.moyuzc.cn/"><i class="fa-fw fa fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fa fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/messageboard/"><i class="fa-fw fa fa-paper-plane"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/timeline/"><i class="fa-fw fa fa-bell"></i><span> 日志</span></a></div><div class="menus_item"><a class="site-page" href="/myself/"><i class="fa-fw fa fa-address-card"></i><span> myself</span></a></div></div><span class="close" id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></span></span></nav><div id="post-info"><div id="post-title"><div class="posttitle">Redis数据类型及命令</div></div><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2021-06-05T16:00:00.000Z" title="发表于 2021-06-06 00:00:00">2021-06-06</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2021-06-06T06:15:45.765Z" title="更新于 2021-06-06 14:15:45">2021-06-06</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Redis/">Redis</a></span></div><div class="meta-secondline"> <span class="post-meta-separator">|</span><span class="post-meta-pv-cv"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout_post" id="content-inner"><article id="post"><div class="post-content" id="article-container"><h1 id="Redis数据类型及命令"><a href="#Redis数据类型及命令" class="headerlink" title="Redis数据类型及命令"></a>Redis数据类型及命令</h1><h2 id="基本数据类型"><a href="#基本数据类型" class="headerlink" title="基本数据类型"></a>基本数据类型</h2><h3 id="String-字符串"><a href="#String-字符串" class="headerlink" title="String - 字符串"></a>String - 字符串</h3><blockquote>
+<p>我提前存入了两个数据 <code>k:v</code> 、<code>z:c</code></p>
+</blockquote>
+<p><img src= "/img/loading.gif" data-lazy-src="https://gitee.com/MoYu-zc/picgo/raw/master/img/20210420193746.png" alt="10"></p>
+<h4 id="追加字符串"><a href="#追加字符串" class="headerlink" title="追加字符串"></a><strong>追加字符串</strong></h4><p>追加字符串,如果当前可以不存在就相当于 <code>set</code></p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">APPEND xxx value</span><br></pre></td></tr></table></figure>
+
+<h4 id="获取字符串长度"><a href="#获取字符串长度" class="headerlink" title="获取字符串长度"></a>获取字符串长度</h4><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">STRLEN XXX</span><br></pre></td></tr></table></figure>
+
+<p><img src= "/img/loading.gif" data-lazy-src="https://gitee.com/MoYu-zc/picgo/raw/master/img/20210420212322.png" alt="11"></p>
+<h4 id="自动加-1"><a href="#自动加-1" class="headerlink" title="自动加 1"></a>自动加 1</h4><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">INCR XXX</span><br></pre></td></tr></table></figure>
+
+<h4 id="自动减-1"><a href="#自动减-1" class="headerlink" title="自动减 1"></a>自动减 1</h4><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">DECR XXX</span><br></pre></td></tr></table></figure>
+
+<h4 id="设置步长，指定增量"><a href="#设置步长，指定增量" class="headerlink" title="设置步长，指定增量"></a>设置步长，指定增量</h4><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">INCRBY XXX 数值</span><br></pre></td></tr></table></figure>
+
+<h4 id="设置步长，指定减量"><a href="#设置步长，指定减量" class="headerlink" title="设置步长，指定减量"></a>设置步长，指定减量</h4><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">DECRBY XXX 数值 </span><br></pre></td></tr></table></figure>
+
+<p><img src= "/img/loading.gif" data-lazy-src="https://gitee.com/MoYu-zc/picgo/raw/master/img/20210420213038.png" alt="12"></p>
+<h4 id="截取字符串"><a href="#截取字符串" class="headerlink" title="截取字符串"></a>截取字符串</h4><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">GETRANGE k 0 3   #截取字符串[0,3] </span><br><span class="line"></span><br><span class="line">GETRANGE k 0 -1  #获得全部的字符串</span><br></pre></td></tr></table></figure>
+
+<h4 id="替换指定位置开始的字符串"><a href="#替换指定位置开始的字符串" class="headerlink" title="替换指定位置开始的字符串"></a>替换指定位置开始的字符串</h4><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">SETRANGE k 1 xx</span><br></pre></td></tr></table></figure>
+
+<p><img src= "/img/loading.gif" data-lazy-src="https://gitee.com/MoYu-zc/picgo/raw/master/img/20210420213717.png" alt="13"></p>
+<h4 id="设置过期时间"><a href="#设置过期时间" class="headerlink" title="设置过期时间"></a>设置过期时间</h4><blockquote>
+<p>setex ( set with expire )  </p>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">setex k 10 hello   #存入数据 k:&quot;hello&quot; 有效时间 10s</span><br></pre></td></tr></table></figure>
+
+<p><img src= "/img/loading.gif" data-lazy-src="https://gitee.com/MoYu-zc/picgo/raw/master/img/20210420215118.png" alt="13"></p>
+<h4 id="不存在-再设置"><a href="#不存在-再设置" class="headerlink" title="不存在 再设置"></a>不存在 再设置</h4><blockquote>
+<p>setnx ( set if not exist) </p>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">setnx k 11     #如果 k 不存在，存入数据 k:&quot;11&quot;</span><br></pre></td></tr></table></figure>
+
+<p><img src= "/img/loading.gif" data-lazy-src="https://gitee.com/MoYu-zc/picgo/raw/master/img/20210420215348.png" alt="15"></p>
+<h4 id="同时设置多个值"><a href="#同时设置多个值" class="headerlink" title="同时设置多个值"></a>同时设置多个值</h4><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">mset k1 v1 k2 v2 k3 v3</span><br></pre></td></tr></table></figure>
+
+<h4 id="同时获取多个值"><a href="#同时获取多个值" class="headerlink" title="同时获取多个值"></a>同时获取多个值</h4><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">mget k1 k2 k3</span><br></pre></td></tr></table></figure>
+
+<h4 id="多个值不存在-再设置"><a href="#多个值不存在-再设置" class="headerlink" title="多个值不存在  再设置"></a>多个值不存在  再设置</h4><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">msetnx k1 v1 k4 v4   # 该操作是一个原子性操作，一个失败 全部失败</span><br></pre></td></tr></table></figure>
+
+<p><img src= "/img/loading.gif" data-lazy-src="https://gitee.com/MoYu-zc/picgo/raw/master/img/20210420220143.png" alt="16"></p>
+<h4 id="存取对象"><a href="#存取对象" class="headerlink" title="存取对象"></a>存取对象</h4><blockquote>
+<p>user : {id} : {filed}</p>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">mset user:1:name zc user:1:age 20   </span><br><span class="line"></span><br><span class="line">mget user:1:name user:1:age</span><br></pre></td></tr></table></figure>
+
+<p><img src= "/img/loading.gif" data-lazy-src="https://gitee.com/MoYu-zc/picgo/raw/master/img/20210420222339.png" alt="17"></p>
+<h4 id="先获取再存入"><a href="#先获取再存入" class="headerlink" title="先获取再存入"></a>先获取再存入</h4><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">getset k v</span><br></pre></td></tr></table></figure>
+
+<p><img src= "/img/loading.gif" data-lazy-src="https://gitee.com/MoYu-zc/picgo/raw/master/img/20210420222743.png" alt="18"></p>
+<h3 id="List-列表"><a href="#List-列表" class="headerlink" title="List - 列表"></a>List - 列表</h3><blockquote>
+<p>在redis里面，我们可以把 <code>list</code> 变成，栈、队列、阻塞队列</p>
+</blockquote>
+<h4 id="存入数据-头插"><a href="#存入数据-头插" class="headerlink" title="存入数据(头插)"></a>存入数据(头插)</h4><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">LPUSH list one             # 存入list列表,数据为 one</span><br><span class="line">  </span><br><span class="line">LPUSH list two three       # 存入list列表，数据为 two、three</span><br></pre></td></tr></table></figure>
+
+<h4 id="存入数据-尾插"><a href="#存入数据-尾插" class="headerlink" title="存入数据(尾插)"></a>存入数据(尾插)</h4><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">RPUSH list right           # 存入list列表，数据为 right</span><br></pre></td></tr></table></figure>
+
+<h4 id="获取指定范围数据"><a href="#获取指定范围数据" class="headerlink" title="获取指定范围数据"></a>获取指定范围数据</h4><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">LRANGE list 0 1            # 获取list列表 0 1 数据</span><br><span class="line">                          </span><br><span class="line">LRANGE list 0 -1           # 获取list列表全部数据</span><br></pre></td></tr></table></figure>
+
+<p><img src= "/img/loading.gif" data-lazy-src="https://gitee.com/MoYu-zc/picgo/raw/master/img/20210420230545.png" alt="19"></p>
+<h4 id="取出数据-从头部"><a href="#取出数据-从头部" class="headerlink" title="取出数据(从头部)"></a>取出数据(从头部)</h4><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">LPOP xxx</span><br></pre></td></tr></table></figure>
+
+<h4 id="取出数据-从尾部"><a href="#取出数据-从尾部" class="headerlink" title="取出数据(从尾部)"></a>取出数据(从尾部)</h4><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">RPOP xxx</span><br></pre></td></tr></table></figure>
+
+<h4 id="通过下标获得值"><a href="#通过下标获得值" class="headerlink" title="通过下标获得值"></a>通过下标获得值</h4><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">lindex xxx index</span><br></pre></td></tr></table></figure>
+
+<h4 id="获取列表长度"><a href="#获取列表长度" class="headerlink" title="获取列表长度"></a>获取列表长度</h4><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">llen xxx          </span><br></pre></td></tr></table></figure>
+
+<p><img src= "/img/loading.gif" data-lazy-src="https://gitee.com/MoYu-zc/picgo/raw/master/img/20210420231408.png" alt="20"></p>
+<h4 id="移除指定值"><a href="#移除指定值" class="headerlink" title="移除指定值"></a>移除指定值</h4><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">lrem list 2 two         # 移除list列表中 2 个 two ， 移除数量多于现存数量的话，会全部移除 不报错</span><br></pre></td></tr></table></figure>
+
+<p><img src= "/img/loading.gif" data-lazy-src="https://gitee.com/MoYu-zc/picgo/raw/master/img/20210420232414.png" alt="21"></p>
+<h4 id="截取指定长度数据"><a href="#截取指定长度数据" class="headerlink" title="截取指定长度数据"></a>截取指定长度数据</h4><blockquote>
+<p>通过下标，截取指定长度数据，会直接改变原列表</p>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">ltrim list 1 2         # 截取list列表，1-2 元素</span><br></pre></td></tr></table></figure>
+
+<p><img src= "/img/loading.gif" data-lazy-src="https://gitee.com/MoYu-zc/picgo/raw/master/img/20210420232959.png" alt="22"></p>
+<h4 id="移除列表中元素，移动到新的列表中"><a href="#移除列表中元素，移动到新的列表中" class="headerlink" title="移除列表中元素，移动到新的列表中"></a>移除列表中元素，移动到新的列表中</h4><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">rpoplpush list list1   # 移除list列表的最后一个元素，将他移动到list1列表中 </span><br></pre></td></tr></table></figure>
+
+<p><img src= "/img/loading.gif" data-lazy-src="https://gitee.com/MoYu-zc/picgo/raw/master/img/20210420233523.png" alt="23"></p>
+<h4 id="替换指定位置的值"><a href="#替换指定位置的值" class="headerlink" title="替换指定位置的值"></a>替换指定位置的值</h4><blockquote>
+<p>对于该语句，要满足：</p>
+<ul>
+<li><strong>存在该list列表</strong></li>
+<li><strong>列表中指定位置有数据</strong></li>
+</ul>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">lset list 0 test    #将list列表第0个位置的数据替换为test</span><br></pre></td></tr></table></figure>
+
+<p><img src= "/img/loading.gif" data-lazy-src="https://gitee.com/MoYu-zc/picgo/raw/master/img/20210420234154.png" alt="24"></p>
+<h4 id="插入具体值"><a href="#插入具体值" class="headerlink" title="插入具体值"></a>插入具体值</h4><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">LINSERT list before v3 v2   # 在list列表中的v3数据 前 插入v2</span><br><span class="line"></span><br><span class="line">LINSERT list after v3 v4    # 在list列表中的v3数据 后 插入v4</span><br></pre></td></tr></table></figure>
+
+<p><img src= "/img/loading.gif" data-lazy-src="https://gitee.com/MoYu-zc/picgo/raw/master/img/20210420234708.png" alt="25"></p>
+<h3 id="Set-集合"><a href="#Set-集合" class="headerlink" title="Set - 集合"></a>Set - 集合</h3><blockquote>
+<p><strong>set中是不能重复读的</strong></p>
+</blockquote>
+<h4 id="保存获取数据"><a href="#保存获取数据" class="headerlink" title="保存获取数据"></a>保存获取数据</h4><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sadd set hello           #存入一个数据，存入hello到set集合中</span><br><span class="line"></span><br><span class="line">sadd set v1 v2 v3        #存入多个数据，存入v1、v2、v3到set集合中</span><br><span class="line"></span><br><span class="line">smembers set             #查看set集合中所有数据</span><br></pre></td></tr></table></figure>
+
+<p><img src= "/img/loading.gif" data-lazy-src="https://gitee.com/MoYu-zc/picgo/raw/master/img/20210422172722.png" alt="17"></p>
+<h4 id="判断值是否在集合中"><a href="#判断值是否在集合中" class="headerlink" title="判断值是否在集合中"></a>判断值是否在集合中</h4><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sismember set hello    #判断hello是否在set集合中</span><br><span class="line"> </span><br><span class="line">sismember set v1       #判断v1是否在set集合中</span><br></pre></td></tr></table></figure>
+
+<p><img src= "/img/loading.gif" data-lazy-src="https://gitee.com/MoYu-zc/picgo/raw/master/img/20210422172843.png" alt="18"></p>
+<h4 id="获取set集合数据个数"><a href="#获取set集合数据个数" class="headerlink" title="获取set集合数据个数"></a>获取set集合数据个数</h4><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">scard set     </span><br></pre></td></tr></table></figure>
+
+<p><img src= "/img/loading.gif" data-lazy-src="https://gitee.com/MoYu-zc/picgo/raw/master/img/20210422173117.png" alt="19"></p>
+<h4 id="移除set集合指定元素"><a href="#移除set集合指定元素" class="headerlink" title="移除set集合指定元素"></a>移除set集合指定元素</h4><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">srem set hello        #set集合中移除hello</span><br></pre></td></tr></table></figure>
+
+<p><img src= "/img/loading.gif" data-lazy-src="https://gitee.com/MoYu-zc/picgo/raw/master/img/20210422173322.png" alt="20"></p>
+<h4 id="随机获取元素"><a href="#随机获取元素" class="headerlink" title="随机获取元素"></a>随机获取元素</h4><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">srandmember set        #随机获取set集合1个元素</span><br><span class="line"></span><br><span class="line">srandmember set 2      #随机获取set集合2个元素</span><br></pre></td></tr></table></figure>
+
+<p><img src= "/img/loading.gif" data-lazy-src="https://gitee.com/MoYu-zc/picgo/raw/master/img/20210422173645.png" alt="21"></p>
+<h4 id="随机删除元素"><a href="#随机删除元素" class="headerlink" title="随机删除元素"></a>随机删除元素</h4><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">spop set              #随机删除1个元素</span><br><span class="line"></span><br><span class="line">spop set 2            #随机删除2个元素</span><br></pre></td></tr></table></figure>
+
+<p><img src= "/img/loading.gif" data-lazy-src="https://gitee.com/MoYu-zc/picgo/raw/master/img/20210422173909.png" alt="22"></p>
+<h4 id="将指定值移动另一个集合"><a href="#将指定值移动另一个集合" class="headerlink" title="将指定值移动另一个集合"></a>将指定值移动另一个集合</h4><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">smove set set1 v2    #将v2元素从set集合移动到set1集合</span><br></pre></td></tr></table></figure>
+
+<p><img src= "/img/loading.gif" data-lazy-src="https://gitee.com/MoYu-zc/picgo/raw/master/img/20210422174119.png" alt="23"></p>
+<h4 id="数字集合类"><a href="#数字集合类" class="headerlink" title="数字集合类"></a>数字集合类</h4><ul>
+<li>差集</li>
+<li>交集</li>
+<li>并集</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sdiff set1 set2     #set1集合和set2集合的差集(set1存在，set2不存在)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sinter set1 set2    #set1、set2集合中的交集，即两者都存在的元素</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sunion set1 set2    #set1、set2并集</span><br></pre></td></tr></table></figure>
+
+<p><img src= "/img/loading.gif" data-lazy-src="https://gitee.com/MoYu-zc/picgo/raw/master/img/20210422174752.png" alt="24"></p>
+<h3 id="Hash-哈希"><a href="#Hash-哈希" class="headerlink" title="Hash - 哈希"></a>Hash - 哈希</h3><blockquote>
+<p><strong>Map集合,key-may,这个值是map集合,本质和string类型没有太大区别,还是一个key-value</strong></p>
+<p><strong>hash更适合存储对象,string更适字符串存储</strong></p>
+</blockquote>
+<h4 id="存入一个元素"><a href="#存入一个元素" class="headerlink" title="存入一个元素"></a>存入一个元素</h4><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">hset hash k v       #存入hash集合，k-v</span><br></pre></td></tr></table></figure>
+
+<h4 id="获取一个元素"><a href="#获取一个元素" class="headerlink" title="获取一个元素"></a>获取一个元素</h4><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">hget hash k         #获取hash集合 k元素对应v</span><br></pre></td></tr></table></figure>
+
+<h4 id="存入多个元素"><a href="#存入多个元素" class="headerlink" title="存入多个元素"></a>存入多个元素</h4><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">hmset hash k1 v1 k2 v2   #存入hash集合 k1-v1 k2-v2</span><br></pre></td></tr></table></figure>
+
+<h4 id="获得多个元素"><a href="#获得多个元素" class="headerlink" title="获得多个元素"></a>获得多个元素</h4><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">hmget hash k1 k2     #获取hash集合 k1、k2元素对应v</span><br></pre></td></tr></table></figure>
+
+<h4 id="获取全部数据"><a href="#获取全部数据" class="headerlink" title="获取全部数据"></a>获取全部数据</h4><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">hgetall hash</span><br></pre></td></tr></table></figure>
+
+<h4 id="获取集合中字段数量"><a href="#获取集合中字段数量" class="headerlink" title="获取集合中字段数量"></a>获取集合中字段数量</h4><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">hlen hash</span><br></pre></td></tr></table></figure>
+
+<h4 id="删除对应元素"><a href="#删除对应元素" class="headerlink" title="删除对应元素"></a>删除对应元素</h4><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">hdel hash k          #删除hash集合，k字段</span><br></pre></td></tr></table></figure>
+
+<p><img src= "/img/loading.gif" data-lazy-src="https://gitee.com/MoYu-zc/picgo/raw/master/img/20210422180155.png" alt="25"></p>
+<h4 id="获得所有k字段"><a href="#获得所有k字段" class="headerlink" title="获得所有k字段"></a>获得所有k字段</h4><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">hkeys hash</span><br></pre></td></tr></table></figure>
+
+<h4 id="获得所有value"><a href="#获得所有value" class="headerlink" title="获得所有value"></a>获得所有value</h4><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">hvals hash</span><br></pre></td></tr></table></figure>
+
+<h4 id="判断指定字段是否存在"><a href="#判断指定字段是否存在" class="headerlink" title="判断指定字段是否存在"></a>判断指定字段是否存在</h4><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">hexists hash k1      #判断hash集合中k1字段是否存在</span><br></pre></td></tr></table></figure>
+
+<p><img src= "/img/loading.gif" data-lazy-src="https://gitee.com/MoYu-zc/picgo/raw/master/img/20210422180452.png" alt="26"></p>
+<h4 id="增加指定增量"><a href="#增加指定增量" class="headerlink" title="增加指定增量"></a>增加指定增量</h4><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">hincrby hash k 2       #hash集合k字段的v+2</span><br><span class="line"></span><br><span class="line">hincrby hash k -1      #hash集合k字段的v-1</span><br></pre></td></tr></table></figure>
+
+<p><img src= "/img/loading.gif" data-lazy-src="https://gitee.com/MoYu-zc/picgo/raw/master/img/20210422180928.png" alt="27"></p>
+<h4 id="不存在-再设置-1"><a href="#不存在-再设置-1" class="headerlink" title="不存在 再设置"></a>不存在 再设置</h4><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">hsetnx hash k4 v4     #hash集合中 k4字段不存在的话，存入k4-v4</span><br></pre></td></tr></table></figure>
+
+<p><img src= "/img/loading.gif" data-lazy-src="https://gitee.com/MoYu-zc/picgo/raw/master/img/20210422181229.png" alt="28"></p>
+<h3 id="Zset-有序集合"><a href="#Zset-有序集合" class="headerlink" title="Zset - 有序集合"></a>Zset - 有序集合</h3><blockquote>
+<p><strong>set集合中 , set k1 v1    ;   它是一个无序不重复集合</strong> </p>
+<p><strong>zset集合中，zset k1 score1 v1  ； 它是一个有序不重复集合</strong> </p>
+</blockquote>
+<h4 id="添加集合中的值"><a href="#添加集合中的值" class="headerlink" title="添加集合中的值"></a>添加集合中的值</h4><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">zadd zset 1 one          #添加zset集合元素one，顺序为1</span><br><span class="line"></span><br><span class="line">zadd zset 2 two 3 three  #添加zset集合元素two、three，顺序为2、3</span><br></pre></td></tr></table></figure>
+
+<h4 id="获得范围内的集合值"><a href="#获得范围内的集合值" class="headerlink" title="获得范围内的集合值"></a>获得范围内的集合值</h4><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">zrange zset 0 -1         #获取全部集合值</span><br><span class="line"></span><br><span class="line">zrange zset 0 1          #获取集合中0-1的值</span><br></pre></td></tr></table></figure>
+
+<p><img src= "/img/loading.gif" data-lazy-src="https://gitee.com/MoYu-zc/picgo/raw/master/img/20210422182407.png" alt="29"></p>
+<h4 id="获得集合中的个数"><a href="#获得集合中的个数" class="headerlink" title="获得集合中的个数"></a>获得集合中的个数</h4><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">zcard zset</span><br></pre></td></tr></table></figure>
+
+<h4 id="从小到大，显示全部数据"><a href="#从小到大，显示全部数据" class="headerlink" title="从小到大，显示全部数据"></a>从小到大，显示全部数据</h4><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">zrangebyscore zset -inf +inf    #从小到大，显示全部数据</span><br><span class="line"></span><br><span class="line">zrangebyscore zset -inf 2       #从小到大，显示最小到2的数据</span><br><span class="line"></span><br><span class="line">zrangebyscore zset -inf 2 withscores #从小到大，显示最小到2的数据并且带着排序数字</span><br></pre></td></tr></table></figure>
+
+<h4 id="从大到小，显示全部数据"><a href="#从大到小，显示全部数据" class="headerlink" title="从大到小，显示全部数据"></a>从大到小，显示全部数据</h4><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">zrevrange zset 0 -1</span><br></pre></td></tr></table></figure>
+
+<h4 id=""><a href="#" class="headerlink" title=""></a><img src= "/img/loading.gif" data-lazy-src="https://gitee.com/MoYu-zc/picgo/raw/master/img/20210422183408.png" alt="30"></h4><h4 id="获取指定区间的元素数量"><a href="#获取指定区间的元素数量" class="headerlink" title="获取指定区间的元素数量"></a>获取指定区间的元素数量</h4><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">zcount zset 0 2         #获取0-2的元素数量</span><br><span class="line"></span><br><span class="line">zcount zset 0 10        #获取0-10的元素数量，超过现存最大值，会显示全部数量，不会报错</span><br></pre></td></tr></table></figure>
+
+<h4 id="移除集合中指定元素"><a href="#移除集合中指定元素" class="headerlink" title="移除集合中指定元素"></a>移除集合中指定元素</h4><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">zrem zset two           #移除zset集合中two元素</span><br></pre></td></tr></table></figure>
+
+<p><img src= "/img/loading.gif" data-lazy-src="https://gitee.com/MoYu-zc/picgo/raw/master/img/20210422183941.png" alt="31"></p>
+<h2 id="特殊数据类型"><a href="#特殊数据类型" class="headerlink" title="特殊数据类型"></a>特殊数据类型</h2><h3 id="Geospatial-地理位置"><a href="#Geospatial-地理位置" class="headerlink" title="Geospatial - 地理位置"></a>Geospatial - 地理位置</h3><blockquote>
+<p><strong>六个命令:</strong></p>
+<ul>
+<li>GEOADD   ： 添加地理位置</li>
+<li>GEOPOS   ： 获取指定的城市的精度和纬度</li>
+<li>GEODIST  ： 查看两者之间的直线距离</li>
+<li>GOERADIUS  ： 以给定的经纬度为中心,找出某一半径内的元素</li>
+<li>GEORADIUSBYMEMBER ：找出位于指定元素周围的其他元素</li>
+<li>GEOHASH ：返回一个或者多个位置元素的Geohash表示</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>中国城市经纬度查询 ：<a target="_blank" rel="noopener" href="http://www.jsons.cn/lngcode/">http://www.jsons.cn/lngcode/</a></p>
+</blockquote>
+<h4 id="添加地理位置"><a href="#添加地理位置" class="headerlink" title="添加地理位置"></a>添加地理位置</h4><blockquote>
+<p>两极无法直接添加,一般会下载城市数据,通过程序一次性导入</p>
+</blockquote>
+<blockquote>
+<p>有效的经度介于 <strong>-180</strong> 度至 <strong>180</strong> 度之   ;   有效的纬度介于 <strong>-85.05112878</strong> 度至 <strong>85.05112878</strong> 度之间。</p>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">geoadd china:city 116.405285 39.904989 beijing              #加入中国城市地理位置，经、纬度,beijing</span><br><span class="line"></span><br><span class="line">geoadd china:city 113.665412 34.757975 zhengzhou 125.14904 42.927 xian  #加入两条记录</span><br></pre></td></tr></table></figure>
+
+<h4 id="获取指定的城市的精度和纬度"><a href="#获取指定的城市的精度和纬度" class="headerlink" title="获取指定的城市的精度和纬度"></a>获取指定的城市的精度和纬度</h4><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">geopos china:city beijing</span><br></pre></td></tr></table></figure>
+
+<p><img src= "/img/loading.gif" data-lazy-src="https://gitee.com/MoYu-zc/picgo/raw/master/img/20210422190032.png" alt="32"></p>
+<h4 id="查看两者之间的直线距离"><a href="#查看两者之间的直线距离" class="headerlink" title="查看两者之间的直线距离"></a>查看两者之间的直线距离</h4><blockquote>
+<p>单位:</p>
+<ul>
+<li>[<strong>默认</strong>] m : 表示单位为米   </li>
+<li>km : 表示单位为千米</li>
+<li>mi : 表示单位为英里</li>
+<li>ft : 表示单位为英尺</li>
+</ul>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">geodist china:city beijing shanghai          #查看 北京到上海 的直线距离，默认单位为米</span><br><span class="line"></span><br><span class="line">geodist china:city zhengzhou xian km         #查看 郑州到西安 的直线距离，单位为千米</span><br></pre></td></tr></table></figure>
+
+<p><img src= "/img/loading.gif" data-lazy-src="https://gitee.com/MoYu-zc/picgo/raw/master/img/20210422190935.png" alt="33"></p>
+<h4 id="以给定的经纬度为中心-找出某一半径内的元素"><a href="#以给定的经纬度为中心-找出某一半径内的元素" class="headerlink" title="以给定的经纬度为中心,找出某一半径内的元素"></a>以给定的经纬度为中心,找出某一半径内的元素</h4><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">georadius china:city 110 30 1500 km                   # 以110,30这个经纬度为中心,寻找1500km内的城市</span><br><span class="line"></span><br><span class="line">georadius china:city 110 30 1500 km withdist          # 以110,30这个经纬度为中心,寻找1500km内的城市，并显示到中间距离的位置</span><br><span class="line"></span><br><span class="line">georadius china:city 110 30 1500 km withdist count 2  # 以110,30这个经纬度为中心,寻找1500km内的城市，只显示两条，并显示到中间距离的位置</span><br><span class="line"></span><br><span class="line">georadius china:city 110 30 1500 km withcoord         # 以110,30这个经纬度为中心,寻找1500km内的城市，并显示查出城市的定位信息</span><br><span class="line"></span><br><span class="line">georadius china:city 110 30 1500 km withcoord count 2 # 以110,30这个经纬度为中心,寻找1500km内的城市，只显示两条，并显示查出城市的定位信息</span><br></pre></td></tr></table></figure>
+
+<img src= "/img/loading.gif" data-lazy-src="https://gitee.com/MoYu-zc/picgo/raw/master/img/20210422191822.png" alt="34" style="zoom:90%;" />
+
+<h4 id="查看指定元素周围的其他元素"><a href="#查看指定元素周围的其他元素" class="headerlink" title="查看指定元素周围的其他元素"></a>查看指定元素周围的其他元素</h4><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">georadiusbymember china:city beijing 1000 km     # 查看北京元素1000km以内的其他元素</span><br><span class="line"></span><br><span class="line">georadiusbymember china:city shanghai 500 km     # 查看上海元素500km以内的其他元素</span><br></pre></td></tr></table></figure>
+
+<p><img src= "/img/loading.gif" data-lazy-src="https://gitee.com/MoYu-zc/picgo/raw/master/img/20210422192224.png" alt="35"></p>
+<h4 id="返回位置元素的Geohash表示"><a href="#返回位置元素的Geohash表示" class="headerlink" title="返回位置元素的Geohash表示"></a>返回位置元素的Geohash表示</h4><blockquote>
+<p><strong>将二维的经纬度转换为一维的字符串,如果两个字符串越接近,那么则距离越近</strong></p>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">geohash china:city beijing shanghai xian</span><br></pre></td></tr></table></figure>
+
+<p><img src= "/img/loading.gif" data-lazy-src="https://gitee.com/MoYu-zc/picgo/raw/master/img/20210422192523.png" alt="36"></p>
+<h4 id="底层的实现原理"><a href="#底层的实现原理" class="headerlink" title="底层的实现原理"></a>底层的实现原理</h4><blockquote>
+<p><strong>GEO 底层的实现原理其实就是 Zset , 我们可以使用 Zset 命令来操作 GEO</strong></p>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">127.0.0.1:6379&gt; zrange china:city 0 -1      # 查看china:city集合中全部元素</span><br><span class="line">1) &quot;hangzhou&quot;</span><br><span class="line">2) &quot;shanghai&quot;</span><br><span class="line">3) &quot;zhengzhou&quot;</span><br><span class="line">4) &quot;beijing&quot;</span><br><span class="line">5) &quot;xian&quot;</span><br><span class="line">127.0.0.1:6379&gt; zrem china:city xian        # 移除china:city集合中xian元素</span><br><span class="line">(integer) 1</span><br><span class="line">127.0.0.1:6379&gt; zrem china:city shanghai    # 查看china:city集合中shanghai元素</span><br><span class="line">(integer) 1</span><br><span class="line">127.0.0.1:6379&gt; zrange china:city 0 -1      # 查看china:city集合中全部元素</span><br><span class="line">1) &quot;hangzhou&quot;</span><br><span class="line">2) &quot;zhengzhou&quot;</span><br><span class="line">3) &quot;beijing&quot;</span><br></pre></td></tr></table></figure>
+
+<h3 id="Hyperloglog-基数统计"><a href="#Hyperloglog-基数统计" class="headerlink" title="Hyperloglog - 基数统计"></a>Hyperloglog - 基数统计</h3><blockquote>
+<p><strong>基数可以比较大小</strong></p>
+<p>A = {1，2，3} = 3    ；   B = {1，2，3，4，4} = 4</p>
+<p>基数 { 不重复的元素 } = xxx</p>
+</blockquote>
+<blockquote>
+<p><strong>优点 :</strong> 占用的内存固定 , 2^64(long)不同的元素的技术 , 只需要12KB内存 , 如果要从内存角度<strong>Hyperloglog</strong>首选</p>
+<p>0.81%错误率 , 可以忽略不计.</p>
+</blockquote>
+<h4 id="创建一组元素"><a href="#创建一组元素" class="headerlink" title="创建一组元素"></a>创建一组元素</h4><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">127.0.0.1:6379&gt; pfadd hype a b c d</span><br></pre></td></tr></table></figure>
+
+<h4 id="统计元素的基数数量"><a href="#统计元素的基数数量" class="headerlink" title="统计元素的基数数量"></a>统计元素的基数数量</h4><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">pfcount hype </span><br></pre></td></tr></table></figure>
+
+<h4 id="合并两组元素"><a href="#合并两组元素" class="headerlink" title="合并两组元素"></a>合并两组元素</h4><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">pfmerge hype2 hype hype1           #将hype、hype1 合并成 hype2</span><br></pre></td></tr></table></figure>
+
+<p><img src= "/img/loading.gif" data-lazy-src="https://gitee.com/MoYu-zc/picgo/raw/master/img/20210422202130.png" alt="37"></p>
+<h3 id="Bitmaps-位图场景"><a href="#Bitmaps-位图场景" class="headerlink" title="Bitmaps - 位图场景"></a>Bitmaps - 位图场景</h3><blockquote>
+<p>位存储</p>
+</blockquote>
+<p>Bitmaps位图 , 是操作二进制位来进行记录 , 就只有0和1两个状态</p>
+<p>365天 = 365bit ；1字节 = 8bit ；46个字节左右</p>
+<blockquote>
+<p><strong>模拟每周打卡</strong></p>
+<p>setbit 名称 日期(0-6) 是否打卡(0没打卡、1已打卡)</p>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">127.0.0.1:6379&gt; setbit sign 0 1   #周一 已打卡</span><br><span class="line">(integer) 0</span><br><span class="line">127.0.0.1:6379&gt; setbit sign 1 1   #周二 已打卡</span><br><span class="line">(integer) 0</span><br><span class="line">127.0.0.1:6379&gt; setbit sign 2 0   #周三 未打卡</span><br><span class="line">(integer) 0</span><br><span class="line">127.0.0.1:6379&gt; setbit sign 3 0   #周四 未打卡</span><br><span class="line">(integer) 0</span><br><span class="line">127.0.0.1:6379&gt; setbit sign 4 1   #周五 已打卡</span><br><span class="line">(integer) 0</span><br><span class="line">127.0.0.1:6379&gt; setbit sign 5 1   #周六 已打卡</span><br><span class="line">(integer) 0</span><br><span class="line">127.0.0.1:6379&gt; setbit sign 6 1   #周日 已打卡</span><br><span class="line">(integer) 0</span><br><span class="line">127.0.0.1:6379&gt; getbit sign 0     #查询周一是否打卡</span><br><span class="line">(integer) 1</span><br><span class="line">127.0.0.1:6379&gt; getbit sign 3     #查询周四是否打卡</span><br><span class="line">(integer) 0</span><br><span class="line">127.0.0.1:6379&gt; bitcount sign     #查询这周一共打卡几天</span><br><span class="line">(integer) 5</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>个人博客为：<br><a href="https://www.moyuzc.cn/">MoYu’s HomePage</a><br><a target="_blank" rel="noopener" href="https://moyu-zc.gitee.io/">MoYu’s Gitee  Blog</a></p>
+</blockquote>
+</div><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">MoYu-zc</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://www.moyuzc.cn/2021/06/06/Redis%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E5%8F%8A%E5%91%BD%E4%BB%A4/">https://www.moyuzc.cn/2021/06/06/Redis数据类型及命令/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://www.moyuzc.cn" target="_blank">FATE</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Redis/">Redis</a></div><div class="post_share"><div class="social-share" data-image="https://gitee.com/MoYu-zc/picgo/raw/master/img/20210219144530.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button"><i class="fas fa-qrcode"></i> 打赏<div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="/img/wx.png" target="_blank"><img class="post-qr-code-img" data-lazy-src="/img/wx.png" alt="wechat"/></a><div class="post-qr-code-desc">wechat</div></li><li class="reward-item"><a href="/img/zfb.jpg" target="_blank"><img class="post-qr-code-img" data-lazy-src="/img/zfb.jpg" alt="alipay"/></a><div class="post-qr-code-desc">alipay</div></li></ul></div></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/2021/06/03/Redis%E5%85%A5%E9%97%A8%E5%91%BD%E4%BB%A4/"><img class="next-cover" data-lazy-src="https://gitee.com/MoYu-zc/picgo/raw/master/img/20210218151233.png" onerror="onerror=null;src='/img/404.jpg'"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">Redis入门命令</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span> 相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2021/05/30/初识Redis/" title="初识Redis"><img class="cover" data-lazy-src="https://gitee.com/MoYu-zc/picgo/raw/master/img/20210217161659.jpg"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-05-30</div><div class="title">初识Redis</div></div></a></div><div><a href="/2021/06/03/Redis入门命令/" title="Redis入门命令"><img class="cover" data-lazy-src="https://gitee.com/MoYu-zc/picgo/raw/master/img/20210218151233.png"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-06-03</div><div class="title">Redis入门命令</div></div></a></div></div></div><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div class="vcomment" id="vcomment"></div></div></div></div></article></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2021 By MoYu-zc</div><div class="footer_custom_text">Welcome,This is MoYu</div><div class="icp"><a target="_blank" rel="noopener" href="http://www.beian.gov.cn"><img class="icp-icon" src="/img/icp.png"/><span>豫ICP备20001029号</span></a></div></div></footer></div><section id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="chat_btn" type="button" title="rightside.chat_btn"><i class="fas fa-sms"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></section><div class="search-dialog" id="local-search"><div class="search-dialog__title" id="local-search-title">本地搜索</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div></div><hr/><div id="local-search-results"><div id="local-hits"></div><div id="local-stats"><div class="local-search-stats__hr" id="hr"><span>由</span> <a target="_blank" rel="noopener" href="https://github.com/wzpan/hexo-generator-search" style="color:#49B1F5;">hexo-generator-search</a>
+ <span>提供支持</span></div></div></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div id="search-mask"></div><div><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><script src="/js/search/local-search.js"></script><div class="js-pjax"><script>if (document.getElementsByClassName('mermaid').length) {
+  if (window.mermaidJsLoad) mermaid.init()
+  else {
+    $.getScript('https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js', function () {
+      window.mermaidJsLoad = true
+      mermaid.initialize({
+        theme: 'default',
+      })
+      false && mermaid.init()
+    })
+  }
+}</script><script>function loadValine () {
+  function initValine () {
+    const initData = {
+      el: '#vcomment',
+      appId: 'uANjuzIND1m5J2AmUxp5cG6K-gzGzoHsz',
+      appKey: '4ViTsc6RFpqLm1PtCIlXh5m7',
+      placeholder: '请留下你的疑问、评论，我会很快回复滴~~',
+      avatar: 'monsterid',
+      meta: 'nick,mail,link'.split(','),
+      pageSize: '10',
+      lang: 'zh-CN',
+      recordIP: true,
+      serverURLs: '',
+      emojiCDN: '',
+      emojiMaps: "",
+      enableQQ: true,
+      path: window.location.pathname,
+    }
+
+    if (true) { 
+      initData.requiredFields= ('nick,mail'.split(','))
+    }
+
+    const valine = new Valine(initData)
+  }
+
+  if (typeof Valine === 'function') initValine() 
+  else $.getScript('https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js', initValine)
+}
+
+if ('Valine' === 'Valine' || !true) {
+  if (true) btf.loadComment(document.querySelector('#vcomment'),loadValine)
+  else setTimeout(() => loadValine(), 0)
+} else {
+  function loadOtherComment () {
+    loadValine()
+  }
+}</script><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div><script type="text/javascript" src="/js/fairyDustCursor.js"></script><script defer="defer" id="fluttering_ribbon" mobile="true" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-fluttering-ribbon.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
+POWERMODE.shake = false;
+POWERMODE.mobile = true;
+document.body.addEventListener('input', POWERMODE);
+</script><script>window.$crisp = [];
+window.CRISP_WEBSITE_ID = "86484e26-1f47-4402-a211-1efa3b0a704e";
+(function () {
+  d = document;
+  s = d.createElement("script");
+  s.src = "https://client.crisp.chat/l.js";
+  s.async = 1;
+  d.getElementsByTagName("head")[0].appendChild(s);
+})();
+$crisp.push(["safe", true])
+
+if (true) {
+  $crisp.push(["do", "chat:hide"])
+  $crisp.push(["on", "chat:closed", function() {
+    $crisp.push(["do", "chat:hide"])
+  }])
+  var chatBtnFn = () => {
+    var chatBtn = document.getElementById("chat_btn")
+    chatBtn.addEventListener("click", function(){
+      $crisp.push(["do", "chat:show"])
+      $crisp.push(["do", "chat:open"])
+
+    });
+  }
+  chatBtnFn()
+} else {
+  if (true) {
+    function chatBtnHide () {
+      $crisp.push(["do", "chat:hide"])
+    }
+    function chatBtnShow () {
+      $crisp.push(["do", "chat:show"])
+    }
+  }
+}</script></div></body></html>
