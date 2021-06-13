@@ -36,7 +36,6 @@
 
 <p><img src= "/img/loading.gif" data-lazy-src="https://gitee.com/MoYu-zc/picgo/raw/master/img/20210206201520.png" alt="4-1610883609591"></p>
 <p>以上便是完成<code>博客搭建</code>的前置条件。</p>
-<p>个人博客为：<br><a href="https://www.moyuzc.cn/">MoYu’s Github Blog</a><br><a href="https://moyu-zc.gitee.io/">MoYu’s Gitee  Blog</a></p>
 ]]></content>
       <categories>
         <category>Hexo</category>
@@ -182,7 +181,6 @@
 
 
 <p><strong>成功：<a href="https://moyu-zc.gitee.io/">https://moyu-zc.gitee.io</a></strong></p>
-<p>个人博客为：<br><a href="https://www.moyuzc.cn/">MoYu’s Github Blog</a><br><a href="https://moyu-zc.gitee.io/">MoYu’s Gitee  Blog</a></p>
 ]]></content>
       <categories>
         <category>Hexo</category>
@@ -1093,7 +1091,6 @@
 
 
 <p>​                持续更新ing~~</p>
-<p>个人博客为：<br><a href="https://www.moyuzc.cn/">MoYu’s Github Blog</a><br><a href="https://moyu-zc.gitee.io/">MoYu’s Gitee  Blog</a></p>
 ]]></content>
       <categories>
         <category>Hexo</category>
@@ -1173,7 +1170,6 @@
 <p>2.请尝试<code>关闭js动态背景</code>后再次尝试</p>
 <p>3.将<code>butterfly.yml</code>的<code>background</code>改为<code>&quot;#efefef&quot;</code></p>
 <p>4.确保你写的<code>内容正确</code>且<code>符合css的语法规则</code></p>
-<p>个人博客为：<br><a href="https://www.moyuzc.cn/">MoYu’s Github Blog</a><br><a href="https://moyu-zc.gitee.io/">MoYu’s Gitee  Blog</a></p>
 ]]></content>
       <categories>
         <category>Hexo</category>
@@ -1266,9 +1262,6 @@
 <p>成果图：</p>
 <img src= "/img/loading.gif" data-lazy-src="https://gitee.com/MoYu-zc/picgo/raw/master/img/20210207005017.png" alt="17" style="zoom: 80%;" />
 
-
-
-<p>个人博客为：<br><a href="https://www.moyuzc.cn/">MoYu’s Github Blog</a><br><a href="https://moyu-zc.gitee.io/">MoYu’s Gitee  Blog</a></p>
 ]]></content>
       <categories>
         <category>Hexo</category>
@@ -1385,7 +1378,6 @@
 <img src= "/img/loading.gif" data-lazy-src="https://gitee.com/MoYu-zc/picgo/raw/master/img/20210206200148.png" alt="20" style="zoom:67%;" />
 
 <p>最终<code>上传成功</code>即可。</p>
-<p>个人博客为：<br><a href="https://www.moyuzc.cn/">MoYu’s Github Blog</a><br><a href="https://moyu-zc.gitee.io/">MoYu’s Gitee  Blog</a></p>
 ]]></content>
       <categories>
         <category>PicGo图床</category>
@@ -1643,9 +1635,8 @@
 <img src= "/img/loading.gif" data-lazy-src="https://gitee.com/MoYu-zc/picgo/raw/master/img/20210207023417.png" alt="2" style="zoom:80%;" />
 
 
-<blockquote>
-<p>个人博客为：<br><a href="https://www.moyuzc.cn/">MoYu’s Github Blog</a><br><a href="https://moyu-zc.gitee.io/">MoYu’s Gitee  Blog</a></p>
-</blockquote>
+
+
 ]]></content>
       <categories>
         <category>Mybatis</category>
@@ -1774,9 +1765,6 @@
 <li>abc% 表示以<code>abc 开头</code>的所有字符串；</li>
 <li>%abc% 表示<code>所有包含abc</code>的字符串；</li>
 </ol>
-<blockquote>
-<p>个人博客为：<br><a href="https://www.moyuzc.cn/">MoYu’s Github Blog</a><br><a href="https://moyu-zc.gitee.io/">MoYu’s Gitee  Blog</a></p>
-</blockquote>
 ]]></content>
       <categories>
         <category>Mybatis</category>
@@ -1877,9 +1865,6 @@
 <li>resultMap 元素是 MyBatis 中<code>最重要最强大</code>的元素 </li>
 <li>ResultMap 的<code>设计思想</code>是，对于简单的语句根本不需要配置显式的结果映射，而对于复杂一点的语句只需要描述它们的关系就行了。</li>
 </ul>
-<blockquote>
-<p>个人博客为：<br><a href="https://www.moyuzc.cn/">MoYu’s Github Blog</a><br><a href="https://moyu-zc.gitee.io/">MoYu’s Gitee  Blog</a></p>
-</blockquote>
 ]]></content>
       <categories>
         <category>Mybatis</category>
@@ -1959,10 +1944,6 @@
 <p>结果也是会出现索引 [0,2) 的数据。</p>
 <img src= "/img/loading.gif" data-lazy-src="https://gitee.com/MoYu-zc/picgo/raw/master/img/20210208184821.png" alt="5" style="zoom:80%;" />
 
-
-<blockquote>
-<p>个人博客为：<br><a href="https://www.moyuzc.cn/">MoYu’s Github Blog</a><br><a href="https://moyu-zc.gitee.io/">MoYu’s Gitee  Blog</a></p>
-</blockquote>
 ]]></content>
       <categories>
         <category>Mybatis</category>
@@ -1981,9 +1962,6 @@
 <p>这个问题是因为在<code>xml文件</code>中的中文注释的问题，有两种解决方案：</p>
 <p>一、将<code>xml文件</code>的中文注释全部删除，解决</p>
 <p>二、将<code>xml文件</code>顶部的encoding=<code>UTF-8</code>改为encoding=<code>UTF8</code>可以解决问题</p>
-<blockquote>
-<p>个人博客为：<br><a href="https://moyu-zc.github.io/">MoYu’s Github Blog</a><br><a href="https://moyu-zc.gitee.io/">MoYu’s Gitee  Blog</a></p>
-</blockquote>
 ]]></content>
       <categories>
         <category>Bug</category>
@@ -2038,9 +2016,6 @@
 <img src= "/img/loading.gif" data-lazy-src="https://gitee.com/MoYu-zc/picgo/raw/master/img/20210209105121.png" alt="3" style="zoom: 80%;" />
 
 
-<blockquote>
-<p>个人博客为：<br><a href="https://www.moyuzc.cn/">MoYu’s Github Blog</a><br><a href="https://moyu-zc.gitee.io/">MoYu’s Gitee  Blog</a></p>
-</blockquote>
 ]]></content>
       <categories>
         <category>Mybatis</category>
@@ -2302,9 +2277,6 @@
 
 
 <p><strong>其实没什么大的区别，想用可以用</strong></p>
-<blockquote>
-<p>个人博客为：<br><a href="https://www.moyuzc.cn/">MoYu’s Github Blog</a><br><a href="https://moyu-zc.gitee.io/">MoYu’s Gitee  Blog</a></p>
-</blockquote>
 ]]></content>
       <categories>
         <category>Mybatis</category>
@@ -2388,9 +2360,6 @@
 <p>Spring容器在初始化时先读取配置文件，根据配置文件或元数据创建与组织对象存入容器中，程序使用时再从Ioc容器中取出需要的对象。</p>
 <p>采用XML方式配置Bean的时候，Bean的定义信息是和实现分离的，而采用注解的方式可以把两者合为一体，Bean的定义信息直接以注解的形式定义在实现类中，从而达到了零配置的目的。</p>
 <p><strong>控制反转是一种通过描述（XML或注解）并通过第三方去生产或获取特定对象的方式。在Spring中实现控制反转的是IoC容器，其实现方法是依赖注入（Dependency Injection,DI）。</strong></p>
-<blockquote>
-<p>个人博客为：<br><a href="https://www.moyuzc.cn/">MoYu’s Github Blog</a><br><a href="https://moyu-zc.gitee.io/">MoYu’s Gitee  Blog</a></p>
-</blockquote>
 ]]></content>
       <categories>
         <category>Spring</category>
@@ -2494,10 +2463,6 @@
 <h3 id="3-import"><a href="#3-import" class="headerlink" title="3.import"></a>3.import</h3><p><code>import</code>可以将不同的bean.xml引入到一个配置文件中。</p>
 <figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">import</span> <span class="attr">resource</span>=<span class="string">&quot;&#123;path&#125;/beans.xml&quot;</span>/&gt;</span></span><br></pre></td></tr></table></figure>
 
-
-<blockquote>
-<p>个人博客为：<br><a href="https://www.moyuzc.cn/">MoYu’s Github Blog</a><br><a href="https://moyu-zc.gitee.io/">MoYu’s Gitee  Blog</a></p>
-</blockquote>
 ]]></content>
       <categories>
         <category>Spring</category>
@@ -2604,9 +2569,6 @@
 <figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">&quot;userPreferences&quot;</span> <span class="attr">class</span>=<span class="string">&quot;com.foo.UserPreferences&quot;</span> <span class="attr">scope</span>=<span class="string">&quot;session&quot;</span>/&gt;</span></span><br></pre></td></tr></table></figure>
 
 <p>针对某个HTTP Session，Spring容器会根据userPreferences bean定义创建一个全新的userPreferences bean实例，且该userPreferences bean仅在当前HTTP Session内有效。与request作用域一样，可以根据需要放心的更改所创建实例的内部状态，而别的HTTP Session中根据userPreferences创建的实例，将不会看到这些特定于某个HTTP Session的状态变化。当HTTP Session最终被废弃的时候，在该HTTP Session作用域内的bean也会被废弃掉。</p>
-<blockquote>
-<p>个人博客为：<br><a href="https://www.moyuzc.cn/">MoYu’s Github Blog</a><br><a href="https://moyu-zc.gitee.io/">MoYu’s Gitee  Blog</a></p>
-</blockquote>
 ]]></content>
       <categories>
         <category>Spring</category>
@@ -2732,9 +2694,6 @@
 <p>2、@Autowired默认按类型装配（属于spring规范），默认情况下必须要求依赖对象必须存在，如果要允许null 值，可以设置它的required属性为false，如：@Autowired(required=false) ，如果我们想使用名称装配可以结合@Qualifier注解进行使用</p>
 <p>3、@Resource（属于J2EE复返），默认按照名称进行装配，名称可以通过name属性进行指定。如果没有指定name属性，当注解写在字段上时，默认取字段名进行按照名称查找，如果注解写在setter方法上默认取属性名进行装配。当找不到与名称匹配的bean时才按照类型进行装配。但是需要注意的是，如果name属性一旦指定，就只会按照名称进行装配。</p>
 <p>它们的作用相同都是用注解方式注入对象，但执行顺序不同。@Autowired先byType，@Resource先byName。</p>
-<blockquote>
-<p>个人博客为：<br><a href="https://www.moyuzc.cn/">MoYu’s Github Blog</a><br><a href="https://moyu-zc.gitee.io/">MoYu’s Gitee  Blog</a></p>
-</blockquote>
 ]]></content>
       <categories>
         <category>Spring</category>
@@ -2919,9 +2878,6 @@
 <li>一个动态代理可以代理多个类，代理的是接口！</li>
 </ul>
 </blockquote>
-<blockquote>
-<p>个人博客为：<br><a href="https://www.moyuzc.cn/">MoYu’s Github Blog</a><br><a href="https://moyu-zc.gitee.io/">MoYu’s Gitee  Blog</a></p>
-</blockquote>
 ]]></content>
       <categories>
         <category>Spring</category>
@@ -2976,9 +2932,6 @@
 
 
 <p><strong>基本上问题就解决了</strong></p>
-<blockquote>
-<p>个人博客为：<br><a href="https://moyu-zc.github.io/">MoYu’s Github Blog</a><br><a href="https://moyu-zc.gitee.io/">MoYu’s Gitee  Blog</a></p>
-</blockquote>
 ]]></content>
       <categories>
         <category>Bug</category>
@@ -3074,9 +3027,6 @@
 <p>这个错误是因为：<code>依赖jar包冲突</code>，spring-webmvc  和 spring-aop 有依赖冲突，删除 spring-aop 即可</p>
 <img src= "/img/loading.gif" data-lazy-src="https://gitee.com/MoYu-zc/picgo/raw/master/img/20210211150515.png" alt="6" style="zoom:90%;" />
 
-<blockquote>
-<p>个人博客为：<br><a href="https://www.moyuzc.cn/">MoYu’s Github Blog</a><br><a href="https://moyu-zc.gitee.io/">MoYu’s Gitee  Blog</a></p>
-</blockquote>
 ]]></content>
       <categories>
         <category>Spring</category>
@@ -3232,9 +3182,6 @@
 <li><p>最终视图呈现给用户。</p>
 </li>
 </ol>
-<blockquote>
-<p>个人博客为：<br><a href="https://www.moyuzc.cn/">MoYu’s Github Blog</a><br><a href="https://moyu-zc.gitee.io/">MoYu’s Gitee  Blog</a></p>
-</blockquote>
 ]]></content>
       <categories>
         <category>SpringMVC</category>
@@ -3313,9 +3260,6 @@
 <li>如果jar包存在，显示无法输出，就在IDEA的项目发布中，添加lib依赖！</li>
 <li>重启Tomcat 即可解决！</li>
 </ol>
-<blockquote>
-<p>个人博客为：<br><a href="https://www.moyuzc.cn/">MoYu’s Github Blog</a><br><a href="https://moyu-zc.gitee.io/">MoYu’s Gitee  Blog</a></p>
-</blockquote>
 ]]></content>
       <categories>
         <category>SpringMVC</category>
@@ -3446,9 +3390,6 @@
 
 
 <p><img src= "/img/loading.gif" data-lazy-src="https://gitee.com/MoYu-zc/picgo/raw/master/img/20210214200046.png" alt="6"></p>
-<blockquote>
-<p>个人博客为：<br><a href="https://www.moyuzc.cn/">MoYu’s Github Blog</a><br><a href="https://moyu-zc.gitee.io/">MoYu’s Gitee  Blog</a></p>
-</blockquote>
 ]]></content>
       <categories>
         <category>SpringMVC</category>
@@ -3674,9 +3615,6 @@
 <p>一般情况下，SpringMVC默认的乱码处理就已经能够很好的解决了！</p>
 <p><strong>然后在web.xml中配置这个过滤器即可！</strong></p>
 <p>乱码问题，需要平时多注意，在尽可能能设置编码的地方，都设置为统一编码 UTF-8。</p>
-<blockquote>
-<p>个人博客为：<br><a href="https://www.moyuzc.cn/">MoYu’s Github Blog</a><br><a href="https://moyu-zc.gitee.io/">MoYu’s Gitee  Blog</a></p>
-</blockquote>
 ]]></content>
       <categories>
         <category>SpringMVC</category>
@@ -3809,9 +3747,6 @@
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> com.kuang.controller;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.alibaba.fastjson.JSON;</span><br><span class="line"><span class="keyword">import</span> com.alibaba.fastjson.JSONObject;</span><br><span class="line"><span class="keyword">import</span> com.kuang.pojo.User;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.ArrayList;</span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">FastJsonDemo</span> </span>&#123;</span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">       <span class="comment">//创建一个对象</span></span><br><span class="line">       User user1 = <span class="keyword">new</span> User(<span class="string">&quot;1号&quot;</span>, <span class="number">1</span>, <span class="string">&quot;男&quot;</span>);</span><br><span class="line">       User user2 = <span class="keyword">new</span> User(<span class="string">&quot;2号&quot;</span>, <span class="number">2</span>, <span class="string">&quot;女&quot;</span>);</span><br><span class="line">       User user3 = <span class="keyword">new</span> User(<span class="string">&quot;3号&quot;</span>, <span class="number">3</span>, <span class="string">&quot;男&quot;</span>);</span><br><span class="line">       User user4 = <span class="keyword">new</span> User(<span class="string">&quot;4号&quot;</span>, <span class="number">4</span>, <span class="string">&quot;男&quot;</span>);</span><br><span class="line">       List&lt;User&gt; list = <span class="keyword">new</span> ArrayList&lt;User&gt;();</span><br><span class="line">       list.add(user1);</span><br><span class="line">       list.add(user2);</span><br><span class="line">       list.add(user3);</span><br><span class="line">       list.add(user4);</span><br><span class="line"></span><br><span class="line">       System.out.println(<span class="string">&quot;*******Java对象 转 JSON字符串*******&quot;</span>);</span><br><span class="line">       String str1 = JSON.toJSONString(list);</span><br><span class="line">       System.out.println(<span class="string">&quot;JSON.toJSONString(list)==&gt;&quot;</span>+str1);</span><br><span class="line">       String str2 = JSON.toJSONString(user1);</span><br><span class="line">       System.out.println(<span class="string">&quot;JSON.toJSONString(user1)==&gt;&quot;</span>+str2);</span><br><span class="line"></span><br><span class="line">       System.out.println(<span class="string">&quot;\n****** JSON字符串 转 Java对象*******&quot;</span>);</span><br><span class="line">       User jp_user1=JSON.parseObject(str2,User.class);</span><br><span class="line">       System.out.println(<span class="string">&quot;JSON.parseObject(str2,User.class)==&gt;&quot;</span>+jp_user1);</span><br><span class="line"></span><br><span class="line">       System.out.println(<span class="string">&quot;\n****** Java对象 转 JSON对象 ******&quot;</span>);</span><br><span class="line">       JSONObject jsonObject1 = (JSONObject) JSON.toJSON(user2);</span><br><span class="line">       System.out.println(<span class="string">&quot;(JSONObject) JSON.toJSON(user2)==&gt;&quot;</span>+jsonObject1.getString(<span class="string">&quot;name&quot;</span>));</span><br><span class="line"></span><br><span class="line">       System.out.println(<span class="string">&quot;\n****** JSON对象 转 Java对象 ******&quot;</span>);</span><br><span class="line">       User to_java_user = JSON.toJavaObject(jsonObject1, User.class);</span><br><span class="line">       System.out.println(<span class="string">&quot;JSON.toJavaObject(jsonObject1, User.class)==&gt;&quot;</span>+to_java_user);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>这种工具类，我们只需要掌握使用就好了，在使用的时候在根据具体的业务去找对应的实现。</p>
-<blockquote>
-<p>个人博客为：<br><a href="https://www.moyuzc.cn/">MoYu’s Github Blog</a><br><a href="https://moyu-zc.gitee.io/">MoYu’s Gitee  Blog</a></p>
-</blockquote>
 ]]></content>
       <categories>
         <category>SpringMVC</category>
@@ -3912,9 +3847,6 @@
 <figure class="highlight"><table><tr><td class="code"><pre><span class="line">&lt;%@ page contentType=<span class="string">&quot;text/html;charset=UTF-8&quot;</span> language=<span class="string">&quot;java&quot;</span> %&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;title&gt;Title&lt;/title&gt;</span><br><span class="line">    &lt;script src=&quot;$&#123;pageContext.request.contextPath&#125;/jquery-3.4.1.min.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">    &lt;script type=<span class="string">&quot;text/javascript&quot;</span>&gt;</span><br><span class="line">        <span class="function">function <span class="title">a1</span><span class="params">()</span> </span>&#123;</span><br><span class="line">           $.post(&#123;</span><br><span class="line">               url:<span class="string">&quot;$&#123;pageContext.request.contextPath&#125;/a3&quot;</span>,</span><br><span class="line">               data:&#123;<span class="string">&#x27;name&#x27;</span>:$(<span class="string">&quot;#name&quot;</span>).val()&#125;,</span><br><span class="line">               success:function (data) &#123;</span><br><span class="line">                   <span class="keyword">if</span> (data.toString()==<span class="string">&#x27;OK&#x27;</span>)&#123;</span><br><span class="line">                       $(<span class="string">&quot;#userInfo&quot;</span>).css(<span class="string">&quot;color&quot;</span>,<span class="string">&quot;green&quot;</span>);</span><br><span class="line">                   &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">                       $(<span class="string">&quot;#userInfo&quot;</span>).css(<span class="string">&quot;color&quot;</span>,<span class="string">&quot;red&quot;</span>);</span><br><span class="line">                   &#125;</span><br><span class="line">                    $(<span class="string">&quot;#userInfo&quot;</span>).html(data);</span><br><span class="line">               &#125;</span><br><span class="line">           &#125;)</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="function">function <span class="title">a2</span><span class="params">()</span> </span>&#123;</span><br><span class="line">            $.post(&#123;</span><br><span class="line">                url:<span class="string">&quot;$&#123;pageContext.request.contextPath&#125;/a3&quot;</span>,</span><br><span class="line">                data:&#123;<span class="string">&#x27;pwd&#x27;</span>:$(<span class="string">&quot;#pwd&quot;</span>).val()&#125;,</span><br><span class="line">                success:function (data) &#123;</span><br><span class="line">                    <span class="keyword">if</span> (data.toString()==<span class="string">&#x27;OK&#x27;</span>)&#123;</span><br><span class="line">                        $(<span class="string">&quot;#pwdInfo&quot;</span>).css(<span class="string">&quot;color&quot;</span>,<span class="string">&quot;green&quot;</span>);</span><br><span class="line">                    &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">                        $(<span class="string">&quot;#pwdInfo&quot;</span>).css(<span class="string">&quot;color&quot;</span>,<span class="string">&quot;red&quot;</span>);</span><br><span class="line">                    &#125;</span><br><span class="line">                    $(<span class="string">&quot;#pwdInfo&quot;</span>).html(data);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;)</span><br><span class="line">        &#125;</span><br><span class="line">    &lt;/script&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;p&gt;</span><br><span class="line">        用户名:&lt;input type=<span class="string">&quot;text&quot;</span> id=<span class="string">&quot;name&quot;</span> onblur=<span class="string">&quot;a1()&quot;</span>/&gt;</span><br><span class="line">        &lt;span id=&quot;userInfo&quot;&gt;&lt;/span&gt;</span><br><span class="line">    &lt;/p&gt;</span><br><span class="line">    &lt;p&gt;</span><br><span class="line">        密码:&lt;input type=<span class="string">&quot;text&quot;</span> id=<span class="string">&quot;pwd&quot;</span> onblur=<span class="string">&quot;a2()&quot;</span>/&gt;</span><br><span class="line">        &lt;span id=&quot;pwdInfo&quot;&gt;&lt;/span&gt;</span><br><span class="line">    &lt;/p&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
 
 <p><img src= "/img/loading.gif" data-lazy-src="https://gitee.com/MoYu-zc/picgo/raw/master/img/20210216114900.png" alt="5"></p>
-<blockquote>
-<p>个人博客为：<br><a href="https://www.moyuzc.cn/">MoYu’s Github Blog</a><br><a href="https://moyu-zc.gitee.io/">MoYu’s Gitee  Blog</a></p>
-</blockquote>
 ]]></content>
       <categories>
         <category>SpringMVC</category>
@@ -4044,9 +3976,6 @@
 
 <p><img src= "/img/loading.gif" data-lazy-src="https://gitee.com/MoYu-zc/picgo/raw/master/img/20210216160141.png" alt="3"></p>
 <p><strong>正常下载，与web原生相比  方便了太多了</strong></p>
-<blockquote>
-<p>个人博客为：<br><a href="https://www.moyuzc.cn/">MoYu’s Github Blog</a><br><a href="https://moyu-zc.gitee.io/">MoYu’s Gitee  Blog</a></p>
-</blockquote>
 ]]></content>
       <categories>
         <category>SpringMVC</category>
@@ -4238,7 +4167,7 @@
 <p><strong>配置AOP</strong></p>
 <p><strong>切记一定：导入aop的头文件！</strong></p>
 <figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">aop:config</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">aop:pointcut</span> <span class="attr">id</span>=<span class="string">&quot;txPointcut&quot;</span> <span class="attr">expression</span>=<span class="string">&quot;execution(* com.kuang.dao.*.*(..))&quot;</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">aop:advisor</span> <span class="attr">advice-ref</span>=<span class="string">&quot;txAdvice&quot;</span> <span class="attr">pointcut-ref</span>=<span class="string">&quot;txPointcut&quot;</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">aop:config</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>个人博客为：<br><a href="https://www.moyuzc.cn/">MoYu’s HomePage</a><br><a href="https://moyu-zc.gitee.io/">MoYu’s Gitee  Blog</a></p>
+
 ]]></content>
       <categories>
         <category>SSM</category>
@@ -4407,7 +4336,6 @@
 <blockquote>
 <p><strong>本文源代码链接最上方</strong></p>
 </blockquote>
-<p>个人博客为：<br><a href="https://www.moyuzc.cn/">MoYu’s HomePage</a><br><a href="https://moyu-zc.gitee.io/">MoYu’s Gitee  Blog</a></p>
 ]]></content>
       <categories>
         <category>SSM</category>
@@ -4559,7 +4487,6 @@
 <p><img src= "/img/loading.gif" data-lazy-src="https://gitee.com/MoYu-zc/picgo/raw/master/img/20210218112257.png" alt="16"></p>
 <img src= "/img/loading.gif" data-lazy-src="https://gitee.com/MoYu-zc/picgo/raw/master/img/20210218120535.png" alt="17" style="zoom:80%;" />
 
-<p>个人博客为：<br><a href="https://www.moyuzc.cn/">MoYu’s HomePage</a><br><a href="https://moyu-zc.gitee.io/">MoYu’s Gitee  Blog</a></p>
 ]]></content>
       <categories>
         <category>Git上传</category>
@@ -4714,8 +4641,6 @@
 <h3 id="7-ReadWriteLock-读写锁"><a href="#7-ReadWriteLock-读写锁" class="headerlink" title="7. ReadWriteLock(读写锁)"></a>7. ReadWriteLock(读写锁)</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestReadWriteLock</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">        ReadWriteLockDemo rw = <span class="keyword">new</span> ReadWriteLockDemo();</span><br><span class="line">        <span class="comment">// 一个线程进行写</span></span><br><span class="line">        <span class="keyword">new</span> Thread(<span class="keyword">new</span> Runnable()&#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span></span>&#123;</span><br><span class="line">                rw.set((<span class="keyword">int</span>)(Math.random()*<span class="number">100</span>));</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;,<span class="string">&quot;Write:&quot;</span>).start();</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 100个线程进行读操作</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;<span class="number">100</span>; i++)&#123;</span><br><span class="line">            <span class="keyword">new</span> Thread(<span class="keyword">new</span> Runnable()&#123;</span><br><span class="line">                <span class="meta">@Override</span></span><br><span class="line">                <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span></span>&#123;</span><br><span class="line">                    rw.get();</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;,<span class="string">&quot;Read:&quot;</span>).start();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ReadWriteLockDemo</span></span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> number = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">private</span> ReadWriteLock lock = <span class="keyword">new</span> ReentrantReadWriteLock();</span><br><span class="line">    <span class="comment">// 读</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">get</span><span class="params">()</span></span>&#123;</span><br><span class="line">        lock.readLock().lock(); <span class="comment">// 上锁</span></span><br><span class="line">        <span class="keyword">try</span>&#123;</span><br><span class="line">            System.out.println(Thread.currentThread().getName()+<span class="string">&quot;:&quot;</span>+number);</span><br><span class="line">        &#125;<span class="keyword">finally</span>&#123;</span><br><span class="line">            lock.readLock().unlock(); <span class="comment">// 释放锁</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 写</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">set</span><span class="params">(<span class="keyword">int</span> number)</span></span>&#123;</span><br><span class="line">        lock.writeLock().lock();</span><br><span class="line">        <span class="keyword">try</span>&#123;</span><br><span class="line">            System.out.println(Thread.currentThread().getName());</span><br><span class="line">            <span class="keyword">this</span>.number = number;</span><br><span class="line">        &#125;<span class="keyword">finally</span>&#123;</span><br><span class="line">            lock.writeLock().unlock();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <img src= "/img/loading.gif" data-lazy-src="https://gitee.com/MoYu-zc/picgo/raw/master/img/20210226210737.png" alt="10" style="zoom: 67%;" />
-
-<p>个人博客为：<br><a href="https://www.moyuzc.cn/">MoYu’s HomePage</a><br><a href="https://moyu-zc.gitee.io/">MoYu’s Gitee  Blog</a></p>
 ]]></content>
       <categories>
         <category>JUC</category>
@@ -4808,7 +4733,6 @@
 <img src= "/img/loading.gif" data-lazy-src="https://gitee.com/MoYu-zc/picgo/raw/master/img/20210222185350.png" alt="15" style="zoom: 50%;" />
 
 <p><strong>图案已经变了</strong></p>
-<p>个人博客为：<br><a href="https://www.moyuzc.cn/">MoYu’s HomePage</a><br><a href="https://moyu-zc.gitee.io/">MoYu’s Gitee  Blog</a></p>
 ]]></content>
       <categories>
         <category>SpringBoot</category>
@@ -4908,9 +4832,6 @@
 <h2 id="2-11、run方法流程分析"><a href="#2-11、run方法流程分析" class="headerlink" title="2.11、run方法流程分析"></a>2.11、run方法流程分析</h2><p><img src= "/img/loading.gif" data-lazy-src="https://gitee.com/MoYu-zc/picgo/raw/master/img/20210222210858.png" alt="3"></p>
 <blockquote>
 <p>再次感谢<a href="https://www.bilibili.com/video/BV1PE411i7CV?t=28&p=7">狂神老师</a></p>
-</blockquote>
-<blockquote>
-<p>个人博客为：<br><a href="https://www.moyuzc.cn/">MoYu’s HomePage</a><br><a href="https://moyu-zc.gitee.io/">MoYu’s Gitee  Blog</a></p>
 </blockquote>
 ]]></content>
       <categories>
@@ -5123,9 +5044,6 @@
 <h4 id="3-2-yaml的多文档块"><a href="#3-2-yaml的多文档块" class="headerlink" title="3.2 yaml的多文档块"></a>3.2 yaml的多文档块</h4><figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">server:</span></span><br><span class="line">  <span class="attr">port:</span> <span class="number">8081</span></span><br><span class="line"><span class="comment">#选择要激活那个环境块</span></span><br><span class="line"><span class="attr">spring:</span></span><br><span class="line">  <span class="attr">profiles:</span></span><br><span class="line">    <span class="attr">active:</span> <span class="string">dev</span></span><br><span class="line"></span><br><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">server:</span></span><br><span class="line">  <span class="attr">port:</span> <span class="number">8082</span></span><br><span class="line"><span class="attr">spring:</span></span><br><span class="line">  <span class="attr">profiles:</span> <span class="string">dev</span></span><br><span class="line"></span><br><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">server:</span></span><br><span class="line">  <span class="attr">port:</span> <span class="number">8083</span></span><br><span class="line"><span class="attr">spring:</span></span><br><span class="line">  <span class="attr">profiles:</span> <span class="string">test</span></span><br></pre></td></tr></table></figure>
 
 <p><strong>注意：如果yml和properties同时都配置了端口，并且没有激活其他环境 ， 默认会使用properties配置文件的</strong></p>
-<blockquote>
-<p>个人博客为：<br><a href="https://www.moyuzc.cn/">MoYu’s HomePage</a><br><a href="https://moyu-zc.gitee.io/">MoYu’s Gitee  Blog</a></p>
-</blockquote>
 ]]></content>
       <categories>
         <category>SpringBoot</category>
@@ -5271,9 +5189,6 @@
 <blockquote>
 <p>在SpringBoot中，有非常多的 <strong>xxxConfiguration</strong> 帮助我们进行扩展配置，只要看见了这个东西，我们就要注意了，可能是增加了一些新的功能。</p>
 </blockquote>
-<blockquote>
-<p>个人博客为：<br><a href="https://www.moyuzc.cn/">MoYu’s HomePage</a><br><a href="https://moyu-zc.gitee.io/">MoYu’s Gitee  Blog</a></p>
-</blockquote>
 ]]></content>
       <categories>
         <category>SpringBoot</category>
@@ -5332,9 +5247,7 @@
 
 
 
-<blockquote>
-<p>个人博客为：<br><a href="https://www.moyuzc.cn/">MoYu’s HomePage</a><br><a href="https://moyu-zc.gitee.io/">MoYu’s Gitee  Blog</a></p>
-</blockquote>
+
 ]]></content>
       <categories>
         <category>SpringBoot</category>
@@ -5590,9 +5503,6 @@
 
 
 <p><strong>这样一个CRUD项目基本完成！</strong></p>
-<blockquote>
-<p>个人博客为：<br><a href="https://www.moyuzc.cn/">MoYu’s HomePage</a><br><a href="https://moyu-zc.gitee.io/">MoYu’s Gitee  Blog</a></p>
-</blockquote>
 ]]></content>
       <categories>
         <category>SpringBoot</category>
@@ -5672,10 +5582,6 @@
 <h3 id="8-测试"><a href="#8-测试" class="headerlink" title="8.测试"></a>8.测试</h3><p>直接开启启动器，进入网页即可</p>
 <img src= "/img/loading.gif" data-lazy-src="https://gitee.com/MoYu-zc/picgo/raw/master/img/20210306003244.png" alt="5" style="zoom:67%;" />
 
-
-<blockquote>
-<p>个人博客为：<br><a href="https://www.moyuzc.cn/">MoYu’s HomePage</a><br><a href="https://moyu-zc.gitee.io/">MoYu’s Gitee  Blog</a></p>
-</blockquote>
 ]]></content>
       <categories>
         <category>SpringBoot</category>
@@ -5697,7 +5603,7 @@
 <img src= "/img/loading.gif" data-lazy-src="https://gitee.com/MoYu-zc/picgo/raw/master/img/20210306140432.png" alt="1" style="zoom:80%;" />
 
 <blockquote>
-<p>如果需要静态资源，可以<strong>私信</strong>我或者发邮件 <a href="mailto:&#x6d;&#x6f;&#x79;&#117;&#x5f;&#122;&#99;&#x40;&#x31;&#x36;&#51;&#46;&#99;&#x6f;&#109;">&#x6d;&#x6f;&#x79;&#117;&#x5f;&#122;&#99;&#x40;&#x31;&#x36;&#51;&#46;&#99;&#x6f;&#109;</a></p>
+<p>如果需要静态资源，可以<strong>私信</strong>我或者发邮件 <a href="mailto:&#x6d;&#111;&#x79;&#117;&#95;&#x7a;&#x63;&#64;&#x31;&#x36;&#x33;&#x2e;&#99;&#111;&#109;">&#x6d;&#111;&#x79;&#117;&#95;&#x7a;&#x63;&#64;&#x31;&#x36;&#x33;&#x2e;&#99;&#111;&#109;</a></p>
 </blockquote>
 <h3 id="1-3-关闭thymeleaf缓存"><a href="#1-3-关闭thymeleaf缓存" class="headerlink" title="1.3 关闭thymeleaf缓存"></a>1.3 关闭thymeleaf缓存</h3><figure class="highlight properties"><table><tr><td class="code"><pre><span class="line"><span class="meta">spring.thymeleaf.cache</span>=<span class="string">false</span></span><br></pre></td></tr></table></figure>
 
@@ -5761,9 +5667,6 @@
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line">http.rememberMe().rememberMeParameter(<span class="string">&quot;remember&quot;</span>);</span><br></pre></td></tr></table></figure>
 
 
-<blockquote>
-<p>个人博客为：<br><a href="https://www.moyuzc.cn/">MoYu’s HomePage</a><br><a href="https://moyu-zc.gitee.io/">MoYu’s Gitee  Blog</a></p>
-</blockquote>
 ]]></content>
       <categories>
         <category>SpringBoot</category>
@@ -5944,9 +5847,6 @@
 <p>Github：<a href="https://github.com/MoYu-zc/Film_manage">https://github.com/MoYu-zc/Film_manage</a></p>
 <p>Gitee：<a href="https://gitee.com/MoYu-zc/film_manage">https://gitee.com/MoYu-zc/film_manage</a></p>
 </blockquote>
-<blockquote>
-<p>个人博客为：<br><a href="https://www.moyuzc.cn/">MoYu’s HomePage</a><br><a href="https://moyu-zc.gitee.io/">MoYu’s Gitee  Blog</a></p>
-</blockquote>
 ]]></content>
       <categories>
         <category>SSM</category>
@@ -6073,9 +5973,6 @@
 <blockquote>
 <p><strong>这种，是最简单的页面整理，不同权限会显示不同页面，没有权限部分功能不展示。</strong></p>
 </blockquote>
-<blockquote>
-<p>个人博客为：<br><a href="https://www.moyuzc.cn/">MoYu’s HomePage</a><br><a href="https://moyu-zc.gitee.io/">MoYu’s Gitee  Blog</a></p>
-</blockquote>
 ]]></content>
       <categories>
         <category>SpringBoot</category>
@@ -6157,10 +6054,6 @@
 <img src= "/img/loading.gif" data-lazy-src="https://gitee.com/MoYu-zc/picgo/raw/master/img/20210316000723.png" alt="9" style="zoom: 67%;" />
 
 
-
-<blockquote>
-<p>个人博客为：<br><a href="https://www.moyuzc.cn/">MoYu’s HomePage</a><br><a href="https://moyu-zc.gitee.io/">MoYu’s Gitee  Blog</a></p>
-</blockquote>
 ]]></content>
       <categories>
         <category>SpringBoot</category>
@@ -6281,9 +6174,6 @@
 <p><strong>Cron表达式的时间字段除允许设置数值之外，还可以使用一些特殊的字符，提供列表、范围、通配符等功能：如下：</strong></p>
 <p>星号(<em>)：可用在所有的字段中，表示对应时间域的每一个时刻。如：</em>在分钟字段时，表示“每分钟”。<br>问号(?)：该字符只在日期和星期字段中使用，它通常指定为“无意义的值”，想当于占位符。<br>减号(-)：表达一个范围。如在小时字断中使用“10-12”，则表示从10点到12点，即10，11，12.<br>逗号(,)：表示一个列值表。如在星期字段中使用“MON,WED,FRI”，则表示星期一、星期三和星期五。<br>斜杠(/)：x/y表达一个等步长序列，x为起始值，y为增量步长值。如：在分钟字段中使用0/15，则表示0，15，30，和45秒；5/15在分钟字段中表示5，20，35和50分钟。用户也可以使用*/y，它等同于0/y。<br>L：该字段只在日期和星期字段中使用，代表“Last”的意思，但它在两个字段中的意思不同。如果L用在日期字段中，则表示这个月份的最后一天；如果L用在星期字段中，则表示星期六，等同于7（这里的规则是星期六为一星期的最后一天）。如果L出现在星期字段中，而且前面还有一个数字N，则表示“这个月的最后一个星期N”。例如，6L表示该月的最后一个星期五。<br>W：该字符只能出现在日期字段里，是对前导日期的修饰，表示离该日期最近的工作日。如：15W表示离该月15日最近的工作日，如果15日是星期六，则匹配14日星期五；如果15日是星期日，则匹配16日星期一；如果15日是星期二，那结果就是15日星期二。但必须注意到关联的匹配日期不能跨月，如用户指定1W，如果1日是星期六，结果匹配的是3日星期一，而非上个月最后一天。W字符只能指定单一日期，而不能指定日期范围。<br>LW组合：在日期字段中可以组合使用LW，它的意思是当月的最后一个工作日。<br>#号：该字符只能在星期字段中使用，表示当月的某个工作日。如6#3表示当月的第三个星期五（6表示星期五，#3表示当前的第三个），而4#5表示当月的第五个星期三。假设当月没有第五个星期三，则忽略不触发。<br>C：该字符只在日期和星期字段中使用，代表“Calendar”的意思。它的意思是计划所关联的日期，如果日期没有被关联，则相当于日历中的所有日期。例如，5C在日期字段中相当于5日以后的那一天，1C在星期字段中相当于星期日后的第一天。</p>
 <h3 id="常用的Cron表达式"><a href="#常用的Cron表达式" class="headerlink" title="常用的Cron表达式"></a>常用的Cron表达式</h3><p>“0 0 12 * * ?”           每天12:00运行<br>“0 15 10 ？* <em>”          每天10:15运行<br>“0 15 10 * * ?”          每天10:15运行<br>“0 15 10 * * ? *”        每天10:15运行<br>“0 15 10 * * ? 2008”      在2008年的每天10:15运行<br>“0 * 14 * * ?”         每天14点到15点每分钟运行一次，开始于14:00，结束于14:59<br>“0 0/5 14 * * ?”          每天14点到15点每5分钟运行一次，开始于14:00，结束于14:55<br>“0 0/5 14,18 * * ?”            每天14点到15点每5分钟运行一次，此外每天18点到19点每5分钟也运行一次<br>“0 0-5 14 * * ?”      每天14:00到14:05，每分钟运行一次<br>“0 10,44 14 ? 3 WED”         三月每周三的14:10和14:44，运行一次<br>“0 15 10 ？</em> MON-FRI”    每周一、二、三、四、五的10:15运行<br>“0 15 10 15 * ?”    每月的15日的10:15运行<br>“0 15 10 L * ?”    每月最后一天的10:15运行<br>“0 15 10 ? * 6L”    每月最后一个星期五的10:15运行<br>“0 15 10 ? * 6L 2014-2016”    2014年、2015年、2016年每月最后一个星期五的10:15运行<br>“0 15 10 ? * 6#3”    每月第三个星期五的10:15运行</p>
-<blockquote>
-<p>个人博客为：<br><a href="https://www.moyuzc.cn/">MoYu’s HomePage</a><br><a href="https://moyu-zc.gitee.io/">MoYu’s Gitee  Blog</a></p>
-</blockquote>
 ]]></content>
       <categories>
         <category>SpringBoot</category>
@@ -6399,9 +6289,6 @@
 <h2 id="4-小结"><a href="#4-小结" class="headerlink" title="4.小结"></a>4.小结</h2><p><strong>zookeeper：注册中心</strong></p>
 <p><strong>dubbo-admin：是一个监控管理后台-查看我们注册了哪些服务，哪些服务被消费了</strong></p>
 <p><strong>Dubbo：jar包</strong></p>
-<blockquote>
-<p>个人博客为：<br><a href="https://www.moyuzc.cn/">MoYu’s HomePage</a><br><a href="https://moyu-zc.gitee.io/">MoYu’s Gitee  Blog</a></p>
-</blockquote>
 ]]></content>
       <categories>
         <category>SpringBoot</category>
@@ -6486,9 +6373,6 @@
 </ol>
 </li>
 </ol>
-<blockquote>
-<p>个人博客为：<br><a href="https://www.moyuzc.cn/">MoYu’s HomePage</a><br><a href="https://moyu-zc.gitee.io/">MoYu’s Gitee  Blog</a></p>
-</blockquote>
 ]]></content>
       <categories>
         <category>SpringBoot</category>
@@ -6581,7 +6465,6 @@
 <li>help：帮助</li>
 <li>exit ：退出</li>
 </ul>
-<p>个人博客为：<br><a href="https://www.moyuzc.cn/">MoYu’s HomePage</a><br><a href="https://moyu-zc.gitee.io/">MoYu’s Gitee  Blog</a></p>
 ]]></content>
       <categories>
         <category>Linux</category>
@@ -6637,31 +6520,31 @@
 <td>1</td>
 <td>小张</td>
 <td>18</td>
-<td><a href="mailto:&#116;&#101;&#x73;&#x74;&#x31;&#x40;&#x71;&#x71;&#46;&#x63;&#111;&#x6d;">&#116;&#101;&#x73;&#x74;&#x31;&#x40;&#x71;&#x71;&#46;&#x63;&#111;&#x6d;</a></td>
+<td><a href="mailto:&#116;&#101;&#115;&#116;&#49;&#64;&#x71;&#x71;&#46;&#99;&#111;&#x6d;">&#116;&#101;&#115;&#116;&#49;&#64;&#x71;&#x71;&#46;&#99;&#111;&#x6d;</a></td>
 </tr>
 <tr>
 <td>2</td>
 <td>小王</td>
 <td>20</td>
-<td><a href="mailto:&#116;&#101;&#x73;&#116;&#x32;&#x40;&#x31;&#54;&#x33;&#x2e;&#99;&#x6f;&#x6d;">&#116;&#101;&#x73;&#116;&#x32;&#x40;&#x31;&#54;&#x33;&#x2e;&#99;&#x6f;&#x6d;</a></td>
+<td><a href="mailto:&#x74;&#x65;&#x73;&#116;&#50;&#x40;&#49;&#x36;&#x33;&#46;&#x63;&#111;&#109;">&#x74;&#x65;&#x73;&#116;&#50;&#x40;&#49;&#x36;&#x33;&#46;&#x63;&#111;&#109;</a></td>
 </tr>
 <tr>
 <td>3</td>
 <td>小李</td>
 <td>25</td>
-<td><a href="mailto:&#116;&#101;&#x73;&#116;&#x33;&#64;&#113;&#113;&#46;&#x63;&#111;&#109;">&#116;&#101;&#x73;&#116;&#x33;&#64;&#113;&#113;&#46;&#x63;&#111;&#109;</a></td>
+<td><a href="mailto:&#116;&#x65;&#115;&#x74;&#51;&#x40;&#x71;&#113;&#46;&#99;&#x6f;&#x6d;">&#116;&#x65;&#115;&#x74;&#51;&#x40;&#x71;&#113;&#46;&#99;&#x6f;&#x6d;</a></td>
 </tr>
 <tr>
 <td>4</td>
 <td>小驰</td>
 <td>21</td>
-<td><a href="mailto:&#x74;&#x65;&#x73;&#116;&#x34;&#x40;&#113;&#113;&#46;&#x63;&#x6f;&#109;">&#x74;&#x65;&#x73;&#116;&#x34;&#x40;&#113;&#113;&#46;&#x63;&#x6f;&#109;</a></td>
+<td><a href="mailto:&#x74;&#x65;&#115;&#x74;&#x34;&#x40;&#x71;&#x71;&#46;&#99;&#x6f;&#109;">&#x74;&#x65;&#115;&#x74;&#x34;&#x40;&#x71;&#x71;&#46;&#99;&#x6f;&#109;</a></td>
 </tr>
 <tr>
 <td>5</td>
 <td>小刘</td>
 <td>24</td>
-<td><a href="mailto:&#x74;&#x65;&#115;&#116;&#x35;&#x40;&#x31;&#x36;&#51;&#46;&#x63;&#111;&#x6d;">&#x74;&#x65;&#115;&#116;&#x35;&#x40;&#x31;&#x36;&#51;&#46;&#x63;&#111;&#x6d;</a></td>
+<td><a href="mailto:&#x74;&#x65;&#115;&#116;&#x35;&#64;&#x31;&#54;&#51;&#x2e;&#99;&#111;&#109;">&#x74;&#x65;&#115;&#116;&#x35;&#64;&#x31;&#54;&#51;&#x2e;&#99;&#111;&#109;</a></td>
 </tr>
 </tbody></table>
 <ul>
@@ -6861,7 +6744,6 @@
 
 <p>我们使，线程B  先于 线程A 进行更新。</p>
 <p><strong>这时会发现，虽然可以运行，version字段也会增加，但是并不会进行更新。</strong></p>
-<p>个人博客为：<br><a href="https://www.moyuzc.cn/">MoYu’s HomePage</a><br><a href="https://moyu-zc.gitee.io/">MoYu’s Gitee  Blog</a></p>
 ]]></content>
       <categories>
         <category>Mybatis-plus</category>
@@ -6990,9 +6872,6 @@
 
 
 <p><strong>生成之后的代码以及架构都是很规范的，大家可以自己测试一下</strong></p>
-<blockquote>
-<p>个人博客为：<br><a href="https://www.moyuzc.cn/">MoYu’s HomePage</a><br><a href="https://moyu-zc.gitee.io/">MoYu’s Gitee  Blog</a></p>
-</blockquote>
 ]]></content>
       <categories>
         <category>Mybatis-plus</category>
@@ -7086,9 +6965,6 @@
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;en&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Title<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;vue&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">zc</span> <span class="attr">v-for</span>=<span class="string">&quot;item in items&quot;</span> <span class="attr">v-bind:zc</span>=<span class="string">&quot;item&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">zc</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;https://cdn.jsdelivr.net/npm/vue@2.5.21/dist/vue.min.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript">        Vue.component(<span class="string">&quot;zc&quot;</span>,&#123;</span></span><br><span class="line"><span class="javascript">            props: [<span class="string">&#x27;zc&#x27;</span>],</span></span><br><span class="line"><span class="handlebars"><span class="xml">            template: &#x27;<span class="tag">&lt;<span class="name">li</span>&gt;</span></span><span class="template-variable">&#123;&#123;<span class="name">zc</span>&#125;&#125;</span><span class="xml"><span class="tag">&lt;/<span class="name">li</span>&gt;</span>&#x27;</span></span></span><br><span class="line">        &#125;)</span><br><span class="line"><span class="javascript">        <span class="keyword">var</span> vm = <span class="keyword">new</span> Vue(&#123;</span></span><br><span class="line"><span class="javascript">            el: <span class="string">&quot;#vue&quot;</span>,</span></span><br><span class="line">            data: &#123;</span><br><span class="line"><span class="javascript">                items: [<span class="string">&#x27;Java&#x27;</span>,<span class="string">&#x27;Python&#x27;</span>,<span class="string">&#x27;Php&#x27;</span>]</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;)</span><br><span class="line">    <span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
 <p><img src= "/img/loading.gif" data-lazy-src="https://gitee.com/MoYu-zc/picgo/raw/master/img/20210401153050.png" alt="8"></p>
-<blockquote>
-<p>个人博客为：<br><a href="https://www.moyuzc.cn/">MoYu’s Github Blog</a><br><a href="https://moyu-zc.gitee.io/">MoYu’s Gitee  Blog</a></p>
-</blockquote>
 ]]></content>
       <categories>
         <category>Vue</category>
@@ -7147,9 +7023,6 @@
 
 <p><img src= "/img/loading.gif" data-lazy-src="https://gitee.com/MoYu-zc/picgo/raw/master/img/20210405212514.png" alt="5"></p>
 <p><img src= "/img/loading.gif" data-lazy-src="https://gitee.com/MoYu-zc/picgo/raw/master/img/20210405212554.png" alt="6"></p>
-<blockquote>
-<p>个人博客为：<br><a href="https://www.moyuzc.cn/">MoYu’s Github Blog</a><br><a href="https://moyu-zc.gitee.io/">MoYu’s Gitee  Blog</a></p>
-</blockquote>
 ]]></content>
       <categories>
         <category>Vue</category>
@@ -7206,9 +7079,6 @@
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line">data()&#123;</span><br><span class="line">    return&#123;</span><br><span class="line">        //请求的返回参数，必须和 json 字符串一样</span><br><span class="line">        info:&#123;</span><br><span class="line">       		name: null,</span><br><span class="line">            address: &#123;</span><br><span class="line">                street: null,</span><br><span class="line">                city: null,</span><br><span class="line">                country: null</span><br><span class="line">            &#125;,</span><br><span class="line">        	url: null</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
 
 <p>点击 a 标签，就会进入你在 data.json ，设置好的 url</p>
-<blockquote>
-<p>个人博客为：<br><a href="https://www.moyuzc.cn/">MoYu’s Github Blog</a><br><a href="https://moyu-zc.gitee.io/">MoYu’s Gitee  Blog</a></p>
-</blockquote>
 ]]></content>
       <categories>
         <category>Vue</category>
@@ -7274,9 +7144,6 @@
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line">Vue.component(&quot;todo-items&quot;,&#123;</span><br><span class="line">        props: [&#x27;item&#x27;,&#x27;index&#x27;],</span><br><span class="line">        template: &#x27;<span class="tag">&lt;<span class="name">li</span>&gt;</span>&#123;&#123;index&#125;&#125;---&#123;&#123;item&#125;&#125;--<span class="tag">&lt;<span class="name">button</span> @<span class="attr">click</span>=<span class="string">&quot;remove&quot;</span>&gt;</span>删除<span class="tag">&lt;/<span class="name">button</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span>&#x27;,</span><br><span class="line">        methods: &#123;</span><br><span class="line">            remove: function (index)&#123;</span><br><span class="line">                this.$emit(&#x27;remove&#x27;,index);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 
 <p>这时候再进入页面可以实现，<strong>点击按钮删除数组元素</strong>功能</p>
-<blockquote>
-<p>个人博客为：<br><a href="https://www.moyuzc.cn/">MoYu’s Github Blog</a><br><a href="https://moyu-zc.gitee.io/">MoYu’s Gitee  Blog</a></p>
-</blockquote>
 ]]></content>
       <categories>
         <category>Vue</category>
@@ -7411,9 +7278,6 @@
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">parseTokenRefresh</span><span class="params">()</span></span>&#123;</span><br><span class="line">    String token = <span class="string">&quot;eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiI4ODgiLCJzdWIiOiJNb1l1IiwiaWF0IjoxNjE4MTIwNTg0LCJsb2dvIjoieHh4LGpwZyIsIuS4gOWPpeivnSI6Iui_meWPquaYr-S4gOWPpeivnSJ9.m44gqMFO863jI5B2qjb9yXvaRJsIRYcfdEI3KiJgW1M&quot;</span>;</span><br><span class="line">    Claims claims = Jwts.parser()</span><br><span class="line">        .setSigningKey(<span class="string">&quot;xxxx&quot;</span>)</span><br><span class="line">        .parseClaimsJws(token)</span><br><span class="line">        .getBody();</span><br><span class="line">    <span class="comment">//更新签发时间</span></span><br><span class="line">    JwtBuilder jwtBuilder = Jwts.builder()</span><br><span class="line">        .setId(claims.getId())</span><br><span class="line">        .setSubject(claims.getSubject())</span><br><span class="line">        .setIssuedAt(<span class="keyword">new</span> Date())</span><br><span class="line">        .signWith(SignatureAlgorithm.HS256, <span class="string">&quot;xxxx&quot;</span>);</span><br><span class="line">    String refresh_token = jwtBuilder.compact();</span><br><span class="line"></span><br><span class="line">    System.out.println(<span class="string">&quot;更新前:&quot;</span>+token);</span><br><span class="line">    System.out.println(<span class="string">&quot;更新后:&quot;</span>+refresh_token);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p><img src= "/img/loading.gif" data-lazy-src="https://gitee.com/MoYu-zc/picgo/raw/master/img/20210411145206.png" alt="11"></p>
-<blockquote>
-<p>个人博客为：<br><a href="https://www.moyuzc.cn/">MoYu’s Github Blog</a><br><a href="https://moyu-zc.gitee.io/">MoYu’s Gitee  Blog</a></p>
-</blockquote>
 ]]></content>
       <categories>
         <category>JWT</category>
@@ -7629,9 +7493,6 @@
 <h4 id="2-修改配置类"><a href="#2-修改配置类" class="headerlink" title="2.修改配置类"></a>2.修改配置类</h4><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">configure</span><span class="params">(HttpSecurity http)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">    http.exceptionHandling().accessDeniedPage(<span class="string">&quot;/uuauth.html&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p><img src= "/img/loading.gif" data-lazy-src="https://gitee.com/MoYu-zc/picgo/raw/master/img/20210414150150.png" alt="9"></p>
-<blockquote>
-<p>个人博客为：<br><a href="https://www.moyuzc.cn/">MoYu’s Github Blog</a><br><a href="https://moyu-zc.gitee.io/">MoYu’s Gitee  Blog</a></p>
-</blockquote>
 ]]></content>
       <categories>
         <category>SpringSecurity</category>
@@ -7786,9 +7647,6 @@
 <p><a href="http://localhost:8081/csrf">http://localhost:8081/csrf</a></p>
 <p>输入账号密码，会成功进入 /csrf_success   ； 并且页面中显示 <code>_csrf.token</code></p>
 <p><img src= "/img/loading.gif" data-lazy-src="https://gitee.com/MoYu-zc/picgo/raw/master/img/20210415103149.png" alt="5"></p>
-<blockquote>
-<p>个人博客为：<br><a href="https://www.moyuzc.cn/">MoYu’s Github Blog</a><br><a href="https://moyu-zc.gitee.io/">MoYu’s Gitee  Blog</a></p>
-</blockquote>
 ]]></content>
       <categories>
         <category>SpringSecurity</category>
@@ -7816,9 +7674,6 @@
 <figure class="highlight"><table><tr><td class="code"><pre><span class="line">&lt;if test=&quot;employee != null and employee != &#x27;&#x27; &quot;&gt;</span><br><span class="line">	&lt;if test=&quot;employee.name != null and employee.name != &#x27;&#x27;&quot;&gt;</span><br><span class="line">       AND e.`name` LIKE CONCAT( &#x27;%&#x27;, <span class="comment">#&#123;employee.name&#125;, &#x27;%&#x27; )</span></span><br><span class="line">    &lt;/if&gt;</span><br><span class="line">&lt;/if&gt;</span><br></pre></td></tr></table></figure>
 
 <p>这样，没有传入任何参数时，也不会报错了</p>
-<blockquote>
-<p>个人博客为：<br><a href="https://www.moyuzc.cn/">MoYu’s Github Blog</a><br><a href="https://moyu-zc.gitee.io/">MoYu’s Gitee  Blog</a></p>
-</blockquote>
 ]]></content>
       <categories>
         <category>Bug</category>
@@ -7848,9 +7703,6 @@
 
 <p>清除缓存并重新构建 <strong>yum</strong> 源</p>
 <p>这样就可以解决这个问题了</p>
-<blockquote>
-<p>个人博客为：<br><a href="https://www.moyuzc.cn/">MoYu’s HomePage</a><br><a href="https://moyu-zc.gitee.io/">MoYu’s Gitee  Blog</a></p>
-</blockquote>
 ]]></content>
       <categories>
         <category>Bug</category>
@@ -7905,9 +7757,6 @@
 
 <p><img src= "/img/loading.gif" data-lazy-src="https://gitee.com/MoYu-zc/picgo/raw/master/img/20210523135246.png" alt="9"></p>
 <p><strong>成功！！！</strong></p>
-<blockquote>
-<p>个人博客为：<br><a href="https://www.moyuzc.cn/">MoYu’s Github Blog</a><br><a href="https://moyu-zc.gitee.io/">MoYu’s Gitee  Blog</a></p>
-</blockquote>
 ]]></content>
       <categories>
         <category>Bug</category>
@@ -7946,9 +7795,6 @@
 <blockquote>
 <p>请大家一定注意：</p>
 <p>大部分的无法注入问题，都是因为 <strong>依赖导入错误、引入错误 或者 直接写错了类</strong> ，一定先排除这些可能</p>
-</blockquote>
-<blockquote>
-<p>个人博客为：<br><a href="https://www.moyuzc.cn/">MoYu’s Github Blog</a><br><a href="https://moyu-zc.gitee.io/">MoYu’s Gitee  Blog</a></p>
 </blockquote>
 ]]></content>
       <categories>
@@ -8150,9 +7996,6 @@
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">redis-benchmark -h localhost -p 6379 -c 100 -n 100000</span><br></pre></td></tr></table></figure>
 
 <p><img src= "/img/loading.gif" data-lazy-src="https://gitee.com/MoYu-zc/picgo/raw/master/img/20210420131135.png" alt="23"></p>
-<blockquote>
-<p>个人博客为：<br><a href="https://www.moyuzc.cn/">MoYu’s HomePage</a><br><a href="https://moyu-zc.gitee.io/">MoYu’s Gitee  Blog</a></p>
-</blockquote>
 ]]></content>
       <categories>
         <category>Redis</category>
@@ -8229,9 +8072,6 @@
 <h4 id="查看对应类型"><a href="#查看对应类型" class="headerlink" title="查看对应类型"></a><strong>查看对应类型</strong></h4><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">type xxx</span><br></pre></td></tr></table></figure>
 
 <p><img src= "/img/loading.gif" data-lazy-src="https://gitee.com/MoYu-zc/picgo/raw/master/img/20210420180914.png" alt="8"></p>
-<blockquote>
-<p>个人博客为：<br><a href="https://www.moyuzc.cn/">MoYu’s HomePage</a><br><a href="https://moyu-zc.gitee.io/">MoYu’s Gitee  Blog</a></p>
-</blockquote>
 ]]></content>
       <categories>
         <category>Redis</category>
@@ -8509,9 +8349,180 @@
 </blockquote>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">127.0.0.1:6379&gt; setbit sign 0 1   #周一 已打卡</span><br><span class="line">(integer) 0</span><br><span class="line">127.0.0.1:6379&gt; setbit sign 1 1   #周二 已打卡</span><br><span class="line">(integer) 0</span><br><span class="line">127.0.0.1:6379&gt; setbit sign 2 0   #周三 未打卡</span><br><span class="line">(integer) 0</span><br><span class="line">127.0.0.1:6379&gt; setbit sign 3 0   #周四 未打卡</span><br><span class="line">(integer) 0</span><br><span class="line">127.0.0.1:6379&gt; setbit sign 4 1   #周五 已打卡</span><br><span class="line">(integer) 0</span><br><span class="line">127.0.0.1:6379&gt; setbit sign 5 1   #周六 已打卡</span><br><span class="line">(integer) 0</span><br><span class="line">127.0.0.1:6379&gt; setbit sign 6 1   #周日 已打卡</span><br><span class="line">(integer) 0</span><br><span class="line">127.0.0.1:6379&gt; getbit sign 0     #查询周一是否打卡</span><br><span class="line">(integer) 1</span><br><span class="line">127.0.0.1:6379&gt; getbit sign 3     #查询周四是否打卡</span><br><span class="line">(integer) 0</span><br><span class="line">127.0.0.1:6379&gt; bitcount sign     #查询这周一共打卡几天</span><br><span class="line">(integer) 5</span><br></pre></td></tr></table></figure>
 
-<blockquote>
-<p>个人博客为：<br><a href="https://www.moyuzc.cn/">MoYu’s HomePage</a><br><a href="https://moyu-zc.gitee.io/">MoYu’s Gitee  Blog</a></p>
+]]></content>
+      <categories>
+        <category>Redis</category>
+      </categories>
+      <tags>
+        <tag>Redis</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Jedis与Redis</title>
+    <url>/2021/06/13/Jedis%E4%B8%8ERedis/</url>
+    <content><![CDATA[<h1 id="Jedis与Redis"><a href="#Jedis与Redis" class="headerlink" title="Jedis与Redis"></a>Jedis与Redis</h1><h2 id="通过Jedis操作Redis"><a href="#通过Jedis操作Redis" class="headerlink" title="通过Jedis操作Redis"></a>通过Jedis操作Redis</h2><blockquote>
+<p><code>Jedis</code>是Redis官方推荐的<code>java连接开发工具</code> , 使用ava操作<code>Redis中间件</code></p>
 </blockquote>
+<h3 id="创建项目"><a href="#创建项目" class="headerlink" title="创建项目"></a>创建项目</h3><p><strong>首先创建一个空项目：</strong></p>
+<img src= "/img/loading.gif" data-lazy-src="https://gitee.com/MoYu-zc/picgo/raw/master/img/20210424114816.png" alt="1" style="zoom:67%;" />
+
+<p><strong>创建一个Maven的Module项目：</strong></p>
+<img src= "/img/loading.gif" data-lazy-src="https://gitee.com/MoYu-zc/picgo/raw/master/img/20210424115053.png" alt="2" style="zoom: 80%;" />
+
+<p>一路<code>next</code>即可。</p>
+<blockquote>
+<p><strong>因为该项目的最先创建的是空项目，所以需要手动调节部分配置：</strong></p>
+<p>以下修改的都是JDK配置，按照自己电脑为准</p>
+</blockquote>
+<ol>
+<li>File—-Project Structure—project</li>
+</ol>
+<img src= "/img/loading.gif" data-lazy-src="https://gitee.com/MoYu-zc/picgo/raw/master/img/20210424122653.png" alt="3" style="zoom:80%;" />
+
+<ol start="2">
+<li>File—-Project Structure—modules</li>
+</ol>
+<img src= "/img/loading.gif" data-lazy-src="https://gitee.com/MoYu-zc/picgo/raw/master/img/20210424122716.png" alt="4" style="zoom:80%;" />
+
+<ol start="3">
+<li>File—Settings ，搜索<code> Java Compiler</code></li>
+</ol>
+<img src= "/img/loading.gif" data-lazy-src="https://gitee.com/MoYu-zc/picgo/raw/master/img/20210424122915.png" alt="5" style="zoom:80%;" />
+
+<h3 id="导入依赖"><a href="#导入依赖" class="headerlink" title="导入依赖"></a>导入依赖</h3><figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!--导入jedis--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>redis.clients<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>jedis<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>3.2.0<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--fastjson--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.alibaba<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>fastjson<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.2.62<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="Redis-Dome编写"><a href="#Redis-Dome编写" class="headerlink" title="Redis-Dome编写"></a>Redis-Dome编写</h3><h4 id="1-连接Redis"><a href="#1-连接Redis" class="headerlink" title="1.连接Redis"></a>1.连接Redis</h4><blockquote>
+<p>先打开你电脑上的 <code>redis-server</code></p>
+</blockquote>
+<img src= "/img/loading.gif" data-lazy-src="https://gitee.com/MoYu-zc/picgo/raw/master/img/20210424134132.png" alt="6" style="zoom:80%;" />
+
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestPing</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Jedis jedis = <span class="keyword">new</span> Jedis(<span class="string">&quot;127.0.0.1&quot;</span>,<span class="number">6379</span>);</span><br><span class="line">        System.out.println(jedis.ping());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src= "/img/loading.gif" data-lazy-src="https://gitee.com/MoYu-zc/picgo/raw/master/img/20210424134255.png" alt="7"></p>
+<h4 id="2-常用API"><a href="#2-常用API" class="headerlink" title="2.常用API"></a>2.常用API</h4><blockquote>
+<p>所有的命令，就和在 <code>Linux</code> 中使用Redis 没有区别，以下对 <code>String</code> 、<code>List</code> 进行举例：</p>
+</blockquote>
+<blockquote>
+<p><strong>String 命令</strong> </p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">Jedis jedis = <span class="keyword">new</span> Jedis(<span class="string">&quot;127.0.0.1&quot;</span>,<span class="number">6379</span>);</span><br><span class="line">System.out.println(<span class="string">&quot;String存入数据:&quot;</span>+jedis.set(<span class="string">&quot;k&quot;</span>, <span class="string">&quot;v&quot;</span>));</span><br><span class="line">System.out.println(<span class="string">&quot;String获取数据:&quot;</span>+jedis.get(<span class="string">&quot;k&quot;</span>));</span><br><span class="line">System.out.println(<span class="string">&quot;String查看该元素是否存在&quot;</span>+jedis.exists(<span class="string">&quot;k&quot;</span>));</span><br><span class="line">System.out.println(<span class="string">&quot;String追加字符串:&quot;</span>+jedis.append(<span class="string">&quot;k&quot;</span>,<span class="string">&quot;、hello&quot;</span>));</span><br><span class="line">System.out.println(<span class="string">&quot;String获取字符串长度:&quot;</span>+jedis.strlen(<span class="string">&quot;k&quot;</span>));</span><br><span class="line">System.out.println(<span class="string">&quot;String设置过期时间:&quot;</span>+jedis.setex(<span class="string">&quot;k1&quot;</span>,<span class="number">3</span>,<span class="string">&quot;test&quot;</span>));</span><br><span class="line"><span class="comment">// 睡眠3s，验证k1是否过期</span></span><br><span class="line">Thread.sleep(<span class="number">3000</span>);</span><br><span class="line">System.out.println(<span class="string">&quot;String查看是否过期:&quot;</span>+jedis.ttl(<span class="string">&quot;k1&quot;</span>));</span><br><span class="line">System.out.println(<span class="string">&quot;String不存在再设置:&quot;</span>+jedis.setnx(<span class="string">&quot;k2&quot;</span>,<span class="string">&quot;v2&quot;</span>));</span><br><span class="line">System.out.println(<span class="string">&quot;String同时设置多个值:&quot;</span>+jedis.mset(<span class="string">&quot;k3&quot;</span>,<span class="string">&quot;v3&quot;</span>,<span class="string">&quot;k4&quot;</span>,<span class="string">&quot;v4&quot;</span>));</span><br><span class="line">System.out.println(<span class="string">&quot;String同时获取多个值:&quot;</span>+jedis.mget(<span class="string">&quot;k3&quot;</span>,<span class="string">&quot;k4&quot;</span>));</span><br></pre></td></tr></table></figure>
+
+<p><img src= "/img/loading.gif" data-lazy-src="https://gitee.com/MoYu-zc/picgo/raw/master/img/20210424152836.png" alt="8"></p>
+<blockquote>
+<p><strong>List 命令</strong></p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">System.out.println(<span class="string">&quot;清除数据:&quot;</span>+jedis.flushDB());</span><br><span class="line">System.out.println(<span class="string">&quot;List存入数据(头插):&quot;</span>+jedis.lpush(<span class="string">&quot;list&quot;</span>,<span class="string">&quot;one&quot;</span>,<span class="string">&quot;two&quot;</span>,<span class="string">&quot;three&quot;</span>));</span><br><span class="line">System.out.println(<span class="string">&quot;List存入数据(尾插):&quot;</span>+jedis.rpush(<span class="string">&quot;list&quot;</span>,<span class="string">&quot;right&quot;</span>));</span><br><span class="line">System.out.println(<span class="string">&quot;List获取范围内的数据:&quot;</span>+jedis.lrange(<span class="string">&quot;list&quot;</span>,<span class="number">1</span>,<span class="number">2</span>));</span><br><span class="line">System.out.println(<span class="string">&quot;List通过下标获得值:&quot;</span>+jedis.lindex(<span class="string">&quot;list&quot;</span>,<span class="number">1</span>));</span><br><span class="line">System.out.println(<span class="string">&quot;List获取列表长度:&quot;</span>+jedis.llen(<span class="string">&quot;list&quot;</span>));</span><br><span class="line">System.out.println(<span class="string">&quot;List移除指定数据:&quot;</span>+jedis.lrem(<span class="string">&quot;list&quot;</span>,<span class="number">1</span>,<span class="string">&quot;one&quot;</span>));</span><br><span class="line">System.out.println(<span class="string">&quot;List替换指定位置的值:&quot;</span>+jedis.lset(<span class="string">&quot;list&quot;</span>,<span class="number">0</span>,<span class="string">&quot;test&quot;</span>));</span><br><span class="line">System.out.println(<span class="string">&quot;List插入具体值:&quot;</span>+jedis.linsert(<span class="string">&quot;list&quot;</span>, ListPosition.BEFORE,<span class="string">&quot;two&quot;</span>,<span class="string">&quot;111111&quot;</span>));</span><br><span class="line">System.out.println(<span class="string">&quot;List查看全部的元素:&quot;</span>+jedis.lrange(<span class="string">&quot;list&quot;</span>,<span class="number">0</span>,-<span class="number">1</span>));</span><br><span class="line">System.out.println(<span class="string">&quot;List取出数据(从头部):&quot;</span>+jedis.lpop(<span class="string">&quot;list&quot;</span>));</span><br><span class="line">System.out.println(<span class="string">&quot;List取出数据(从尾部):&quot;</span>+jedis.rpop(<span class="string">&quot;list&quot;</span>));</span><br></pre></td></tr></table></figure>
+
+<p><img src= "/img/loading.gif" data-lazy-src="https://gitee.com/MoYu-zc/picgo/raw/master/img/20210424154731.png" alt="9"></p>
+<h4 id="3-Jedis理解事务"><a href="#3-Jedis理解事务" class="headerlink" title="3.Jedis理解事务"></a>3.Jedis理解事务</h4><blockquote>
+<ul>
+<li>连接Redis</li>
+<li>开启事务</li>
+<li>存入数据</li>
+<li>运行<ul>
+<li>若正常，直接执行事务</li>
+<li>若出异常，事务直接结束</li>
+</ul>
+</li>
+<li>最后关闭连接</li>
+</ul>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">AffairsTesi</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Jedis jedis = <span class="keyword">new</span> Jedis(<span class="string">&quot;127.0.0.1&quot;</span>, <span class="number">6379</span>);</span><br><span class="line">		jedis.flushDB();</span><br><span class="line">        JSONObject jsonObject = <span class="keyword">new</span> JSONObject();</span><br><span class="line">        jsonObject.put(<span class="string">&quot;k&quot;</span>, <span class="string">&quot;v&quot;</span>);</span><br><span class="line">        jsonObject.put(<span class="string">&quot;name&quot;</span>, <span class="string">&quot;zc&quot;</span>);</span><br><span class="line">        <span class="comment">//开启事务</span></span><br><span class="line">        Transaction multi = jedis.multi();</span><br><span class="line">        String s = jsonObject.toJSONString();</span><br><span class="line"></span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            multi.set(<span class="string">&quot;user1&quot;</span>, s);</span><br><span class="line">            multi.set(<span class="string">&quot;user2&quot;</span>, s);</span><br><span class="line">            <span class="comment">// int i = 1/0 ;     // 加入该句，可以使之产生异常，自行测试</span></span><br><span class="line">            multi.exec();        <span class="comment">// 没出问题 ，执行事务</span></span><br><span class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">            multi.discard();     <span class="comment">// 出异常，结束事务</span></span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">            System.out.println(jedis.get(<span class="string">&quot;user1&quot;</span>));</span><br><span class="line">            System.out.println(jedis.get(<span class="string">&quot;user2&quot;</span>));</span><br><span class="line">            jedis.close();      <span class="comment">// 最终关闭连接</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><strong>正常结束</strong></p>
+</blockquote>
+<p><img src= "/img/loading.gif" data-lazy-src="https://gitee.com/MoYu-zc/picgo/raw/master/img/20210424215323.png" alt="10"></p>
+<blockquote>
+<p><strong>异常结束</strong></p>
+</blockquote>
+<p><img src= "/img/loading.gif" data-lazy-src="https://gitee.com/MoYu-zc/picgo/raw/master/img/20210424215320.png" alt="11"></p>
+]]></content>
+      <categories>
+        <category>Redis</category>
+      </categories>
+      <tags>
+        <tag>Redis</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Redis事务操作</title>
+    <url>/2021/06/12/Redis%E4%BA%8B%E5%8A%A1%E6%93%8D%E4%BD%9C/</url>
+    <content><![CDATA[<h1 id="Redis事务操作"><a href="#Redis事务操作" class="headerlink" title="Redis事务操作"></a>Redis事务操作</h1><blockquote>
+<p><strong>Redis事务本质：</strong></p>
+<p>​        <strong>一组命令的集合</strong> , 一个事务中的所有命令都会被<code>序列化</code> ,  在事务执行过程中 , 会按照<code>顺序</code>执行</p>
+<ul>
+<li>一次性 :  事务之间的事情，会一次性执行，而不是立刻执行</li>
+<li>顺序性 :  会按照顺序进行执行</li>
+<li>排他性 :  事务过程中，不允许被其他事情影响</li>
+</ul>
+</blockquote>
+<blockquote>
+<p><strong>Redis事务没有隔离级别的概念</strong></p>
+<p><strong>Redis单条命令保存原子性 , 但事务不保证原子性</strong></p>
+<p><strong>redis事务</strong> :</p>
+<ul>
+<li>开启事务( <strong>multi</strong> ) </li>
+<li>命令入队( 写命令 )</li>
+<li>执行事务( <strong>exec</strong> )</li>
+</ul>
+<p>所以事务中的命令在加入时都没有被执行，直到提交时才会开始执行( <strong>Exec</strong> )一次性完成</p>
+</blockquote>
+<h2 id="事务"><a href="#事务" class="headerlink" title="事务"></a>事务</h2><h3 id="正常流程"><a href="#正常流程" class="headerlink" title="正常流程"></a>正常流程</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">127.0.0.1:6379&gt; multi         # 开启事务</span><br><span class="line">OK</span><br><span class="line">127.0.0.1:6379&gt; set k1 v1     # 存入 k1:v1</span><br><span class="line">QUEUED</span><br><span class="line">127.0.0.1:6379&gt; set k2 v2     # 存入 k2:v2</span><br><span class="line">QUEUED</span><br><span class="line">127.0.0.1:6379&gt; get k1        # 获取k1对应的值</span><br><span class="line">QUEUED</span><br><span class="line">127.0.0.1:6379&gt; set k3 v3     # 存入 k3:v3</span><br><span class="line">QUEUED</span><br><span class="line">127.0.0.1:6379&gt; keys *        # 查看全部的key</span><br><span class="line">QUEUED</span><br><span class="line">127.0.0.1:6379&gt; exec          # 执行上面命令，下面是依次的结果</span><br><span class="line">1) OK</span><br><span class="line">2) OK</span><br><span class="line">3) &quot;v1&quot;</span><br><span class="line">4) OK</span><br><span class="line">5) 1) &quot;k3&quot;</span><br><span class="line">   2) &quot;k2&quot;</span><br><span class="line">   3) &quot;k1&quot;</span><br><span class="line">   4) &quot;sign&quot;</span><br></pre></td></tr></table></figure>
+
+<p><img src= "/img/loading.gif" data-lazy-src="https://gitee.com/MoYu-zc/picgo/raw/master/img/20210423203607.png" alt="1"></p>
+<h3 id="取消事务-discard"><a href="#取消事务-discard" class="headerlink" title="取消事务 (discard)"></a>取消事务 (discard)</h3><blockquote>
+<p><strong>如果你在执行之前取消事务，那么你之前的操作都会取消，存入的元素也会当作没存</strong></p>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">127.0.0.1:6379&gt; multi             # 开启事务</span><br><span class="line">OK</span><br><span class="line">127.0.0.1:6379&gt; set k1 v1         # 存入 k1:v1</span><br><span class="line">QUEUED</span><br><span class="line">127.0.0.1:6379&gt; discard           # 取消事务</span><br><span class="line">OK</span><br><span class="line">127.0.0.1:6379&gt; exec              # 执行事务，因为已经取消事务，会报错</span><br><span class="line">(error) ERR EXEC without MULTI    </span><br><span class="line">127.0.0.1:6379&gt; get k1            # 获取k1的值，但是取消事务了，k1为null</span><br><span class="line">(nil)</span><br></pre></td></tr></table></figure>
+
+<p><img src= "/img/loading.gif" data-lazy-src="https://gitee.com/MoYu-zc/picgo/raw/master/img/20210423211109.png" alt="3"></p>
+<h3 id="错误示例"><a href="#错误示例" class="headerlink" title="错误示例"></a>错误示例</h3><h4 id="1-一次只能添加一个值"><a href="#1-一次只能添加一个值" class="headerlink" title="1.一次只能添加一个值"></a>1.一次只能添加一个值</h4><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">127.0.0.1:6379&gt; multi             # 开启事务</span><br><span class="line">OK</span><br><span class="line">127.0.0.1:6379&gt; set k1 v1 k2 v2   # 存入 k1:v1、k2:v2</span><br><span class="line">QUEUED</span><br><span class="line">127.0.0.1:6379&gt; keys *            # 查看全部的key</span><br><span class="line">QUEUED</span><br><span class="line">127.0.0.1:6379&gt; exec              # 执行上面命令</span><br><span class="line">1) (error) ERR syntax error</span><br><span class="line">2) (empty array)</span><br></pre></td></tr></table></figure>
+
+<p><img src= "/img/loading.gif" data-lazy-src="https://gitee.com/MoYu-zc/picgo/raw/master/img/20210423205314.png" alt="2"></p>
+<h4 id="2-代码语法错误"><a href="#2-代码语法错误" class="headerlink" title="2.代码语法错误"></a>2.代码语法错误</h4><blockquote>
+<p><strong>代码语法错误 ( 编译时异常 ) , 所有的命令都不执行</strong></p>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">127.0.0.1:6379&gt; multi        # 开启事务</span><br><span class="line">OK</span><br><span class="line">127.0.0.1:6379&gt; set k v      # 存入 k:v</span><br><span class="line">QUEUED</span><br><span class="line">127.0.0.1:6379&gt; error k      # 输入了一个错误语句，报错，而且看似没影响后面的语句</span><br><span class="line">(error) ERR unknown command `error`, with args beginning with: `k`, </span><br><span class="line">127.0.0.1:6379&gt; get k        # 获取k的值</span><br><span class="line">QUEUED</span><br><span class="line">127.0.0.1:6379&gt; exec         # 执行事务</span><br><span class="line">(error) EXECABORT Transaction discarded because of previous errors.</span><br><span class="line">127.0.0.1:6379&gt; get k        # 事务已经结束，之后获取k的值</span><br><span class="line">(nil)</span><br></pre></td></tr></table></figure>
+
+<p><img src= "/img/loading.gif" data-lazy-src="https://gitee.com/MoYu-zc/picgo/raw/master/img/20210423213247.png" alt="4"></p>
+<h4 id="3-代码逻辑错误"><a href="#3-代码逻辑错误" class="headerlink" title="3.代码逻辑错误"></a>3.代码逻辑错误</h4><blockquote>
+<p>代码逻辑错误 ( 运行时异常 ) , <strong>其他命令可以正常执行</strong> </p>
+<p>所以不保证事务<strong>原子性</strong></p>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">127.0.0.1:6379&gt; multi       # 开启事务</span><br><span class="line">OK</span><br><span class="line">127.0.0.1:6379&gt; set k v     # 存入 k:v</span><br><span class="line">QUEUED</span><br><span class="line">127.0.0.1:6379&gt; incr k      # 元素k的值+1</span><br><span class="line">QUEUED</span><br><span class="line">127.0.0.1:6379&gt; get k       # 获取k的值</span><br><span class="line">QUEUED</span><br><span class="line">127.0.0.1:6379&gt; exec        # 执行事务</span><br><span class="line">1) OK</span><br><span class="line">2) (error) ERR value is not an integer or out of range</span><br><span class="line">3) &quot;v&quot;</span><br></pre></td></tr></table></figure>
+
+<p><img src= "/img/loading.gif" data-lazy-src="https://gitee.com/MoYu-zc/picgo/raw/master/img/20210423214701.png" alt="5"></p>
+<h2 id="监控watch"><a href="#监控watch" class="headerlink" title="监控watch"></a>监控watch</h2><h3 id="1-乐观锁、悲观锁"><a href="#1-乐观锁、悲观锁" class="headerlink" title="1.乐观锁、悲观锁"></a>1.乐观锁、悲观锁</h3><p><strong>悲观锁:</strong></p>
+<ul>
+<li>很悲观 , 认为什么时候都会出现问题 , 所以无论做什么都会加锁</li>
+</ul>
+<p><strong>乐观锁：</strong></p>
+<ul>
+<li>很乐观 , 认为什么时候都不会出现问题 , 所以不会上锁 </li>
+</ul>
+<p><strong>可以采用的解决方法：</strong></p>
+<ul>
+<li>更新数据的时候去判断一下 , 在此期间是否有人修改过这个数据</li>
+<li>获取version</li>
+<li>更新的时候比较version</li>
+</ul>
+<p><strong>在Redis中可以采用：</strong></p>
+<p>使用<code>watch key</code>监控指定数据 , 相当于乐观锁加锁</p>
+<h3 id="2-正常执行"><a href="#2-正常执行" class="headerlink" title="2.正常执行"></a>2.正常执行</h3><p><strong>以下用操纵100元的例子进行模拟：</strong></p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">127.0.0.1:6379&gt; set money 100    # 存入money100</span><br><span class="line">OK</span><br><span class="line">127.0.0.1:6379&gt; set out 0        # 此时支出为0</span><br><span class="line">OK</span><br><span class="line">127.0.0.1:6379&gt; watch money      # 对money进行监控</span><br><span class="line">OK</span><br><span class="line">127.0.0.1:6379&gt; multi            # 开启事务</span><br><span class="line">OK</span><br><span class="line">127.0.0.1:6379&gt; decrby money 10  # 使用了10元钱</span><br><span class="line">QUEUED</span><br><span class="line">127.0.0.1:6379&gt; incrby out 10    # 支出的钱增加10元</span><br><span class="line">QUEUED</span><br><span class="line">127.0.0.1:6379&gt; exec             # 执行事务</span><br><span class="line">1) (integer) 90</span><br><span class="line">2) (integer) 10</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><strong>测试多线程修改值 , 使用watch可以当做redis的乐观锁操作:</strong></p>
+</blockquote>
+<p><strong>线程1：</strong></p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">127.0.0.1:6379&gt; watch money         # 对money进行监控</span><br><span class="line">OK</span><br><span class="line">127.0.0.1:6379&gt; multi               # 开启事务</span><br><span class="line">OK</span><br><span class="line">127.0.0.1:6379&gt; decrby money 20     # 使用money20</span><br><span class="line">QUEUED</span><br><span class="line">127.0.0.1:6379&gt; incrby out 20       # 支出增加20</span><br><span class="line">QUEUED</span><br><span class="line">127.0.0.1:6379&gt;                      </span><br></pre></td></tr></table></figure>
+
+<p><strong>在线程1没执行事务的时候，线程2对money进行操作：</strong></p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">127.0.0.1:6379&gt; incrby money 300    # 此时线程1还没执行，增加money300</span><br><span class="line">(integer) 390</span><br></pre></td></tr></table></figure>
+
+<p>此时，线程1执行事务：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">127.0.0.1:6379&gt; exec                # 线程1执行，但是另一个线程修改了我们的值,这个时候就会导致事务执行失败</span><br><span class="line">(nil)</span><br><span class="line">127.0.0.1:6379&gt; get money           # 因为事务执行失败，所以只是线程2的money修改结果</span><br><span class="line">&quot;390&quot;</span><br><span class="line">127.0.0.1:6379&gt; get out             # 因为事务执行失败，支出数值没有被修改</span><br><span class="line">&quot;10&quot;</span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
         <category>Redis</category>
